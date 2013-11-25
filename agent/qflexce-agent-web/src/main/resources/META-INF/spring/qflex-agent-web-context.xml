@@ -91,9 +91,21 @@
         
         <route>
             <from ref="sqsConsumer" />
+            <camel:unmarshal>
+            	<camel:base64/>
+            </camel:unmarshal>
+            <camel:unmarshal>
+            	<camel:gzip/>
+            </camel:unmarshal>
             <camel:unmarshal ref="jaxb_marshaller"/>
             <to uri="bean:qflexAgentClientServiceBean"/>
             <camel:marshal ref="jaxb_marshaller"/>
+            <camel:marshal>
+            	<camel:gzip/>
+            </camel:marshal>
+            <camel:marshal>
+            	<camel:base64/>
+            </camel:marshal>
             <to ref="sqsProducer" />
         </route>
         
@@ -104,6 +116,12 @@
         
         <route>
         	<from uri="jetty:http://0.0.0.0:9000/agent"></from>
+        	<camel:marshal>
+            	<camel:gzip/>
+            </camel:marshal>
+            <camel:marshal>
+            	<camel:base64/>
+            </camel:marshal>
             <to ref="sqsTestProducer" />
         </route>
 

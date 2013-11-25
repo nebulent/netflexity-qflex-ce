@@ -12,3 +12,4 @@ agent/qflexce-agent-business/.settings
 agent/qflexce-agent-web/.settings
 wmq/wmq-ws-business/.settings
 wmq/wmq-ws-api/.settings
+agent/qflexce-agent-web/target
