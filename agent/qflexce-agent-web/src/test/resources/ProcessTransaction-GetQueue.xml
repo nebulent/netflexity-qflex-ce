@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:ProcessTransaction
+	xmlns="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:ns2="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0"
+	xmlns:ns3="urn:com:netflexity:schema:software:qflex:agent:types:1.0"
+	xmlns:ns4="urn:com:netflexity:schema:software:qflex:agent:messages:1.0">
+	<ns3:Call id="1001">
+		<ns3:Operation sequence="1">
+			<ns3:Request>
+				<ns2:GetQueue>
+					<ns2:queueName>VIDEO_XML_IN</ns2:queueName>
+					<ns2:connection>
+						<host>ec2-54-211-72-194.compute-1.amazonaws.com</host>
+						<port>1414</port>
+						<qmanagerName>NF01</qmanagerName>
+						<channelName>QFLEX01.SVRCONN</channelName>
+						<wmqVersion>7.X</wmqVersion>
+						<os>Linux</os>
+					</ns2:connection>
+				</ns2:GetQueue>
+			</ns3:Request>
+		</ns3:Operation>
+	</ns3:Call>
+</ns4:ProcessTransaction>

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:qflex="urn:netflexity:schema:software:qflex:types:1.0" xmlns:qflexmsg="urn:netflexity:schema:software:qflex:messages:1.0" targetNamespace="urn:netflexity:schema:software:qflex:messages:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="urn:netflexity:schema:software:qflex:types:1.0" schemaLocation="qflex-types-1.0.xsd"/>
+	<!--Get Application Alert Summary.-->
+	<xs:element name="GetApplicationAlertSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="company" type="qflex:CompanyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowApplicationAlertSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="applicationAlertSummary" type="qflexmsg:ApplicationAlertSummaryArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Application Alerts.-->
+	<xs:element name="GetApplicationAlerts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="applicationId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowApplicationAlerts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="alerts" type="qflex:AlertArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Change the status of alerts.-->
+	<xs:element name="ProcessChangeAlertsStatus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="alerts" type="qflex:AlertArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeChangeAlertsStatus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Queue Statistics for all Applications.-->
+	<xs:element name="GetDailyApplicationsStatisticsSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="company" type="qflex:CompanyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowDailyApplicationsStatisticsSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="statistics" type="qflexmsg:ApplicationsStatisticsSummaryArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get User Permissions.-->
+	<xs:element name="GetUserPermissions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="username" type="xs:string"/>
+				<xs:element name="password" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowUserPermissions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="principal" type="qflex:PrincipalType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Processes.-->
+	<!--xs:element name="GetProcesses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="company" type="qflex:CompanyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcesses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processes" type="qflex:ProcessArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Get Process Stages.-->
+	<!--xs:element name="GetProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="company" type="qflex:CompanyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stages" type="qflex:ProcessStageArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Get Process Attributes.-->
+	<!--xs:element name="GetProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="company" type="qflex:CompanyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attributes" type="qflex:ProcessAttributeArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Get Process.-->
+	<!--xs:element name="GetProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="process" type="qflex:ProcessType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Get Process Stage.-->
+	<!--xs:element name="GetProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processStageId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stage" type="qflex:ProcessStageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Get Process Attribute.-->
+	<!--xs:element name="GetProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processAttributeId" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribute" type="qflex:ProcessAttributeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Find Process Stages.-->
+	<!--xs:element name="FindProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stageName" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowFoundProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stages" type="qflex:ProcessStageArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Find Process Attributes.-->
+	<!--xs:element name="FindProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attributeName" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShowFoundProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attributes" type="qflex:ProcessAttributeArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Add Process.-->
+	<!--xs:element name="ProcessAddProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="process" type="qflex:ProcessType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeAddProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="process" type="qflex:ProcessType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Add Process Stage.-->
+	<!--xs:element name="ProcessAddProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stage" type="qflex:ProcessStageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeAddProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stage" type="qflex:ProcessStageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Add Process Attribute.-->
+	<!--xs:element name="ProcessAddProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribute" type="qflex:ProcessAttributeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeAddProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribute" type="qflex:ProcessAttributeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Remove Processes.-->
+	<!--xs:element name="ProcessRemoveProcesses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="processes" type="qflex:ProcessArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeRemoveProcesses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Remove Process Stages.-->
+	<!--xs:element name="ProcessRemoveProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stages" type="qflex:ProcessStageArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeRemoveProcessStages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Remove Process Attributes.-->
+	<!--xs:element name="ProcessRemoveProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attributes" type="qflex:ProcessAttributeArrayType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeRemoveProcessAttributes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Change Process.-->
+	<!--xs:element name="ProcessChangeProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="process" type="qflex:ProcessType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeChangeProcess">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="process" type="qflex:ProcessType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Change Process Stage.-->
+	<!--xs:element name="ProcessChangeProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stage" type="qflex:ProcessStageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeChangeProcessStage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stage" type="qflex:ProcessStageType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Change Process Attribute.-->
+	<!--xs:element name="ProcessChangeProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribute" type="qflex:ProcessAttributeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeChangeProcessAttribute">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attribute" type="qflex:ProcessAttributeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Process Transaction.-->
+	<!--xs:element name="ProcessTransactionTracking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="flowUuid" type="xs:string"/>
+				<xs:element name="transactionUuid" type="xs:string" nillable="true"/>
+				<xs:element name="transactionDate" type="xs:integer"/>
+				<xs:element name="transactionContent" type="xs:base64Binary" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AcknowledgeTransactionTracking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="flowUuid" type="xs:string"/>
+				<xs:element name="transactionUuid" type="xs:string" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Process Register MQ Server.-->
+	<!--xs:element name="ProcessRegisterMqServer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="server" type="qflex:MqServerType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--xs:element name="AcknowledgeRegisterMqServer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element-->
+	<!--Transaction Audit Event for Esper.-->
+	<xs:element name="TransactionAuditEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="correlationId" type="xs:string"/>
+				<xs:element name="activityId" type="xs:string"/>
+				<xs:element name="activityTime" type="xs:integer"/>
+				<xs:element name="activityStatus" type="xs:int"/>
+				<xs:element name="activityAttributes" type="qflexmsg:TransactionActivityAttributeArrayType" nillable="true"/>
+				<xs:element name="activityPayload" type="qflexmsg:TransactionPayloadType" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TransactionPayloadType">
+		<xs:sequence>
+			<xs:element name="request" type="xs:base64Binary" nillable="true"/>
+			<xs:element name="response" type="xs:base64Binary" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionActivityAttributeType">
+		<xs:attribute name="name" use="required"/>
+		<xs:attribute name="value" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="TransactionActivityStatusEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>DONE</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>ERROR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>INPROGRESS</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ApplicationAlertSummaryType">
+		<xs:sequence>
+			<xs:element name="applicationId" type="xs:string"/>
+			<xs:element name="applicationName" type="xs:string"/>
+			<xs:element name="failures" type="xs:int" nillable="true"/>
+			<xs:element name="problems" type="xs:int" nillable="true"/>
+			<xs:element name="warnings" type="xs:int" nillable="true"/>
+			<xs:element name="infos" type="xs:int" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationsStatisticsSummaryType">
+		<xs:sequence>
+			<xs:element name="applicationId" type="xs:string"/>
+			<xs:element name="applicationName" type="xs:string"/>
+			<xs:element name="destinationPurposeType" type="xs:int" nillable="true"/>
+			<xs:element name="inputMessages" type="xs:integer" nillable="true"/>
+			<xs:element name="outputMessages" type="xs:integer" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TransactionActivityAttributeArrayType">
+		<xs:sequence>
+			<xs:element name="attribute" type="qflexmsg:TransactionActivityAttributeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationAlertSummaryArrayType">
+		<xs:sequence>
+			<xs:element name="summary" type="qflexmsg:ApplicationAlertSummaryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationsStatisticsSummaryArrayType">
+		<xs:sequence>
+			<xs:element name="stat" type="qflexmsg:ApplicationsStatisticsSummaryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

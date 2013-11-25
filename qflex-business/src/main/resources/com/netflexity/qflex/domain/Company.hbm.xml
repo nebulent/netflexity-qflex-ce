@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 31, 2008 4:30:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Company" table="companies">
+    <id name="companyId" type="long">
+      <column name="company_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="companyNm" type="string">
+      <column length="128" name="company_nm" not-null="true"/>
+    </property>
+    <property name="serialNo" type="string">
+      <column length="96" name="serial_no" not-null="true"/>
+    </property>
+    <property name="addr" type="string">
+      <column name="addr"/>
+    </property>
+    <property name="city" type="string">
+      <column length="64" name="city"/>
+    </property>
+    <property name="state" type="string">
+      <column length="2" name="state"/>
+    </property>
+    <property name="zip" type="string">
+      <column length="11" name="zip"/>
+    </property>
+    <property name="email" type="string">
+      <column name="email" not-null="true"/>
+    </property>
+    <property name="phone" type="string">
+      <column length="15" name="phone"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="applications" cascade="replicate">
+      <key>
+        <column name="company_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Application"/>
+    </set>
+    <set inverse="true" name="qmanagers" cascade="replicate">
+      <key>
+        <column name="company_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Qmanager"/>
+    </set>
+    <set inverse="true" name="principalses" cascade="replicate">
+      <key>
+        <column name="company_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Principals"/>
+    </set>
+    <set inverse="true" name="monitors">
+      <key>
+        <column name="company_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Monitor"/>
+    </set>
+  </class>
+</hibernate-mapping>

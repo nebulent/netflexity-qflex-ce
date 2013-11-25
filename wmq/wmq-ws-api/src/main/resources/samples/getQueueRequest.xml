@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfx-wmqmsg:GetQueue xmlns:nfx-wmq="urn:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:nfx-wmqmsg="urn:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:netflexity:schema:software:nfx-wmq:messages:1.0 nfx-wmq-messages-1.0.xsd ">
+  <nfx-wmqmsg:queueName>APPLES</nfx-wmqmsg:queueName>
+  <nfx-wmqmsg:connection>
+    <nfx-wmq:port>1414</nfx-wmq:port>
+    <nfx-wmq:qmanagerName>QM01</nfx-wmq:qmanagerName>
+    <nfx-wmq:channelName>QFLEX.CHANNEL</nfx-wmq:channelName>
+    <nfx-wmq:commandServerQueueName></nfx-wmq:commandServerQueueName>
+    <nfx-wmq:commandServerReplyQueueName></nfx-wmq:commandServerReplyQueueName>
+    <nfx-wmq:wmqVersion>6.X</nfx-wmq:wmqVersion>
+    <nfx-wmq:server>
+      <nfx-wmq:host>127.0.0.1</nfx-wmq:host>
+      <nfx-wmq:os>AIX</nfx-wmq:os>
+      <nfx-wmq:ssh>
+        <nfx-wmq:port>22</nfx-wmq:port>
+        <nfx-wmq:username>nfx-wmq:username</nfx-wmq:username>
+        <nfx-wmq:password>nfx-wmq:password</nfx-wmq:password>
+      </nfx-wmq:ssh>
+    </nfx-wmq:server>
+    <nfx-wmq:security>
+      <nfx-wmq:ssl>
+        <nfx-wmq:keystore>nfx-wmq:keystore</nfx-wmq:keystore>
+        <nfx-wmq:keystorePassword>nfx-wmq:keystorePassword</nfx-wmq:keystorePassword>
+        <nfx-wmq:truststore>nfx-wmq:truststore</nfx-wmq:truststore>
+        <nfx-wmq:truststorePassword>nfx-wmq:truststorePassword</nfx-wmq:truststorePassword>
+        <nfx-wmq:cipherSuite>SSL_RSA_WITH_NULL_MD5</nfx-wmq:cipherSuite>
+        <nfx-wmq:peerName>nfx-wmq:peerName</nfx-wmq:peerName>
+      </nfx-wmq:ssl>
+    </nfx-wmq:security>
+  </nfx-wmqmsg:connection>
+</nfx-wmqmsg:GetQueue>

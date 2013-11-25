@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.QueueStat" table="queue_stats">
+    <id name="queueStatId" type="long">
+      <column name="queue_stat_id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.netflexity.qflex.domain.Queue" fetch="select" name="queue">
+      <column name="queue_id" not-null="true"/>
+    </many-to-one>
+    <property name="msgIn" type="int">
+      <column name="msg_in" not-null="true"/>
+    </property>
+    <property name="msgOut" type="int">
+      <column name="msg_out" not-null="true"/>
+    </property>
+    <property name="highDepth" type="int">
+      <column name="high_depth" not-null="true"/>
+    </property>
+    <property name="fetchStartTm" type="long">
+      <column name="fetch_start_tm" not-null="true"/>
+    </property>
+    <property name="fetchEndTm" type="long">
+      <column name="fetch_end_tm" not-null="true"/>
+    </property>
+    <property name="timeSinceReset" type="long">
+      <column name="time_since_reset" not-null="true"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+  </class>
+</hibernate-mapping>

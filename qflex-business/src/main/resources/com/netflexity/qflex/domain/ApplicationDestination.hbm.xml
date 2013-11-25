@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.ApplicationDestination" table="application_destinations">
+    <id name="applicationDestinationId" type="long">
+      <column name="application_destination_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="destinationId" type="long" insert="false" update="false">
+      <column name="destination_id" not-null="true"/>
+    </property>
+    <many-to-one class="com.netflexity.qflex.domain.Queue" fetch="select" name="queue" insert="false">
+      <column name="destination_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.netflexity.qflex.domain.Application" fetch="select" name="application">
+      <column name="application_id" not-null="true"/>
+    </many-to-one>
+    <property name="destinationTypeId" type="int">
+      <column name="destination_type_id" not-null="true"/>
+    </property>
+    <property name="destinationPurposeTypeId" type="int">
+      <column name="destination_purpose_type_id" not-null="true"/>
+    </property>
+    <property name="destinationNm" type="string">
+      <column length="48" name="destination_nm"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+  </class>
+</hibernate-mapping>

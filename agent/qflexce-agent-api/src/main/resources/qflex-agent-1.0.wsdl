@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 rel. 2 sp2 (http://www.altova.com) by SHOCK (SHOCK) -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:msg="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" xmlns:tns="urn:com:netflexity:software:service:qflex:agent:1.0" targetNamespace="urn:com:netflexity:software:service:qflex:agent:1.0">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" schemaLocation="qflex-agent-messages-1.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getTransaction">
+		<wsdl:part name="body" element="msg:GetTransaction"/>
+	</wsdl:message>
+	<wsdl:message name="showTransaction">
+		<wsdl:part name="body" element="msg:ShowTransaction"/>
+	</wsdl:message>
+	<wsdl:message name="processTransaction">
+		<wsdl:part name="body" element="msg:ProcessTransaction"/>
+	</wsdl:message>
+	<wsdl:message name="agentFaultMessage">
+		<wsdl:part name="fault" element="msg:QflexAgentFault"/>
+	</wsdl:message>
+	<wsdl:message name="voidmessage">
+	</wsdl:message>
+	<wsdl:portType name="QflexAgentServer">
+		<wsdl:operation name="getTransaction">
+			<wsdl:input message="tns:getTransaction"/>
+			<wsdl:output message="tns:showTransaction"/>
+			<wsdl:fault name="agentFault" message="tns:agentFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="processTransaction">
+			<wsdl:input message="tns:processTransaction"/>
+			<wsdl:output message="tns:voidmessage"/>
+			<wsdl:fault name="agentFault" message="tns:agentFaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="QflexAgentClient">
+		<wsdl:operation name="processTransaction">
+			<wsdl:input message="tns:processTransaction"/>
+			<wsdl:output message="tns:showTransaction"/>
+			<wsdl:fault name="agentFault" message="tns:agentFaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="QflexAgentServerServiceSOAPBinding" type="tns:QflexAgentServer">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getTransaction">
+			<soap:operation soapAction="getTransaction"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="agentFault">
+				<soap:fault name="agentFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="processTransaction">
+			<soap:operation soapAction="processTransaction"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="agentFault">
+				<soap:fault name="agentFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="QflexAgentClientServiceSOAPBinding" type="tns:QflexAgentClient">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="processTransaction">
+			<soap:operation soapAction="processTransaction"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="agentFault">
+				<soap:fault name="agentFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="QflexAgentServerService">
+		<wsdl:port name="QflexAgentServerServiceSOAP" binding="tns:QflexAgentServerServiceSOAPBinding">
+			<soap:address location="http://localhost:8092/qflex/agent/services/1.0"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:service name="QflexAgentClientservice">
+		<wsdl:port name="QflexAgentClientServiceSOAP" binding="tns:QflexAgentClientServiceSOAPBinding">
+			<soap:address location="http://localhost:8092/qflex/agent/services/1.0"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

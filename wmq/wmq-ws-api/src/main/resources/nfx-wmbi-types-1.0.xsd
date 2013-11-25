@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:com:netflexity:schema:software:nfx-wmbi:types:1.0" targetNamespace="urn:com:netflexity:schema:software:nfx-wmbi:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--Message Broker types.-->
+	<xs:complexType name="MessageBrokerType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="version" type="xs:string" minOccurs="0"/>
+			<xs:element name="execGroups" type="ExecutionGroupArrayType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExecutionGroupType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Execution Group properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="flows" type="MessageFlowArrayType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageFlowType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:string" minOccurs="0"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="nodes" type="FlowNodeArrayType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlowNodeType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow Node properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:string" minOccurs="0"/>
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="terminals" type="NodeTerminalArrayType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NodeTerminalType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow Node Terminal properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:string" minOccurs="0"/>
+			<xs:element name="label" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Message Broker Statistics. -->
+	<xs:complexType name="StatisticsAccountingType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Statistics Accounting properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="recordType" type="xs:string" minOccurs="0"/>
+			<xs:element name="recordCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="flows" type="MessageFlowStatisticsArrayType" minOccurs="0"/>
+			<xs:element name="nodes" type="FlowNodeStatisticsType" minOccurs="0"/>
+			<xs:element name="threads" type="ThreadStatisticsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageFlowStatisticsType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow Statistics properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="broker" type="MessageBrokerType"/>
+			<xs:element name="execGroup" type="ExecutionGroupType"/>
+			<xs:element name="flow" type="MessageFlowType"/>
+			<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="accountingOrigin" type="xs:string" minOccurs="0"/>
+			<!--Numeric values defaulted to 0.-->
+			<xs:element type="xs:long" name="totalElapsedTime"/>
+			<xs:element type="xs:long" name="maximumElapsedTime"/>
+			<xs:element type="xs:long" name="minimumElapsedTime"/>
+			<xs:element type="xs:long" name="totalCPUTime"/>
+			<xs:element type="xs:long" name="maximumCPUTime"/>
+			<xs:element type="xs:long" name="minimumCPUTime"/>
+			<xs:element type="xs:long" name="cpuTimeWaitingForInputMessage"/>
+			<xs:element type="xs:long" name="elapsedTimeWaitingForInputMessage"/>
+			<xs:element type="xs:long" name="totalInputMessages"/>
+			<xs:element type="xs:long" name="totalSizeOfInputMessages"/>
+			<xs:element type="xs:long" name="maximumSizeOfInputMessages"/>
+			<xs:element type="xs:long" name="minimumSizeOfInputMessages"/>
+			<xs:element type="xs:long" name="numberOfThreadsInPool"/>
+			<xs:element type="xs:long" name="timesMaximumNumberofThreadsReached"/>
+			<xs:element type="xs:long" name="totalNumberOfMQErrors"/>
+			<xs:element type="xs:long" name="totalNumberOfMessagesWithErrors"/>
+			<xs:element type="xs:long" name="totalNumberOfErrorsProcessingMessages"/>
+			<xs:element type="xs:long" name="totalNumberOfTimeOutsWaitingForRepliesToAggregateMessages"/>
+			<xs:element type="xs:long" name="totalNumberOfCommits"/>
+			<xs:element type="xs:long" name="totalNumberOfBackouts"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlowNodeStatisticsType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow Node Statistics properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="node" type="FlowNodeType"/>
+			<!--Numeric values defaulted to 0.-->
+			<xs:element type="xs:long" name="totalElapsedTime"/>
+			<xs:element type="xs:long" name="maximumElapsedTime"/>
+			<xs:element type="xs:long" name="minimumElapsedTime"/>
+			<xs:element type="xs:long" name="totalCPUTime"/>
+			<xs:element type="xs:long" name="maximumCPUTime"/>
+			<xs:element type="xs:long" name="minimumCPUTime"/>
+			<xs:element type="xs:long" name="countOfInvocations"/>
+			<xs:element type="xs:long" name="numberOfInputTerminals"/>
+			<xs:element type="xs:long" name="numberOfOutputTerminals"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="NodeTerminalStatisticsType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Flow Node Terminal Statistics properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="terminal" type="NodeTerminalType"/>
+			<!--Numeric values defaulted to 0.-->
+			<xs:element type="xs:long" name="countOfInvocations"/>
+			<xs:element name="terminalStats" type="NodeTerminalStatisticsArrayType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="ThreadStatisticsType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere Message Broker - Thread Statistics properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!--Numeric values defaulted to 0.-->
+			<xs:element type="xs:long" name="threadNumber"/>
+			<xs:element type="xs:long" name="totalNumberOfInputMessages"/>
+			<xs:element type="xs:long" name="totalElapsedTime"/>
+			<xs:element type="xs:long" name="totalCPUTime"/>
+			<xs:element type="xs:long" name="cpuTimeWaitingForInputMessage"/>
+			<xs:element type="xs:long" name="elapsedTimeWaitingForInputMessage"/>
+			<xs:element type="xs:long" name="totalSizeOfInputMessages"/>
+			<xs:element type="xs:long" name="maximumSizeOfInputMessages"/>
+			<xs:element type="xs:long" name="minimumSizeOfInputMessages"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Arrays. -->
+	<xs:complexType name="ExecutionGroupArrayType">
+		<xs:sequence>
+			<xs:element name="execGroup" type="ExecutionGroupType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageFlowArrayType">
+		<xs:sequence>
+			<xs:element name="flow" type="MessageFlowType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlowNodeArrayType">
+		<xs:sequence>
+			<xs:element name="node" type="FlowNodeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NodeTerminalArrayType">
+		<xs:sequence>
+			<xs:element name="terminal" type="NodeTerminalType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NodeTerminalStatisticsArrayType">
+		<xs:sequence>
+			<xs:element name="stats" type="NodeTerminalStatisticsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageFlowStatisticsArrayType">
+		<xs:sequence>
+			<xs:element name="stats" type="MessageFlowStatisticsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlowNodeStatisticsArrayType">
+		<xs:sequence>
+			<xs:element name="stats" type="FlowNodeStatisticsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ThreadStatisticsArrayType">
+		<xs:sequence>
+			<xs:element name="stats" type="ThreadStatisticsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

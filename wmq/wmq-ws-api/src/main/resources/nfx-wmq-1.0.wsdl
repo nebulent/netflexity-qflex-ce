@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:types="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:msg="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://netflexity.com/software/service/wmq/1.0" targetNamespace="http://netflexity.com/software/service/wmq/1.0">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" schemaLocation="nfx-wmq-messages-1.0.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getQmanager">
+		<wsdl:part name="body" element="msg:GetQmanager"/>
+	</wsdl:message>
+	<wsdl:message name="getQmanagerOut">
+		<wsdl:part name="body" element="msg:GetQmanagerOut"/>
+	</wsdl:message>
+	<wsdl:message name="setQmanager">
+		<wsdl:part name="body" element="msg:SetQmanager"/>
+	</wsdl:message>
+	<wsdl:message name="setQmanagerOut">
+		<wsdl:part name="body" element="msg:SetQmanagerOut"/>
+	</wsdl:message>
+	<wsdl:message name="getQueueStats">
+		<wsdl:part name="body" element="msg:GetQueueStats"/>
+	</wsdl:message>
+	<wsdl:message name="getQueueStatsOut">
+		<wsdl:part name="body" element="msg:GetQueueStatsOut"/>
+	</wsdl:message>
+	<wsdl:message name="isQmanagerUp">
+		<wsdl:part name="body" element="msg:IsQmanagerUp"/>
+	</wsdl:message>
+	<wsdl:message name="isQmanagerUpOut">
+		<wsdl:part name="body" element="msg:IsQmanagerUpOut"/>
+	</wsdl:message>
+	<wsdl:message name="isCommandServerUp">
+		<wsdl:part name="body" element="msg:IsCommandServerUp"/>
+	</wsdl:message>
+	<wsdl:message name="isCommandServerUpOut">
+		<wsdl:part name="body" element="msg:IsCommandServerUpOut"/>
+	</wsdl:message>
+	<wsdl:message name="getQueue">
+		<wsdl:part name="body" element="msg:GetQueue"/>
+	</wsdl:message>
+	<wsdl:message name="getQueueOut">
+		<wsdl:part name="body" element="msg:GetQueueOut"/>
+	</wsdl:message>
+	<wsdl:message name="getTopic">
+		<wsdl:part name="body" element="msg:GetTopic"/>
+	</wsdl:message>
+	<wsdl:message name="getTopicOut">
+		<wsdl:part name="body" element="msg:GetTopicOut"/>
+	</wsdl:message>
+	<wsdl:message name="removeQueue">
+		<wsdl:part name="body" element="msg:RemoveQueue"/>
+	</wsdl:message>
+	<wsdl:message name="removeQueueOut">
+		<wsdl:part name="body" element="msg:RemoveQueueOut"/>
+	</wsdl:message>
+	<wsdl:message name="removeTopic">
+		<wsdl:part name="body" element="msg:RemoveTopic"/>
+	</wsdl:message>
+	<wsdl:message name="removeTopicOut">
+		<wsdl:part name="body" element="msg:RemoveTopicOut"/>
+	</wsdl:message>
+	<wsdl:message name="setQueue">
+		<wsdl:part name="body" element="msg:SetQueue"/>
+	</wsdl:message>
+	<wsdl:message name="setQueueOut">
+		<wsdl:part name="body" element="msg:SetQueueOut"/>
+	</wsdl:message>
+	<wsdl:message name="getAllQueues">
+		<wsdl:part name="body" element="msg:GetAllQueues"/>
+	</wsdl:message>
+	<wsdl:message name="getAllQueuesOut">
+		<wsdl:part name="body" element="msg:GetAllQueuesOut"/>
+	</wsdl:message>
+	<wsdl:message name="getChannel">
+		<wsdl:part name="body" element="msg:GetChannel"/>
+	</wsdl:message>
+	<wsdl:message name="getChannelOut">
+		<wsdl:part name="body" element="msg:GetChannelOut"/>
+	</wsdl:message>
+	<wsdl:message name="getAllTopics">
+		<wsdl:part name="body" element="msg:GetAllTopics"/>
+	</wsdl:message>
+	<wsdl:message name="getAllTopicsOut">
+		<wsdl:part name="body" element="msg:GetAllTopicsOut"/>
+	</wsdl:message>
+	<wsdl:message name="removeChannel">
+		<wsdl:part name="body" element="msg:RemoveChannel"/>
+	</wsdl:message>
+	<wsdl:message name="removeChannelOut">
+		<wsdl:part name="body" element="msg:RemoveChannelOut"/>
+	</wsdl:message>
+	<wsdl:message name="setChannel">
+		<wsdl:part name="body" element="msg:SetChannel"/>
+	</wsdl:message>
+	<wsdl:message name="setChannelOut">
+		<wsdl:part name="body" element="msg:SetChannelOut"/>
+	</wsdl:message>
+	<wsdl:message name="getAllChannels">
+		<wsdl:part name="body" element="msg:GetAllChannels"/>
+	</wsdl:message>
+	<wsdl:message name="getAllChannelsOut">
+		<wsdl:part name="body" element="msg:GetAllChannelsOut"/>
+	</wsdl:message>
+	<wsdl:message name="getAllMessages">
+		<wsdl:part name="body" element="msg:GetAllMessages"/>
+	</wsdl:message>
+	<wsdl:message name="getAllMessagesOut">
+		<wsdl:part name="body" element="msg:GetAllMessagesOut"/>
+	</wsdl:message>
+	<wsdl:message name="WMQFaultMessage">
+		<wsdl:part name="fault" element="msg:WMQFault"/>
+	</wsdl:message>
+	<wsdl:portType name="WMQ">
+		<wsdl:operation name="getQmanager">
+			<wsdl:input message="tns:getQmanager"/>
+			<wsdl:output message="tns:getQmanagerOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="setQmanager">
+			<wsdl:input message="tns:setQmanager"/>
+			<wsdl:output message="tns:setQmanagerOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getQueueStats">
+			<wsdl:input message="tns:getQueueStats"/>
+			<wsdl:output message="tns:getQueueStatsOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="isQmanagerUp">
+			<wsdl:input message="tns:isQmanagerUp"/>
+			<wsdl:output message="tns:isQmanagerUpOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="isCommandServerUp">
+			<wsdl:input message="tns:isCommandServerUp"/>
+			<wsdl:output message="tns:isCommandServerUpOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getQueue">
+			<wsdl:input message="tns:getQueue"/>
+			<wsdl:output message="tns:getQueueOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getTopic">
+			<wsdl:input message="tns:getTopic"/>
+			<wsdl:output message="tns:getTopicOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="setQueue">
+			<wsdl:input message="tns:setQueue"/>
+			<wsdl:output message="tns:setQueueOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="removeQueue">
+			<wsdl:input message="tns:removeQueue"/>
+			<wsdl:output message="tns:removeQueueOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllQueues">
+			<wsdl:input message="tns:getAllQueues"/>
+			<wsdl:output message="tns:getAllQueuesOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="removeTopic">
+			<wsdl:input message="tns:removeTopic"/>
+			<wsdl:output message="tns:removeTopicOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllTopics">
+			<wsdl:input message="tns:getAllTopics"/>
+			<wsdl:output message="tns:getAllTopicsOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getChannel">
+			<wsdl:input message="tns:getChannel"/>
+			<wsdl:output message="tns:getChannelOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="setChannel">
+			<wsdl:input message="tns:setChannel"/>
+			<wsdl:output message="tns:setChannelOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="removeChannel">
+			<wsdl:input message="tns:removeChannel"/>
+			<wsdl:output message="tns:removeChannelOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllChannels">
+			<wsdl:input message="tns:getAllChannels"/>
+			<wsdl:output message="tns:getAllChannelsOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllMessages">
+			<wsdl:input message="tns:getAllMessages"/>
+			<wsdl:output message="tns:getAllMessagesOut"/>
+			<wsdl:fault name="wmqFault" message="tns:WMQFaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WMQServiceSOAP" type="tns:WMQ">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getQmanager">
+			<soap:operation soapAction="getQmanager"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setQmanager">
+			<soap:operation soapAction="setQmanager"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getQueueStats">
+			<soap:operation soapAction="getQueueStats"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isQmanagerUp">
+			<soap:operation soapAction="isQmanagerUp"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="isCommandServerUp">
+			<soap:operation soapAction="isCommandServerUp"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getQueue">
+			<soap:operation soapAction="getQueue"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getTopic">
+			<soap:operation soapAction="getTopic"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setQueue">
+			<soap:operation soapAction="setQueue"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="removeQueue">
+			<soap:operation soapAction="removeQueue"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllQueues">
+			<soap:operation soapAction="getAllQueues"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="removeTopic">
+			<soap:operation soapAction="removeTopic"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllTopics">
+			<soap:operation soapAction="getAllTopics"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getChannel">
+			<soap:operation soapAction="getChannel"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="setChannel">
+			<soap:operation soapAction="setChannel"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="removeChannel">
+			<soap:operation soapAction="removeChannel"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllChannels">
+			<soap:operation soapAction="getAllChannels"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllMessages">
+			<soap:operation soapAction="getAllMessages"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="wmqFault">
+				<soap:fault name="wmqFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WMQService">
+		<wsdl:port binding="tns:WMQServiceSOAP" name="WMQServiceSOAP">
+			<soap:address location="http://localhost:8092/software/service/wmq/1.0"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

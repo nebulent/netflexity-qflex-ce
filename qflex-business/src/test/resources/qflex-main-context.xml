@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Main application context definition for QFLEX business layer testing.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<!-- Freemarker Root Configuration. -->
+	<bean id="freemarkerRootConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+	   <property name="templateLoaderPath" value="classpath:/templates"/>
+	</bean>
+ 
+ 	<!-- Freemarker Expression Configuration. -->
+	<bean id="freemarkerExpressionConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean"/>
+	
+	<!-- Freemarker Root Transformer. -->
+	<bean id="rootFreemarkerTransformer" class="org.netflexity.api.util.freemarker.FreemarkerTransformer">
+	   <property name="configuration" ref="freemarkerRootConfiguration"/>
+	</bean>
+	
+	<!-- Freemarker Expression Transformer. -->
+	<bean id="expressionFreemarkerTransformer" class="org.netflexity.api.util.freemarker.FreemarkerTransformer">
+	   <property name="configuration" ref="freemarkerExpressionConfiguration"/>
+	</bean>
+	
+	<!-- Quartz scheduler. -->
+	<bean id="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="applicationContextSchedulerContextKey">
+			<value>applicationContext</value>
+		</property>
+	</bean>
+	
+	<!-- IBM MQ Connection object factory.-->
+	<bean id="mqConnectionFactory" class="org.netflexity.api.mq.ibm.pool.IBMMqConnectionFactoryImpl"/>
+	
+	<!-- IBM MQ Connection pool factory.-->
+	<bean id="mqConnectionPool" class="org.netflexity.springframework.commons.pool.KeyedObjectPoolFactoryBean">
+		<property name="objectFactory" ref="mqConnectionFactory"/>
+		
+		<property name="maxActive" value="15"/>
+		<property name="maxIdle" value="10"/>
+		<property name="maxWait" value="10000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="60000"/>
+		<property name="numTestsPerEvictionRun" value="1"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+		<!--
+		<property name="maxTotal" value="-1"/>
+		<property name="whenExhaustedAction" value="1"/>
+		<property name="minEvictableIdleTimeMillis" value="1800000"/>
+		-->
+	</bean>
+	
+	<!-- SSH Object factory.-->
+	<bean id="sshSessionFactory" class="org.netflexity.api.ssh.jsch.pool.JschSessionFactoryImpl"/>
+	
+	<!-- SSH session pool factory.-->
+	<bean id="sshSessionPool" class="org.netflexity.springframework.commons.pool.KeyedObjectPoolFactoryBean">
+		<property name="objectFactory" ref="sshSessionFactory"/>
+		
+		<property name="maxActive" value="10"/>
+		<property name="maxIdle" value="0"/>
+		<property name="maxWait" value="10000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="60000"/>
+		<property name="numTestsPerEvictionRun" value="1"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+		<!--
+		<property name="maxTotal" value="-1"/>
+		<property name="whenExhaustedAction" value="1"/>
+		<property name="minEvictableIdleTimeMillis" value="1800000"/>
+		-->
+	</bean>
+	
+	<!-- MessageSource for IBM Websphere MQ. -->
+	<bean id="mqSeriesMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="MqSeries"/>
+    </bean>
+	
+	<!-- MessageSource for static Qflex Types. -->
+	<bean id="typesMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="LookupTypes"/>
+    </bean>
+	
+	<!-- Semaphore factory for compression job. -->
+	<bean id="compressionSemaphoreFactory" class="com.netflexity.qflex.business.jobs.locks.CompressionSemaphoreFactoryImpl"/>
+	
+	<import resource="classpath:qflex-db-context.xml" />
+	<import resource="classpath:qflex-lookup-types.xml" />
+	<import resource="classpath:qflex-wmbi.xml" />
+	<import resource="classpath:qflex-cflex.xml" />
+	
+	<!-- Type record cache. -->
+	<bean id="typeRecordCache" class="com.netflexity.qflex.business.types.TypeRecordCacheImpl">
+		<property name="intervalTypes" ref="intervalTypes"/>
+	    <property name="frequencyTypes" ref="frequencyTypes"/>
+	    <property name="criticalityTypes" ref="criticalityTypes"/>
+	    <property name="alertTypes" ref="alertTypes"/>
+	    <property name="alertStatusTypes" ref="alertStatusTypes"/>
+	    <property name="idleReasonTypes" ref="idleReasonTypes"/>
+	    <property name="monitorTypes" ref="monitorTypes"/>
+	    <property name="mqQmanagerAttributeTypes" ref="mqQmanagerAttributeTypes"/>
+	    <property name="mqQueueAttributeTypes" ref="mqQueueAttributeTypes"/>
+	    <property name="mqChannelAttributeTypes" ref="mqChannelAttributeTypes"/>
+	    
+	    <property name="monthTypes" ref="monthTypes"/>
+	    <property name="daysOfWeekTypes" ref="daysOfWeekTypes"/>
+	    <property name="reportTypes" ref="reportTypes"/>
+	    
+	    <property name="conditionTriggersMap" ref="conditionTriggers"/>
+	    <property name="alertNotificationTypesMap" ref="alertNotificationTypes"/>
+	</bean>
+	
+	<!-- ========================= DATA ACCESS OBJECTs ================================= -->
+	
+	<bean id="alertDao" class="com.netflexity.qflex.business.daos.AlertDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="messageExpressions" ref="messageExpressions"/>
+		<property name="freemarkerTransformer" ref="expressionFreemarkerTransformer"/>
+	</bean>
+	
+	<bean id="channelDao" class="com.netflexity.qflex.business.daos.ChannelDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="collectionDao" class="com.netflexity.qflex.business.daos.CollectionDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="companyDao" class="com.netflexity.qflex.business.daos.CompanyDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="compressionDao" class="com.netflexity.qflex.business.daos.CompressionDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<bean id="messagePurgerDao" class="com.netflexity.qflex.business.daos.MessagePurgerDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="monitorDao" class="com.netflexity.qflex.business.daos.MonitorDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<bean id="monitorTemplateDao" class="com.netflexity.qflex.business.daos.MonitorTemplateDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<bean id="mqDao" class="com.netflexity.qflex.business.daos.mq.MqDaoImpl" lazy-init="true">
+		<property name="mqConnectionPool" ref="mqConnectionPool"/>
+	</bean>
+	
+	<bean id="sshDao" class="com.netflexity.qflex.business.daos.mq.SshDaoImpl" lazy-init="true">
+		<property name="sshConnectionPool" ref="sshSessionPool"/>
+	</bean>
+	
+	<bean id="pollingPolicyDao" class="com.netflexity.qflex.business.daos.PollingPolicyDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="principalDao" class="com.netflexity.qflex.business.daos.PrincipalDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="qflexPropertyDao" class="com.netflexity.qflex.business.daos.QflexPropertyDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="qmanagerDao" class="com.netflexity.qflex.business.daos.QmanagerDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="queueDao" class="com.netflexity.qflex.business.daos.QueueDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="queueStatDao" class="com.netflexity.qflex.business.daos.QueueStatDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="reportDao" class="com.netflexity.qflex.business.daos.ReportDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<!-- ========================= SERVICE DEFINITIONS. ================================= -->
+
+	<bean id="adminService" class="com.netflexity.qflex.business.services.AdministrationServiceImpl">
+		<property name="queueStatDao" ref="queueStatDao"/>
+		<property name="compressionDao" ref="compressionDao"/>
+		<property name="companyDao" ref="companyDao"/>
+		<property name="principalDao" ref="principalDao"/>
+		<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="alertService" class="com.netflexity.qflex.business.services.AlertServiceImpl">
+		<property name="sshDao" ref="sshDao"/>
+		<property name="alertDao" ref="alertDao"/>
+		<property name="brokerDao" ref="wmbiBrokerDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="queueService" ref="queueService"/>
+		<property name="channelService" ref="channelService"/>
+		<property name="monitorService" ref="monitorService"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="channelService" class="com.netflexity.qflex.business.services.ChannelServiceImpl">
+		<property name="monitorService" ref="monitorService"/>
+		<property name="channelDao" ref="channelDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="mqDao" ref="mqDao"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="collectionService" class="com.netflexity.qflex.business.services.CollectionServiceImpl">
+		<property name="collectionDao" ref="collectionDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="queueService" ref="queueService"/>
+		<property name="queueStatDao" ref="queueStatDao"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="mqDao" ref="mqDao"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="compressionService" class="com.netflexity.qflex.business.services.CompressionServiceImpl">
+		<property name="compressionDao" ref="compressionDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="monitorService" class="com.netflexity.qflex.business.services.MonitorServiceImpl">
+		<property name="monitorDao" ref="monitorDao"/>
+		<property name="alertDao" ref="alertDao"/>
+		<property name="queueDao" ref="queueDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="pollingPolicyDao" ref="pollingPolicyDao"/>
+		<property name="executionGroupService" ref="wmbiExecGroupService"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="messageSource" ref="typesMessageSource" />
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="queueService" class="com.netflexity.qflex.business.services.QueueServiceImpl">
+		<property name="queueDao" ref="queueDao"/>
+		<property name="monitorDao" ref="monitorDao"/>
+		<property name="messagePurgerDao" ref="messagePurgerDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="mqDao" ref="mqDao"/>
+		<property name="brokerDao" ref="wmbiBrokerDao"/>
+		<property name="wmbiDao" ref="wmbiDao"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="qmanagerService" class="com.netflexity.qflex.business.services.QmanagerServiceImpl">
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="mqDao" ref="mqDao"/>
+	</bean>
+</beans>

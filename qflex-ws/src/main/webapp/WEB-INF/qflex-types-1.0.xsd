@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:qflex="urn:netflexity:schema:software:qflex:types:1.0" xmlns:nfx-wmq="urn:netflexity:schema:software:nfx-wmq:types:1.0" targetNamespace="urn:netflexity:schema:software:qflex:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="urn:netflexity:schema:software:nfx-wmq:types:1.0" schemaLocation="nfx-wmq-types-1.0.xsd"/>
+	<xs:complexType name="ApplicationType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="applicationName" type="xs:string"/>
+					<xs:element name="applicationType" type="xs:string" nillable="true"/>
+					<!-- Destinations -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AlertType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="parentId" type="xs:string" nillable="true"/>
+					<xs:element name="monitorId" type="xs:string"/>
+					<xs:element name="alertName" type="xs:string"/>
+					<xs:element name="alertText" type="xs:string" nillable="true"/>
+					<xs:element name="criticalityType" type="xs:int"/>
+					<xs:element name="occurrenceStartTime" type="xs:integer"/>
+					<xs:element name="occurrenceEndTime" type="xs:integer" nillable="true"/>
+					<xs:element name="monitor" type="qflex:MonitorType" nillable="true"/>
+					<xs:element name="parent" type="qflex:AlertType" nillable="true"/>
+					<xs:element name="children" type="qflex:AlertArrayType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MonitorType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="monitorObjectId" type="xs:string"/>
+					<xs:element name="monitorName" type="xs:string"/>
+					<xs:element name="messageText" type="xs:string"/>
+					<xs:element name="recoveryText" type="xs:string"/>
+					<xs:element name="occurrenceInterval" type="xs:int"/>
+					<xs:element name="trigConditionParam" type="xs:integer" nillable="true"/>
+					<xs:element name="trigConditionType" type="xs:int"/>
+					<xs:element name="pollingInterval" type="xs:integer" nillable="true"/>
+					<xs:element name="emails" type="xs:string" nillable="true"/>
+					<xs:element name="logFile" type="xs:string" nillable="true"/>
+					<xs:element name="criticalityType" type="xs:int"/>
+					<xs:element name="monitorType" type="xs:int"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" nillable="true"/>
+					<xs:element name="monitorObject" type="xs:anyType" nillable="true"/>
+					<xs:element name="notifications" type="qflex:NotificationArrayType" nillable="true"/>
+					<xs:element name="pollingPolicies" type="qflex:PollingPolicyArrayType" nillable="true"/>
+					<xs:element name="recoveryActions" type="qflex:RecoveryActionArrayType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QmanagerType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="alias" type="xs:string" nillable="true"/>
+					<xs:element name="details" type="nfx-wmq:QmanagerType" nillable="true"/>
+					<xs:element name="connection" type="nfx-wmq:ConnectionType" nillable="true"/>
+					<xs:element name="queues" type="qflex:QueueArrayType" nillable="true"/>
+					<xs:element name="channels" type="qflex:ChannelArrayType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="details" type="nfx-wmq:QueueType" nillable="true"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChannelType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="details" type="nfx-wmq:ChannelType" nillable="true"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompanyType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyName" type="xs:string"/>
+					<!--xs:element name="edition" minOccurs="1" type="qflex:QflexEditionEnum"/>
+					<xs:element name="versionDate" minOccurs="1" type="xs:dateTime"/-->
+					<xs:element name="address" type="xs:string" nillable="true"/>
+					<xs:element name="city" type="xs:string" nillable="true"/>
+					<xs:element name="state" type="xs:string" nillable="true"/>
+					<xs:element name="zip" type="xs:string" nillable="true"/>
+					<xs:element name="email" type="xs:string" nillable="true"/>
+					<xs:element name="phone" type="xs:string" nillable="true"/>
+					<xs:element name="serialNumber" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrincipalType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="role" type="xs:string"/>
+					<xs:element name="email" type="xs:string" nillable="true"/>
+					<xs:element name="phone" type="xs:string" nillable="true"/>
+					<xs:element name="username" type="xs:string"/>
+					<xs:element name="password" type="xs:string"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RecoveryActionType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="recoveryActionType" type="xs:int"/>
+					<xs:element name="recoveryActionName" type="xs:string"/>
+					<xs:element name="command" type="xs:string" nillable="true"/>
+					<xs:element name="commandArgs" type="xs:string" nillable="true"/>
+					<xs:element name="javaClass" type="xs:string" nillable="true"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CronExpressionType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="cronExpressionName" type="xs:string"/>
+					<xs:element name="daysOfMonth" type="xs:string" nillable="true"/>
+					<xs:element name="daysOfWeek" type="xs:string" nillable="true"/>
+					<xs:element name="hours" type="xs:string" nillable="true"/>
+					<xs:element name="minutes" type="xs:string" nillable="true"/>
+					<xs:element name="months" type="xs:string" nillable="true"/>
+					<xs:element name="seconds" type="xs:string" nillable="true"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessAttributeType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="companyId" type="xs:string" minOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1"/>
+					<xs:element name="expression" nillable="true" type="xs:string"/>
+					<xs:element name="startPosition" nillable="true" type="xs:int" />
+					<xs:element name="endPosition" nillable="true" type="xs:int"/>
+					<xs:element name="delimiter" nillable="true" type="xs:string"/>
+					<xs:element name="position" nillable="true" type="xs:int"/>
+					<xs:element name="required" type="xs:boolean" />
+					<xs:element name="datatype" nillable="true" type="xs:int"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessConditionPredicateType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="parentId" nillable="true" type="xs:string"/>
+					<xs:element name="lhsProcessConditionId" type="xs:string" minOccurs="1"/>
+					<xs:element name="rhsProcessConditionId" nillable="true" type="xs:string"/>
+					<xs:element name="operatorType" nillable="true" type="xs:int"/>
+					<xs:element name="parent" nillable="true" type="qflex:ProcessConditionPredicateType"/>
+					<xs:element name="lhsProcessCondition" nillable="true" type="qflex:ProcessConditionType"/>
+					<xs:element name="rhsProcessCondition" nillable="true" type="qflex:ProcessConditionType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessConditionType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1" />
+					<xs:element name="processAttributeId" type="xs:string" minOccurs="1"/>
+					<xs:element name="operatorType" type="xs:int" minOccurs="1"/>
+					<xs:element name="value" type="xs:string" minOccurs="1"/>
+					<xs:element name="attribute" nillable="true" type="qflex:ProcessAttributeType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessFlowTransactionType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"/>
+			<xs:element name="processTransactionId" type="xs:string" minOccurs="1"/>
+			<xs:element name="processFlowId" type="xs:string" minOccurs="1"/>
+			<xs:element name="startTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="endTime" type="xs:integer" nillable="true"/>
+			<xs:element name="processTransaction" nillable="true" type="qflex:ProcessTransactionType"/>
+			<xs:element name="processFlow" nillable="true" type="qflex:ProcessFlowType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessFlowType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="processId" type="xs:string" minOccurs="1"/>
+					<xs:element name="processStageId" type="xs:string" minOccurs="1"/>
+					<xs:element name="uuidProcessAttributeId" type="xs:string" nillable="true"/>
+					<xs:element name="stateType" type="xs:int" minOccurs="1"/>
+					<xs:element name="uuidAttribute" nillable="true" type="qflex:ProcessAttributeType"/>
+					<xs:element name="process" nillable="true" type="qflex:ProcessType"/>
+					<xs:element name="processStage" nillable="true" type="qflex:ProcessStageType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessStageType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="companyId" type="xs:string" minOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1"/>
+					<xs:element name="description" type="xs:string" nillable="true"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+					<xs:element name="stageAttributes" type="qflex:ProcessStageAttributeArrayType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProcessStageAttributeType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"/>
+			<xs:element name="processStageId" type="xs:string" minOccurs="1"/>
+			<xs:element name="processAttributeId" type="xs:string" minOccurs="1"/>
+			<xs:element name="processStage" nillable="true" type="qflex:ProcessStageType"/>
+			<xs:element name="processAttribute" nillable="true" type="qflex:ProcessAttributeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessTransactionType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"/>
+			<xs:element name="uuid" type="xs:string" nillable="true"/>
+			<xs:element name="stateType" type="xs:int" minOccurs="1"/>
+			<xs:element name="startTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="endTime" type="xs:integer" nillable="true"/>
+			<xs:element name="flowTransactions" type="qflex:ProcessFlowTransactionArrayType" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="companyId" type="xs:string" minOccurs="1"/>
+					<xs:element name="name" type="xs:string" minOccurs="1"/>
+					<xs:element name="description" type="xs:string" nillable="true"/>
+					<xs:element name="flows" type="qflex:ProcessFlowArrayType" nillable="true"/>
+					<xs:element name="company" type="qflex:CompanyType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string" minOccurs="1"/>
+					<xs:element name="queueId" type="xs:string" nillable="true" />
+					<xs:element name="monitoredSystemId" type="xs:string" nillable="true" />
+					<xs:element name="name" type="xs:string" minOccurs="1"/>
+					<xs:element name="startPosition" type="xs:int" nillable="true"/>
+					<xs:element name="endPosition"  type="xs:int" nillable="true"/>
+					<xs:element name="messages" type="xs:int" nillable="true" />
+					<xs:element name="compressed" type="xs:string" nillable="true"/>
+					<xs:element name="status" type="xs:int" minOccurs="1"/>
+					<xs:element name="backupTime" type="xs:integer" nillable="true"/>
+					<xs:element name="restoreTime" type="xs:integer" nillable="true" />
+					<xs:element name="activities" type="qflex:QueueSnapshotActivityArrayType" nillable="true"/>
+					<xs:element name="jobs" type="qflex:QueueSnapshotsJobPolicyArrayType" nillable="true"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotActivityType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"/>
+			<xs:element name="queueSnapshotId" type="xs:string" minOccurs="1"/>
+			<xs:element name="activityType" type="xs:int" minOccurs="1"/>
+			<xs:element name="fileMD5" nillable="true" type="xs:string"/>
+			<xs:element name="filePath" type="xs:string" minOccurs="1"/>
+			<xs:element name="fileSize" type="xs:int" minOccurs="1"/>
+			<xs:element name="totalSize" type="xs:int" minOccurs="1"/>
+			<xs:element name="averageMessageSize" type="xs:int" minOccurs="1"/>
+			<xs:element name="messages" type="xs:int" minOccurs="1"/>
+			<xs:element name="messageStartTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="messageEndTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="startTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="endTime" type="xs:integer" minOccurs="1"/>
+			<xs:element name="snapshot" type="qflex:QueueSnapshotType" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotsJobPolicyType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string" minOccurs="1"/>
+			<xs:element name="queueSnapshotId" type="xs:string" minOccurs="1"/>
+			<xs:element name="jobPolicyId" type="xs:string" minOccurs="1"/>
+			<xs:element name="snapshot" type="qflex:QueueSnapshotType" nillable="true"/>
+			<xs:element name="jobPolicy" type="qflex:CronExpressionType" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ModifiableType">
+		<xs:sequence>
+			<xs:element name="modifiedTime" type="xs:integer" nillable="true"/>
+			<xs:element name="modifiedBy" type="xs:string" nillable="true"/>
+			<xs:element name="status" type="xs:int" nillable="true"/>
+			<xs:element name="comments" type="xs:string" nillable="true"/>
+			<xs:element name="version" type="xs:int" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueueSnapshotsJobPolicyArrayType">
+		<xs:sequence>
+			<xs:element name="job" type="qflex:QueueSnapshotsJobPolicyType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotActivityArrayType">
+		<xs:sequence>
+			<xs:element name="activity" type="qflex:QueueSnapshotActivityType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessArrayType">
+		<xs:sequence>
+			<xs:element name="process" type="qflex:ProcessType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessStageArrayType">
+		<xs:sequence>
+			<xs:element name="stage" type="qflex:ProcessStageType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessStageAttributeArrayType">
+		<xs:sequence>
+			<xs:element name="stageAttribute" type="qflex:ProcessStageAttributeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessAttributeArrayType">
+		<xs:sequence>
+			<xs:element name="attribute" type="qflex:ProcessAttributeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessFlowArrayType">
+		<xs:sequence>
+			<xs:element name="flow" type="qflex:ProcessFlowType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessFlowTransactionArrayType">
+		<xs:sequence>
+			<xs:element name="transaction" type="qflex:ProcessFlowTransactionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecoveryActionArrayType">
+		<xs:sequence>
+			<xs:element name="recoveryAction" type="qflex:RecoveryActionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PollingPolicyArrayType">
+		<xs:sequence>
+			<xs:element name="pollingPolicy" type="qflex:CronExpressionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AlertArrayType">
+		<xs:sequence>
+			<xs:element name="alert" type="qflex:AlertType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotificationArrayType">
+		<xs:sequence>
+			<xs:element name="notification" type="xs:int" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="qflex:QueueType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChannelArrayType">
+		<xs:sequence>
+			<xs:element name="channel" type="qflex:ChannelType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

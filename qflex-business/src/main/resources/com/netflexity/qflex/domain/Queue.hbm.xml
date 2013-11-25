@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Queue" table="queues">
+    <id name="queueId" type="long">
+      <column name="queue_id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.netflexity.qflex.domain.Qmanager" fetch="select" name="qmanager">
+      <column name="qmanager_id" not-null="true"/>
+    </many-to-one>
+    <property name="queueNm" type="string">
+      <column length="48" name="queue_nm" not-null="true"/>
+    </property>
+    <property name="queueTp" type="int">
+      <column name="queue_tp" not-null="true"/>
+    </property>
+    <property name="status" type="int">
+      <column name="status" not-null="true"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="applicationDestinations">
+      <key>
+        <column name="destination_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.ApplicationDestination"/>
+    </set>
+    <set inverse="true" name="queueStats">
+      <key>
+        <column name="queue_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.QueueStat"/>
+    </set>
+    <set inverse="true" name="monitors" cascade="replicate">
+      <key>
+        <column name="monitor_object_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Monitor"/>
+    </set>
+  </class>
+</hibernate-mapping>

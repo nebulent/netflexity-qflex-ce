@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.MessageTypes" table="message_types">
+    <id name="messageTypeId" type="long">
+      <column name="message_type_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="trigConditionTypeId" type="long">
+      <column name="trig_condition_type_id" not-null="true"/>
+    </property>
+    <property name="displaySeqNo" type="int">
+      <column name="display_seq_no" not-null="true"/>
+    </property>
+    <property name="description" type="string">
+      <column length="65535" name="description" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for QFLEX WMBI business layer testing.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- JMS Manager.-->
+	<bean id="jmsManager" class="org.netflexity.api.mq.jms.ibm.IBMJmsManager">
+		<property name="clientId" value="QFLEX"/>
+	</bean>
+	
+	<!-- Apache Commons Digester object factory. Not really recommended, but we need performance.-->
+	<bean id="commonsDigesterFactory" class="org.netflexity.api.digester.commons.pool.CommonsDigesterFactoryImpl"/>
+	
+	<!-- IBM MQ Connection pool factory.-->
+	<bean id="commonsDigesterPool" class="org.netflexity.springframework.commons.pool.KeyedObjectPoolFactoryBean">
+		<property name="objectFactory" ref="commonsDigesterFactory"/>
+		
+		<property name="maxActive" value="-1"/>
+		<property name="maxIdle" value="10"/>
+		<property name="maxWait" value="10000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="60000"/>
+		<property name="numTestsPerEvictionRun" value="1"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+		<!--
+		<property name="maxTotal" value="-1"/>
+		<property name="whenExhaustedAction" value="1"/>
+		<property name="minEvictableIdleTimeMillis" value="1800000"/>
+		-->
+	</bean>
+	
+	<!-- Commons Digester Manager.-->
+	<bean id="commonsDigesterManager" class="org.netflexity.api.digester.commons.CommonsDigesterManager">
+		<constructor-arg ref="commonsDigesterPool"/>	<!-- digesterPool -->
+	</bean>
+	
+	<!-- Message Broker Message Parser Implementation.-->
+	<bean id="messageBrokerMessageParser" class="org.netflexity.api.mb.ibm.IBMMbMessageParser">
+		<property name="digesterManager" ref="commonsDigesterManager"/>
+	</bean>
+	
+	<!-- ========================= DATA ACCESS OBJECTs ================================= -->
+	
+	<bean id="mbDao" class="com.netflexity.wbi.business.daos.mb.MbDaoImpl" lazy-init="true">
+		<property name="mqConnectionPool" ref="mqConnectionPool"/>
+		<property name="jmsManager" ref="jmsManager"/>
+	</bean>
+	
+	<!-- Data access object: Compressions -->
+	<bean id="wmbiCompressionDao" class="com.netflexity.wbi.business.daos.CompressionDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<bean id="wmbiReportDao" class="com.netflexity.wbi.business.daos.ReportDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiExecGroupDao" class="com.netflexity.wbi.business.daos.ExecGroupDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiFlowDao" class="com.netflexity.wbi.business.daos.FlowDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiNodeDao" class="com.netflexity.wbi.business.daos.NodeDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiTerminalDao" class="com.netflexity.wbi.business.daos.TerminalDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiBrokerDao" class="com.netflexity.wbi.business.daos.BrokerDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+	</bean>
+	
+	<bean id="wmbiDao" class="com.netflexity.wbi.business.daos.WmbiDaoImpl" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="execGroupDao" ref="wmbiExecGroupDao"/>
+    	<property name="flowDao" ref="wmbiFlowDao"/>
+	</bean>
+	
+	<!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
+	
+	<bean id="wmbiMessageBrokerService" class="com.netflexity.wbi.business.services.MessageBrokerServiceImpl">
+		<property name="brokerDao" ref="wmbiBrokerDao"/>
+		<property name="execGroupDao" ref="wmbiExecGroupDao"/>
+		<property name="flowDao" ref="wmbiFlowDao"/>
+		<property name="queueDao" ref="queueDao"/>
+		<property name="qmanagerDao" ref="qmanagerDao"/>
+		<property name="messageBrokerMessageParser" ref="messageBrokerMessageParser"/>
+		<property name="mbDao" ref="mbDao"/>
+		<property name="quartzScheduler" ref="quartzScheduler"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+	
+	<bean id="wmbiExecGroupService" class="com.netflexity.wbi.business.services.ExecutionGroupServiceImpl">
+		<property name="brokerDao" ref="wmbiBrokerDao"/>
+		<property name="messageFlowService" ref="wmbiMessageFlowService"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+
+	<bean id="wmbiMessageFlowService" class="com.netflexity.wbi.business.services.MessageFlowServiceImpl">
+		<property name="execGroupDao" ref="wmbiExecGroupDao"/>
+		<property name="flowDao" ref="wmbiFlowDao"/>
+		<property name="nodeDao" ref="wmbiNodeDao"/>
+		<property name="terminalDao" ref="wmbiTerminalDao"/>
+		<property name="reportDao" ref="reportDao"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+		<property name="transactionManager" ref="transactionManager"/>
+	</bean>
+</beans>

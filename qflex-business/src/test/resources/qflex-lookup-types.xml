@@ -1,0 +1,3316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	- Definition of all Qflex static types.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- Month Types. -->
+
+	<util:list id="monthTypes">
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="0" />
+			<property name="description" value="static.month_types.0" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="1" />
+			<property name="description" value="static.month_types.1" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="2" />
+			<property name="description" value="static.month_types.2" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="3" />
+			<property name="description" value="static.month_types.3" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="4" />
+			<property name="description" value="static.month_types.4" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="5" />
+			<property name="description" value="static.month_types.5" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="6" />
+			<property name="description" value="static.month_types.6" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="7" />
+			<property name="description" value="static.month_types.7" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="8" />
+			<property name="description" value="static.month_types.8" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="9" />
+			<property name="description" value="static.month_types.9" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="10" />
+			<property name="description" value="static.month_types.10" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.MonthType">
+			<property name="id" value="11" />
+			<property name="description" value="static.month_types.11" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Days of Week Types. -->
+
+	<util:list id="daysOfWeekTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="1" />
+			<property name="description"
+				value="static.day_of_week_types.1" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="2" />
+			<property name="description"
+				value="static.day_of_week_types.2" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="3" />
+			<property name="description"
+				value="static.day_of_week_types.3" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="4" />
+			<property name="description"
+				value="static.day_of_week_types.4" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="5" />
+			<property name="description"
+				value="static.day_of_week_types.5" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="6" />
+			<property name="description"
+				value="static.day_of_week_types.6" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.DayOfWeekType">
+			<property name="id" value="7" />
+			<property name="description"
+				value="static.day_of_week_types.7" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Report Types. -->
+
+	<util:list id="reportTypes">
+		<bean class="com.netflexity.qflex.business.types.ReportType">
+			<property name="id" value="1" />
+			<property name="description" value="static.report_types.1" />
+			<property name="action" value="/processQmsReport.do" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.ReportType">
+			<property name="id" value="2" />
+			<property name="description" value="static.month_types.2" />
+			<property name="action" value="/processQmReport.do" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.ReportType">
+			<property name="id" value="3" />
+			<property name="description" value="static.report_types.3" />
+			<property name="action"
+				value="/processFlowCpuTimeSummaryByBrokerReport.do" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.ReportType">
+			<property name="id" value="4" />
+			<property name="description" value="static.report_types.4" />
+			<property name="action"
+				value="/processFlowDataVolumeSummaryByBrokerReport.do" />
+			
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.ReportType">
+			<property name="id" value="5" />
+			<property name="description" value="static.report_types.5" />
+			<property name="action"
+				value="/processNodeCpuStatsSummaryByFlowReport.do" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Interval Types. -->
+
+	<util:list id="intervalTypes">
+		<ref bean="minutesIntervalType" />
+		<ref bean="hoursIntervalType" />
+		<ref bean="daysIntervalType" />
+		<ref bean="weeksIntervalType" />
+		<ref bean="monthsIntervalType" />
+		<ref bean="yearsIntervalType" />
+	</util:list>
+
+	<bean id="minutesIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="1" />
+		<property name="description" value="static.interval_types.1" />
+		<property name="millis" value="60000" />
+		
+	</bean>
+
+	<bean id="hoursIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="2" />
+		<property name="description" value="static.interval_types.2" />
+		<property name="millis" value="3600000" />
+		
+	</bean>
+
+	<bean id="daysIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="3" />
+		<property name="description" value="static.interval_types.3" />
+		<property name="millis" value="86400000" />
+		
+	</bean>
+
+	<bean id="weeksIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="4" />
+		<property name="description" value="static.interval_types.4" />
+		<property name="millis" value="604800000" />
+		
+	</bean>
+
+	<bean id="monthsIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="5" />
+		<property name="description" value="static.interval_types.5" />
+		<property name="millis" value="2592000000" />
+		
+	</bean>
+
+	<bean id="yearsIntervalType"
+		class="com.netflexity.qflex.business.types.IntervalType">
+		<property name="id" value="6" />
+		<property name="description" value="static.interval_types.6" />
+		<property name="millis" value="31536000000" />
+		
+	</bean>
+
+	<!-- Frequency Types. -->
+
+	<util:list id="frequencyTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.FrequencyType">
+			<property name="id" value="1" />
+			<property name="minIntervalType" ref="minutesIntervalType" />
+			<property name="millis" value="3600000" />
+			<property name="description"
+				value="static.frequency_types.1" />
+			
+			<property name="intervalTypes">
+				<util:list>
+					<ref bean="minutesIntervalType" />
+					<ref bean="hoursIntervalType" />
+					<ref bean="daysIntervalType" />
+					<ref bean="weeksIntervalType" />
+					<ref bean="monthsIntervalType" />
+					<ref bean="yearsIntervalType" />
+				</util:list>
+			</property>
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.FrequencyType">
+			<property name="id" value="2" />
+			<property name="minIntervalType" ref="hoursIntervalType" />
+			<property name="millis" value="86400000" />
+			<property name="description"
+				value="static.frequency_types.2" />
+			
+			<property name="intervalTypes">
+				<util:list>
+					<ref bean="hoursIntervalType" />
+					<ref bean="daysIntervalType" />
+					<ref bean="weeksIntervalType" />
+					<ref bean="monthsIntervalType" />
+					<ref bean="yearsIntervalType" />
+				</util:list>
+			</property>
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.FrequencyType">
+			<property name="id" value="3" />
+			<property name="minIntervalType" ref="daysIntervalType" />
+			<property name="millis" value="2592000000" />
+			<property name="description"
+				value="static.frequency_types.3" />
+			
+			<property name="intervalTypes">
+				<util:list>
+					<ref bean="daysIntervalType" />
+					<ref bean="weeksIntervalType" />
+					<ref bean="monthsIntervalType" />
+					<ref bean="yearsIntervalType" />
+				</util:list>
+			</property>
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.FrequencyType">
+			<property name="id" value="4" />
+			<property name="minIntervalType" ref="monthsIntervalType" />
+			<property name="millis" value="31536000000" />
+			<property name="description"
+				value="static.frequency_types.4" />
+			
+			<property name="intervalTypes">
+				<util:list>
+					<ref bean="monthsIntervalType" />
+					<ref bean="yearsIntervalType" />
+				</util:list>
+			</property>
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.FrequencyType">
+			<property name="id" value="5" />
+			<property name="minIntervalType" ref="yearsIntervalType" />
+			<property name="millis" value="157680000000" />
+			<property name="description"
+				value="static.frequency_types.5" />
+			
+			<property name="intervalTypes">
+				<util:list>
+					<ref bean="yearsIntervalType" />
+				</util:list>
+			</property>
+		</bean>
+	</util:list>
+
+	<!-- Criticality Types. -->
+
+	<util:list id="criticalityTypes">
+
+		<bean
+			class="com.netflexity.qflex.business.types.CriticalityType">
+			<property name="id" value="1" />
+			<property name="description"
+				value="static.criticality_types.1" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.CriticalityType">
+			<property name="id" value="2" />
+			<property name="description"
+				value="static.criticality_types.2" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.CriticalityType">
+			<property name="id" value="3" />
+			<property name="description"
+				value="static.criticality_types.3" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.CriticalityType">
+			<property name="id" value="4" />
+			<property name="description"
+				value="static.criticality_types.4" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Alert Types. -->
+
+	<util:list id="alertTypes">
+
+		<bean class="com.netflexity.qflex.business.types.AlertType">
+			<property name="id" value="2" />
+			<property name="description" value="static.alert_types.2" />
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.AlertType">
+			<property name="id" value="3" />
+			<property name="description" value="static.alert_types.3" />
+		</bean>
+
+		<bean class="com.netflexity.qflex.business.types.AlertType">
+			<property name="id" value="4" />
+			<property name="description" value="static.alert_types.4" />
+		</bean>
+	</util:list>
+
+	<!-- Alert Notification types to Alert type. -->
+	
+	<util:map id="alertNotificationTypes">
+		<entry>
+            <key>
+                <value>2</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.types.LogFileAlertType"/>
+        </entry>
+        <entry>
+            <key>
+                <value>3</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.types.SmtpAlertType">
+				<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+			</bean>
+        </entry>
+        <entry>
+            <key>
+                <value>4</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.types.SnmpAlertType">
+				<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+			</bean>
+        </entry>
+    </util:map>    
+        
+	<!-- Alert Status Types. -->
+
+	<util:list id="alertStatusTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.AlertStatusType">
+			<property name="id" value="5" />
+			<property name="description"
+				value="static.alert_status_types.5" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.AlertStatusType">
+			<property name="id" value="10" />
+			<property name="description"
+				value="static.alert_status_types.10" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.AlertStatusType">
+			<property name="id" value="15" />
+			<property name="description"
+				value="static.alert_status_types.15" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Idle Reason Types. -->
+
+	<util:list id="idleReasonTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.IdleReasonType">
+			<property name="id" value="1" />
+			<property name="description"
+				value="static.idle_reason_types.1" />
+			
+		</bean>
+	</util:list>
+
+	<!-- Monitor Types. -->
+
+	<bean id="queueMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="1" />
+		<property name="description" value="static.monitor_types.1" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="queueFullTrigger" />
+				<ref bean="queueEmptyTrigger" />
+				<ref bean="queueDepthLessThanTrigger" />
+				<ref bean="queueDepthMoreThanTrigger" />
+				<ref bean="queueDepthLessThanEqualTrigger" />
+				<ref bean="queueDepthMoreThanEqualTrigger" />
+				<ref bean="queueDepthLessThanPercentTrigger" />
+				<ref bean="queueDepthMoreThanPercentTrigger" />
+				<ref bean="queueDepthLessThanEqualPercentTrigger" />
+				<ref bean="queueDepthMoreThanEqualPercentTrigger" />
+				<ref bean="queueInputCountLessThanTrigger" />
+				<ref bean="queueInputCountMoreThanTrigger" />
+				<ref bean="queueInputCountLessThanEqualTrigger" />
+				<ref bean="queueInputCountMoreThanEqualTrigger" />
+				<ref bean="queueOutputCountLessThanTrigger" />
+				<ref bean="queueOutputCountMoreThanTrigger" />
+				<ref bean="queueOutputCountLessThanEqualTrigger" />
+				<ref bean="queueOutputCountMoreThanEqualTrigger" />
+				<ref bean="queuePutDisabledTrigger" />
+				<ref bean="queueGetDisabledTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="qmanagerMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="2" />
+		<property name="description" value="static.monitor_types.2" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="commandServerDownTrigger" />
+				<ref bean="qmanagerDownTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="channelMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="3" />
+		<property name="description" value="static.monitor_types.3" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="channelRunningTrigger" />
+				<ref bean="channelStoppedTrigger" />
+				<ref bean="channelIndoubtTrigger" />
+				<ref bean="channelStartingTrigger" />
+				<ref bean="channelPausedTrigger" />
+				<ref bean="channelNotRunningTrigger" />
+				<ref bean="channelBindingTrigger" />
+				<ref bean="channelInactiveTrigger" />
+				<ref bean="channelInitializingTrigger" />
+				<ref bean="channelRequestingTrigger" />
+				<ref bean="channelRetryingTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="qosMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="4" />
+		<property name="description" value="static.monitor_types.4" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="queueEnqueRateLessThenTrigger" />
+				<ref bean="queueEnqueRateMoreThenTrigger" />
+				<ref bean="queueDequeRateLessThenTrigger" />
+				<ref bean="queueDequeRateMoreThenTrigger" />
+				<ref bean="staleMessagesTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="brokerMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="5" />
+		<property name="description" value="static.monitor_types.5" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="brokerDownTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="flowMonitorType"
+		class="com.netflexity.qflex.business.types.MonitorType">
+		<property name="id" value="6" />
+		<property name="description" value="static.monitor_types.6" />
+		
+		<property name="trigConditionTypes">
+			<util:list>
+				<ref bean="flowAggrTimeoutTrigger" />
+				<ref bean="flowBackedOutTrigger" />
+				<ref bean="flowMqErrorsTrigger" />
+				<ref bean="flowMsgErrorsTrigger" />
+			</util:list>
+		</property>
+	</bean>
+
+	<util:list id="monitorTypes">
+		<ref bean="queueMonitorType" />
+		<ref bean="qmanagerMonitorType" />
+		<ref bean="channelMonitorType" />
+		<ref bean="qosMonitorType" />
+		<ref bean="brokerMonitorType" />
+		<ref bean="flowMonitorType" />
+	</util:list>
+
+	<!-- Queue Triggering Conditions. -->
+
+	<bean id="queueFullTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="1" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.1" />
+		<property name="triggerMessage" value="static.message_types.1" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.1" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.1" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="queueEmptyTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="2" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.2" />
+		<property name="triggerMessage" value="static.message_types.2" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.2" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.2" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="queuePutDisabledTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="25" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.25" />
+		<property name="triggerMessage" value="static.message_types.25" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.25" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.25" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="queueGetDisabledTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="26" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.26" />
+		<property name="triggerMessage" value="static.message_types.26" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.26" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.26" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="queueDepthLessThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="3" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.3" />
+		<property name="triggerMessage" value="static.message_types.3" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.3" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.3" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthLessThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="5" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.5" />
+		<property name="triggerMessage" value="static.message_types.5" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.5" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.5" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthLessThanEqualPercentTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="32" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.32" />
+		<property name="triggerMessage" value="static.message_types.32" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.32" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.32" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthLessThanPercentTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="30" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.30" />
+		<property name="triggerMessage" value="static.message_types.30" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.30" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.30" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthMoreThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="4" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.4" />
+		<property name="triggerMessage" value="static.message_types.4" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.4" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.4" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthMoreThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="6" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.6" />
+		<property name="triggerMessage" value="static.message_types.6" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.6" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.6" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthMoreThanEqualPercentTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="33" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.33" />
+		<property name="triggerMessage" value="static.message_types.33" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.33" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.33" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDepthMoreThanPercentTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="31" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.31" />
+		<property name="triggerMessage" value="static.message_types.31" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.31" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.31" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueInputCountLessThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="17" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.17" />
+		<property name="triggerMessage" value="static.message_types.17" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.17" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.17" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueInputCountMoreThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="18" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.18" />
+		<property name="triggerMessage" value="static.message_types.18" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.18" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.18" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueInputCountLessThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="19" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.19" />
+		<property name="triggerMessage" value="static.message_types.19" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.19" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.19" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueInputCountMoreThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="20" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.20" />
+		<property name="triggerMessage" value="static.message_types.20" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.20" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.20" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueOutputCountLessThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="21" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.21" />
+		<property name="triggerMessage" value="static.message_types.21" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.21" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.21" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueOutputCountMoreThanTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="22" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.22" />
+		<property name="triggerMessage" value="static.message_types.22" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.22" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.22" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueOutputCountLessThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="23" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.23" />
+		<property name="triggerMessage" value="static.message_types.23" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.23" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.23" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueOutputCountMoreThanEqualTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="24" />
+		<property name="monitorType" ref="queueMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.24" />
+		<property name="triggerMessage" value="static.message_types.24" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.24" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.24" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<!-- Queue Manager Triggering Conditions. -->
+
+	<bean id="commandServerDownTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="9" />
+		<property name="monitorType" ref="qmanagerMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.9" />
+		<property name="triggerMessage" value="static.message_types.9" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.9" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.9" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="qmanagerDownTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="10" />
+		<property name="monitorType" ref="qmanagerMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.10" />
+		<property name="triggerMessage" value="static.message_types.10" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.10" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.10" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<!-- Channel Triggering Conditions. -->
+
+	<bean id="channelRunningTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="11" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.11" />
+		<property name="triggerMessage" value="static.message_types.11" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.11" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.11" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelStoppedTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="12" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.12" />
+		<property name="triggerMessage" value="static.message_types.12" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.12" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.12" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelIndoubtTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="13" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.13" />
+		<property name="triggerMessage" value="static.message_types.13" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.13" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.13" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelStartingTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="14" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.14" />
+		<property name="triggerMessage" value="static.message_types.14" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.14" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.14" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelPausedTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="15" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.15" />
+		<property name="triggerMessage" value="static.message_types.15" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.15" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.15" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelNotRunningTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="16" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.16" />
+		<property name="triggerMessage" value="static.message_types.16" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.16" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.16" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelBindingTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="41" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.41" />
+		<property name="triggerMessage" value="static.message_types.41" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.41" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.41" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelInactiveTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="42" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.42" />
+		<property name="triggerMessage" value="static.message_types.42" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.42" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.42" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelInitializingTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="43" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.43" />
+		<property name="triggerMessage" value="static.message_types.43" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.43" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.43" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelRequestingTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="44" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.44" />
+		<property name="triggerMessage" value="static.message_types.44" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.44" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.44" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="channelRetryingTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="45" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.45" />
+		<property name="triggerMessage" value="static.message_types.45" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.45" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.45" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<!-- QoS Triggering Conditions. -->
+
+	<bean id="queueEnqueRateLessThenTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="50" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.50" />
+		<property name="triggerMessage" value="static.message_types.50" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.50" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.50" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueEnqueRateMoreThenTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="51" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.51" />
+		<property name="triggerMessage" value="static.message_types.51" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.51" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.51" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDequeRateLessThenTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="52" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.52" />
+		<property name="triggerMessage" value="static.message_types.52" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.52" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.52" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="queueDequeRateMoreThenTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="53" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.53" />
+		<property name="triggerMessage" value="static.message_types.53" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.53" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.53" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<bean id="staleMessagesTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="54" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.54" />
+		<property name="triggerMessage" value="static.message_types.54" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.54" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.54" />
+		<property name="requiresParam" value="true" />
+	</bean>
+
+	<!-- Broker Triggering Conditions. -->
+
+	<bean id="brokerDownTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="100" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.100" />
+		<property name="triggerMessage"
+			value="static.message_types.100" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.100" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.100" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<!-- Flow Triggering Conditions. -->
+
+	<bean id="flowAggrTimeoutTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="110" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.110" />
+		<property name="triggerMessage"
+			value="static.message_types.110" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.110" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.110" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="flowBackedOutTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="111" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.111" />
+		<property name="triggerMessage"
+			value="static.message_types.111" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.111" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.111" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="flowMqErrorsTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="112" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.112" />
+		<property name="triggerMessage"
+			value="static.message_types.112" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.112" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.112" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<bean id="flowMsgErrorsTrigger"
+		class="com.netflexity.qflex.business.types.TrigConditionType">
+		<property name="id" value="113" />
+		<property name="monitorType" ref="channelMonitorType" />
+		<property name="description"
+			value="static.trig_condition_types.113" />
+		<property name="triggerMessage"
+			value="static.message_types.113" />
+		<property name="recoveryMessage"
+			value="static.recovery_message_types.113" />
+		<property name="trigConditionName"
+			value="static.trig_condition_types.names.113" />
+		<property name="requiresParam" value="false" />
+	</bean>
+
+	<!-- Condition Trigger mappings to triggering condition ids. -->
+	
+	<util:map id="conditionTriggers">
+		<entry>
+            <key>
+                <value>1</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.triggers.QueueFullTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>2</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.triggers.QueueEmptyTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>25</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.triggers.PutDisabledTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>26</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.GetDisabledTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>3</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthLessThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>5</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthLessThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>32</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthLessThanEqualsPercentageTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>30</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthLessThanPercentageTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>4</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthGreaterThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>6</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthGreaterThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>33</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthGreaterThanEqualsPercentageTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>31</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QueueDepthGreaterThanPercentageTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>17</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.InputCountLessThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>18</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.InputCountGreaterThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>19</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.InputCountLessThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>20</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.InputCountGreaterThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>21</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.OutputCountLessThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>22</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.OutputCountGreaterThanTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>23</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.OutputCountLessThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>24</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.OutputCountGreaterThanEqualsTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>9</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.CommandServerDownTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>10</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.QmanagerNotAvailableTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>11</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsRunningTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>12</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsStoppedTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>13</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsIndoubtTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>14</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsStartingTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>15</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsPausedTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>16</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsNotRunningTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>41</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsBindingTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>42</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsInactiveTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>43</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsInitializingTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>44</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsRequestingTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>45</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.ChannelIsRetryingTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>50</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.EnqueueRateLessThanTrigger">
+           		<property name="queueStatDao" ref="queueStatDao"/>
+           		<property name="collectionService" ref="collectionService"/>
+           		<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>51</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.EnqueueRateGreaterThanTrigger">
+           		<property name="queueStatDao" ref="queueStatDao"/>
+           		<property name="collectionService" ref="collectionService"/>
+           		<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>52</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.DequeueRateLessThanTrigger">
+           		<property name="queueStatDao" ref="queueStatDao"/>
+           		<property name="collectionService" ref="collectionService"/>
+           		<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>53</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.DequeueRateGreaterThanTrigger">
+           		<property name="queueStatDao" ref="queueStatDao"/>
+           		<property name="collectionService" ref="collectionService"/>
+           		<property name="qflexPropertyDao" ref="qflexPropertyDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>54</value>
+            </key>
+        	<bean class="com.netflexity.qflex.business.services.alert.triggers.StaleMessageTrigger">
+           		<property name="mqDao" ref="mqDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>100</value>
+            </key>
+        	<bean class="com.netflexity.wbi.business.services.alert.triggers.BrokerDownTrigger">
+           		<property name="mbDao" ref="mbDao"/>
+        	</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>110</value>
+            </key>
+        	<bean class="com.netflexity.wbi.business.services.alert.triggers.FlowAggregateTimeoutTrigger">
+				<property name="reportDao" ref="wmbiReportDao"/>
+			</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>111</value>
+            </key>
+        	<bean class="com.netflexity.wbi.business.services.alert.triggers.FlowBackedOutTrigger">
+				<property name="reportDao" ref="wmbiReportDao"/>
+			</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>112</value>
+            </key>
+        	<bean class="com.netflexity.wbi.business.services.alert.triggers.FlowHasMqErrorsTrigger">
+				<property name="reportDao" ref="wmbiReportDao"/>
+			</bean>
+        </entry>
+        <entry>
+        	<key>
+                <value>113</value>
+            </key>
+        	<bean class="com.netflexity.wbi.business.services.alert.triggers.FlowHasMsgErrorsTrigger">
+           		<property name="reportDao" ref="wmbiReportDao"/>
+        	</bean>
+        </entry>
+    </util:map>
+    
+	<!-- Qflex Message Expressions for all objects. -->
+	
+	<util:map id="messageExpressions">
+		<!-- GENERAL -->
+		<entry>
+            <key>
+                <value>$date</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.DateExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$mq_reason_code</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.MqReasonCodeExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$qm_nm</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QmanagerNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$qm_alias</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QmanagerAliasExpression">
+            
+            </bean>
+        </entry>
+
+		<!-- QUEUE -->
+		<entry>
+            <key>
+                <value>$q_nm</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$q_depth</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueDepthExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$q_in_count</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueInCountExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$q_out_count</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueOutCountExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$top_msg_remained</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.TopMsgRemainedExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$enq_rate</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.EnqueueRateExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$deq_rate</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.DequeueRateExpression">
+            
+            </bean>
+        </entry>
+
+		<!-- CHANNEL -->
+		<entry>
+            <key>
+                <value>$channel_nm</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.ChannelNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$channel_sts</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.ChannelStatusExpression">
+            	<property name="messageSource" ref="mqSeriesMessageSource"/>
+            	<property name="mqDao" ref="mqDao"/>
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$channel_start</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.ChannelStartTimeExpression">
+            	<property name="mqDao" ref="mqDao"/>
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$channel_tp</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.ChannelTypeExpression">
+            	<property name="messageSource" ref="mqSeriesMessageSource"/>
+            	<property name="mqDao" ref="mqDao"/>
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$connection_count</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.ConnectionCountExpression">
+            	<property name="mqDao" ref="mqDao"/>
+            </bean>
+        </entry>
+
+		<!-- MONITOR -->
+		<entry>
+            <key>
+                <value>$monitor_nm</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.MonitorNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$severity</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.SeverityExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$trig_condition_param</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.TrigConditionParamExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$recovery_text</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.RecoveryTextExpression">
+            	<property name="alertDao" ref="alertDao"/>
+            </bean>
+        </entry>
+
+		<!-- MESSAGE -->
+		<entry>
+            <key>
+                <value>$msg_id</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueMessageExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$msg_body</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueMessageExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$msg_put_time</value>
+            </key>
+            <bean class="com.netflexity.qflex.business.services.alert.expressions.QueueMessageExpression">
+            
+            </bean>
+        </entry>
+                
+		<!-- BROKER -->
+		<entry>
+            <key>
+                <value>$brk_nm</value>
+            </key>
+            <bean class="com.netflexity.wbi.business.services.alert.expressions.BrokerNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$flow_nm</value>
+            </key>
+            <bean class="com.netflexity.wbi.business.services.alert.expressions.FlowNameExpression">
+            
+            </bean>
+        </entry>
+		<entry>
+            <key>
+                <value>$eg_nm</value>
+            </key>
+            <bean class="com.netflexity.wbi.business.services.alert.expressions.ExecGroupNameExpression">
+            
+            </bean>
+        </entry>
+	</util:map>
+	
+	<!-- IBM MQ Queue/Qmanager/Channel Attribute Types. -->
+	
+	<util:list id="mqQmanagerAttributeTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="1" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_DATE" />
+			<property name="mqAttributeCode" value="2027" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="2" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_TIME" />
+			<property name="mqAttributeCode" value="2028" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="3" />
+			<property name="description"
+				value="CMQC.MQCA_CREATION_DATE" />
+			<property name="mqAttributeCode" value="2004" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="4" />
+			<property name="description"
+				value="CMQC.MQCA_CREATION_TIME" />
+			<property name="mqAttributeCode" value="2005" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="5" />
+			<property name="description"
+				value="CMQC.MQIA_AUTHORITY_EVENT" />
+			<property name="mqAttributeCode" value="47" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="6" />
+			<property name="description"
+				value="CMQC.MQIA_CHANNEL_AUTO_DEF" />
+			<property name="mqAttributeCode" value="55" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="7" />
+			<property name="description"
+				value="CMQC.MQIA_CHANNEL_AUTO_DEF_EVENT" />
+			<property name="mqAttributeCode" value="56" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="8" />
+			<property name="description"
+				value="CMQC.MQCA_CHANNEL_AUTO_DEF_EXIT" />
+			<property name="mqAttributeCode" value="2026" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="9" />
+			<property name="description"
+				value="CMQC.MQCA_CLUSTER_WORKLOAD_DATA" />
+			<property name="mqAttributeCode" value="2034" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="10" />
+			<property name="description"
+				value="CMQC.MQCA_CLUSTER_WORKLOAD_EXIT" />
+			<property name="mqAttributeCode" value="2033" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="11" />
+			<property name="description"
+				value="CMQC.MQIA_CLUSTER_WORKLOAD_LENGTH" />
+			<property name="mqAttributeCode" value="58" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="12" />
+			<property name="description"
+				value="CMQC.MQIA_CODED_CHAR_SET_ID" />
+			<property name="mqAttributeCode" value="2" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="13" />
+			<property name="description"
+				value="CMQC.MQCA_COMMAND_INPUT_Q_NAME" />
+			<property name="mqAttributeCode" value="2003" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="14" />
+			<property name="description"
+				value="CMQC.MQIA_COMMAND_LEVEL" />
+			<property name="mqAttributeCode" value="31" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="15" />
+			<property name="description"
+				value="CMQC.MQCA_DEAD_LETTER_Q_NAME" />
+			<property name="mqAttributeCode" value="2006" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="16" />
+			<property name="description"
+				value="CMQC.MQCA_DEF_XMIT_Q_NAME" />
+			<property name="mqAttributeCode" value="2025" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="17" />
+			<property name="description" value="CMQC.MQIA_DIST_LISTS" />
+			<property name="mqAttributeCode" value="34" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="18" />
+			<property name="description"
+				value="CMQC.MQIA_INHIBIT_EVENT" />
+			<property name="mqAttributeCode" value="48" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="19" />
+			<property name="description" value="CMQC.MQIA_LOCAL_EVENT" />
+			<property name="mqAttributeCode" value="49" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="20" />
+			<property name="description" value="CMQC.MQIA_MAX_HANDLES" />
+			<property name="mqAttributeCode" value="11" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="21" />
+			<property name="description"
+				value="CMQC.MQIA_MAX_MSG_LENGTH" />
+			<property name="mqAttributeCode" value="13" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="22" />
+			<property name="description" value="CMQC.MQIA_MAX_PRIORITY" />
+			<property name="mqAttributeCode" value="14" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="23" />
+			<property name="description"
+				value="CMQC.MQIA_MAX_UNCOMMITTED_MSGS" />
+			<property name="mqAttributeCode" value="33" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="24" />
+			<property name="description"
+				value="CMQC.MQIA_PERFORMANCE_EVENT" />
+			<property name="mqAttributeCode" value="53" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="5" />
+			<property name="description" value="CMQC.MQIA_PLATFORM" />
+			<property name="mqAttributeCode" value="32" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="26" />
+			<property name="description" value="CMQC.MQCA_Q_MGR_DESC" />
+			<property name="mqAttributeCode" value="2014" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="27" />
+			<property name="description"
+				value="CMQC.MQCA_Q_MGR_IDENTIFIER" />
+			<property name="mqAttributeCode" value="2032" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="28" />
+			<property name="description" value="CMQC.MQCA_Q_MGR_NAME" />
+			<property name="mqAttributeCode" value="2015" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="29" />
+			<property name="description" value="CMQC.MQIA_REMOTE_EVENT" />
+			<property name="mqAttributeCode" value="50" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="30" />
+			<property name="description"
+				value="CMQC.MQCA_REPOSITORY_NAME" />
+			<property name="mqAttributeCode" value="2035" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="31" />
+			<property name="description"
+				value="CMQC.MQCA_REPOSITORY_NAMELIST" />
+			<property name="mqAttributeCode" value="2036" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="32" />
+			<property name="description"
+				value="CMQC.MQIA_START_STOP_EVENT" />
+			<property name="mqAttributeCode" value="52" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="33" />
+			<property name="description" value="CMQC.MQIA_SYNCPOINT" />
+			<property name="mqAttributeCode" value="30" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="34" />
+			<property name="description"
+				value="CMQC.MQIA_TRIGGER_INTERVAL" />
+			<property name="mqAttributeCode" value="25" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="35" />
+			<property name="description"
+				value="CMQC.MQCA_SSL_CRL_NAMELIST" />
+			<property name="mqAttributeCode" value="2050" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="36" />
+			<property name="description"
+				value="CMQC.MQCA_SSL_KEY_REPOSITORY" />
+			<property name="mqAttributeCode" value="2049" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+	</util:list>
+
+	<util:list id="mqQueueAttributeTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="101" />
+			<property name="description" value="CMQC.MQCA_Q_NAME" />
+			<property name="mqAttributeCode" value="2016" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="true" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="102" />
+			<property name="description" value="CMQC.MQIA_Q_TYPE" />
+			<property name="mqAttributeCode" value="20" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="true" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="103" />
+			<property name="description" value="CMQC.MQCA_Q_DESC" />
+			<property name="mqAttributeCode" value="2013" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="104" />
+			<property name="description"
+				value="CMQC.MQIA_Q_DEPTH_HIGH_LIMIT" />
+			<property name="mqAttributeCode" value="40" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="105" />
+			<property name="description"
+				value="CMQC.MQIA_Q_DEPTH_LOW_LIMIT" />
+			<property name="mqAttributeCode" value="41" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="106" />
+			<property name="description"
+				value="CMQC.MQIA_Q_DEPTH_HIGH_EVENT" />
+			<property name="mqAttributeCode" value="43" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="107" />
+			<property name="description"
+				value="CMQC.MQIA_Q_DEPTH_LOW_EVENT" />
+			<property name="mqAttributeCode" value="44" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="108" />
+			<property name="description"
+				value="CMQC.MQIA_Q_DEPTH_MAX_EVENT" />
+			<property name="mqAttributeCode" value="42" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="109" />
+			<property name="description"
+				value="CMQC.MQIA_Q_SERVICE_INTERVAL" />
+			<property name="mqAttributeCode" value="54" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="110" />
+			<property name="description"
+				value="CMQC.MQIA_Q_SERVICE_INTERVAL_EVENT" />
+			<property name="mqAttributeCode" value="46" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="111" />
+			<property name="description" value="CMQC.MQCA_BASE_Q_NAME" />
+			<property name="mqAttributeCode" value="2002" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="112" />
+			<property name="description" value="CMQC.MQIA_INHIBIT_PUT" />
+			<property name="mqAttributeCode" value="10" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="113" />
+			<property name="description" value="CMQC.MQIA_INHIBIT_GET" />
+			<property name="mqAttributeCode" value="9" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="114" />
+			<property name="description" value="CMQC.MQIA_DEF_PRIORITY" />
+			<property name="mqAttributeCode" value="6" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="115" />
+			<property name="description"
+				value="CMQC.MQIA_DEF_PERSISTENCE" />
+			<property name="mqAttributeCode" value="5" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="116" />
+			<property name="description" value="CMQC.MQCA_PROCESS_NAME" />
+			<property name="mqAttributeCode" value="2012" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="117" />
+			<property name="description" value="CMQC.MQIA_MAX_Q_DEPTH" />
+			<property name="mqAttributeCode" value="15" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="118" />
+			<property name="description"
+				value="CMQC.MQIA_MAX_MSG_LENGTH" />
+			<property name="mqAttributeCode" value="13" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="119" />
+			<property name="description"
+				value="CMQC.MQIA_CURRENT_Q_DEPTH" />
+			<property name="mqAttributeCode" value="3" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="120" />
+			<property name="description"
+				value="CMQC.MQIA_OPEN_INPUT_COUNT" />
+			<property name="mqAttributeCode" value="17" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="121" />
+			<property name="description"
+				value="CMQC.MQIA_OPEN_OUTPUT_COUNT" />
+			<property name="mqAttributeCode" value="18" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="122" />
+			<property name="description"
+				value="CMQC.MQIA_BACKOUT_THRESHOLD" />
+			<property name="mqAttributeCode" value="22" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="123" />
+			<property name="description"
+				value="CMQC.MQCA_BACKOUT_REQ_Q_NAME" />
+			<property name="mqAttributeCode" value="2019" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="124" />
+			<property name="description" value="CMQC.MQIA_SHAREABILITY" />
+			<property name="mqAttributeCode" value="23" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="125" />
+			<property name="description"
+				value="CMQC.MQIA_DEF_INPUT_OPEN_OPTION" />
+			<property name="mqAttributeCode" value="4" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="126" />
+			<property name="description"
+				value="CMQC.MQIA_HARDEN_GET_BACKOUT" />
+			<property name="mqAttributeCode" value="8" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="127" />
+			<property name="description"
+				value="CMQC.MQIA_MSG_DELIVERY_SEQUENCE" />
+			<property name="mqAttributeCode" value="16" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="128" />
+			<property name="description"
+				value="CMQC.MQIA_RETENTION_INTERVAL" />
+			<property name="mqAttributeCode" value="21" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="129" />
+			<property name="description" value="CMQC.MQIA_DIST_LISTS" />
+			<property name="mqAttributeCode" value="34" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="130" />
+			<property name="description" value="CMQC.MQIA_USAGE" />
+			<property name="mqAttributeCode" value="12" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="131" />
+			<property name="description"
+				value="CMQC.MQCA_INITIATION_Q_NAME" />
+			<property name="mqAttributeCode" value="2008" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="132" />
+			<property name="description"
+				value="CMQC.MQIA_TRIGGER_CONTROL" />
+			<property name="mqAttributeCode" value="24" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="133" />
+			<property name="description" value="CMQC.MQIA_TRIGGER_TYPE" />
+			<property name="mqAttributeCode" value="28" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="134" />
+			<property name="description"
+				value="CMQC.MQIA_TRIGGER_MSG_PRIORITY" />
+			<property name="mqAttributeCode" value="26" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="135" />
+			<property name="description"
+				value="CMQC.MQIA_TRIGGER_DEPTH" />
+			<property name="mqAttributeCode" value="29" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="136" />
+			<property name="description" value="CMQC.MQCA_TRIGGER_DATA" />
+			<property name="mqAttributeCode" value="2023" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="137" />
+			<property name="description"
+				value="CMQC.MQCA_REMOTE_Q_NAME" />
+			<property name="mqAttributeCode" value="2018" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="138" />
+			<property name="description"
+				value="CMQC.MQCA_REMOTE_Q_MGR_NAME" />
+			<property name="mqAttributeCode" value="2017" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="139" />
+			<property name="description" value="CMQC.MQCA_XMIT_Q_NAME" />
+			<property name="mqAttributeCode" value="2024" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="140" />
+			<property name="description"
+				value="CMQC.MQIA_DEFINITION_TYPE" />
+			<property name="mqAttributeCode" value="7" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="141" />
+			<property name="description" value="CMQC.MQIA_SCOPE" />
+			<property name="mqAttributeCode" value="45" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="142" />
+			<property name="description" value="CMQC.MQCA_CLUSTER_NAME" />
+			<property name="mqAttributeCode" value="2029" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="143" />
+			<property name="description"
+				value="CMQC.MQCA_CLUSTER_NAMELIST" />
+			<property name="mqAttributeCode" value="2030" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="144" />
+			<property name="description" value="CMQC.MQIA_DEF_BIND" />
+			<property name="mqAttributeCode" value="61" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="145" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_DATE" />
+			<property name="mqAttributeCode" value="2027" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="146" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_TIME" />
+			<property name="mqAttributeCode" value="2028" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+	</util:list>
+
+	<util:list id="mqChannelAttributeTypes">
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="201" />
+			<property name="description"
+				value="CMQCFC.MQCACH_CHANNEL_NAME" />
+			<property name="mqAttributeCode" value="3501" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="true" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="202" />
+			<property name="description"
+				value="CMQCFC.MQIACH_CHANNEL_TYPE" />
+			<property name="mqAttributeCode" value="1511" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="true" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="203" />
+			<property name="description"
+				value="CMQCFC.MQIACH_CHANNEL_STATUS" />
+			<property name="mqAttributeCode" value="1527" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="204" />
+			<property name="description" value="CMQCFC.MQCACH_DESC" />
+			<property name="mqAttributeCode" value="3502" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="205" />
+			<property name="description"
+				value="CMQCFC.MQIACH_XMIT_PROTOCOL_TYPE" />
+			<property name="mqAttributeCode" value="1501" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="206" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SEC_EXIT_NAME" />
+			<property name="mqAttributeCode" value="3508" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="207" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SEC_EXIT_USER_DATA" />
+			<property name="mqAttributeCode" value="3513" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="208" />
+			<property name="description"
+				value="CMQCFC.MQIACH_MAX_MSG_LENGTH" />
+			<property name="mqAttributeCode" value="1510" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="209" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MSG_EXIT_NAME" />
+			<property name="mqAttributeCode" value="3509" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="210" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MSG_EXIT_USER_DATA" />
+			<property name="mqAttributeCode" value="3514" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="211" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SEND_EXIT_NAME" />
+			<property name="mqAttributeCode" value="3510" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="212" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SEND_EXIT_USER_DATA" />
+			<property name="mqAttributeCode" value="3515" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="213" />
+			<property name="description"
+				value="CMQCFC.MQCACH_RCV_EXIT_NAME" />
+			<property name="mqAttributeCode" value="3511" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="214" />
+			<property name="description"
+				value="CMQCFC.MQCACH_RCV_EXIT_USER_DATA" />
+			<property name="mqAttributeCode" value="3516" />
+			<property name="mqAttributeType" value="6" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="215" />
+			<property name="description" value="CMQCFC.MQCACH_TP_NAME" />
+			<property name="mqAttributeCode" value="3504" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="216" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MODE_NAME" />
+			<property name="mqAttributeCode" value="3503" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="217" />
+			<property name="description"
+				value="CMQCFC.MQCACH_CONNECTION_NAME" />
+			<property name="mqAttributeCode" value="3506" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="218" />
+			<property name="description"
+				value="CMQCFC.MQCACH_XMIT_Q_NAME" />
+			<property name="mqAttributeCode" value="3505" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="219" />
+			<property name="description"
+				value="CMQCFC.MQIACH_BATCH_SIZE" />
+			<property name="mqAttributeCode" value="1502" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="220" />
+			<property name="description"
+				value="CMQCFC.MQIACH_BATCH_INTERVAL" />
+			<property name="mqAttributeCode" value="1564" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="221" />
+			<property name="description" value="CMQCFC.MQIACH_BATCH_HB" />
+			<property name="mqAttributeCode" value="1567" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="222" />
+			<property name="description"
+				value="CMQCFC.MQIACH_DISC_INTERVAL" />
+			<property name="mqAttributeCode" value="1503" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="223" />
+			<property name="description"
+				value="CMQCFC.MQIACH_SHORT_RETRY" />
+			<property name="mqAttributeCode" value="1505" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="224" />
+			<property name="description"
+				value="CMQCFC.MQIACH_SHORT_TIMER" />
+			<property name="mqAttributeCode" value="1504" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="225" />
+			<property name="description"
+				value="CMQCFC.MQIACH_LONG_RETRY" />
+			<property name="mqAttributeCode" value="1507" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="226" />
+			<property name="description"
+				value="CMQCFC.MQIACH_LONG_TIMER" />
+			<property name="mqAttributeCode" value="1506" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="227" />
+			<property name="description"
+				value="CMQCFC.MQIACH_DATA_CONVERSION" />
+			<property name="mqAttributeCode" value="1515" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="228" />
+			<property name="description"
+				value="CMQCFC.MQIACH_PUT_AUTHORITY" />
+			<property name="mqAttributeCode" value="1508" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="229" />
+			<property name="description"
+				value="CMQCFC.MQIACH_SEQUENCE_NUMBER_WRAP" />
+			<property name="mqAttributeCode" value="1509" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="230" />
+			<property name="description" value="CMQCFC.MQCACH_MCA_NAME" />
+			<property name="mqAttributeCode" value="3507" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="231" />
+			<property name="description" value="CMQCFC.MQIACH_MCA_TYPE" />
+			<property name="mqAttributeCode" value="1517" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="232" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MCA_USER_ID" />
+			<property name="mqAttributeCode" value="3527" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="233" />
+			<property name="description" value="CMQCFC.MQCACH_USER_ID" />
+			<property name="mqAttributeCode" value="3517" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="234" />
+			<property name="description" value="CMQCFC.MQCACH_PASSWORD" />
+			<property name="mqAttributeCode" value="3518" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="235" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MR_EXIT_NAME" />
+			<property name="mqAttributeCode" value="3534" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="236" />
+			<property name="description"
+				value="CMQCFC.MQCACH_MR_EXIT_USER_DATA" />
+			<property name="mqAttributeCode" value="3535" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="237" />
+			<property name="description" value="CMQCFC.MQIACH_MR_COUNT" />
+			<property name="mqAttributeCode" value="1544" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="238" />
+			<property name="description"
+				value="CMQCFC.MQIACH_MR_INTERVAL" />
+			<property name="mqAttributeCode" value="1545" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="239" />
+			<property name="description" value="CMQC.MQCA_Q_MGR_NAME" />
+			<property name="mqAttributeCode" value="2015" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="240" />
+			<property name="description"
+				value="CMQCFC.MQIACH_HB_INTERVAL" />
+			<property name="mqAttributeCode" value="1563" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="241" />
+			<property name="description"
+				value="CMQCFC.MQIACH_NPM_SPEED" />
+			<property name="mqAttributeCode" value="1562" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="242" />
+			<property name="description" value="CMQC.MQCA_CLUSTER_NAME" />
+			<property name="mqAttributeCode" value="2029" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="243" />
+			<property name="description"
+				value="CMQC.MQCA_CLUSTER_NAMELIST" />
+			<property name="mqAttributeCode" value="2030" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="244" />
+			<property name="description"
+				value="CMQCFC.MQIACH_NETWORK_PRIORITY" />
+			<property name="mqAttributeCode" value="1565" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="245" />
+			<property name="description"
+				value="CMQCFC.MQCACH_LOCAL_ADDRESS" />
+			<property name="mqAttributeCode" value="3520" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="246" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SSL_CIPHER_SPEC" />
+			<property name="mqAttributeCode" value="3544" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="247" />
+			<property name="description"
+				value="CMQCFC.MQCACH_SSL_PEER_NAME" />
+			<property name="mqAttributeCode" value="3545" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="248" />
+			<property name="description"
+				value="CMQCFC.MQIACH_SSL_CLIENT_AUTH" />
+			<property name="mqAttributeCode" value="1568" />
+			<property name="mqAttributeType" value="3" />
+			<property name="immutable" value="false" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="249" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_DATE" />
+			<property name="mqAttributeCode" value="2027" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+		<bean
+			class="com.netflexity.qflex.business.types.ConfigAttributeType">
+			<property name="id" value="250" />
+			<property name="description"
+				value="CMQC.MQCA_ALTERATION_TIME" />
+			<property name="mqAttributeCode" value="2028" />
+			<property name="mqAttributeType" value="4" />
+			<property name="immutable" value="true" />
+			<property name="requiredForChange" value="false" />
+			
+		</bean>
+	</util:list>
+</beans>

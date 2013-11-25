@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfx-wmqmsg:GetQueueOut xmlns:nfx-wmq="urn:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:nfx-wmqmsg="urn:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:netflexity:schema:software:nfx-wmq:messages:1.0 nfx-wmq-messages-1.0.xsd ">
+  <nfx-wmqmsg:queue>
+    <nfx-wmq:backoutRequeueName>nfx-wmq:backoutRequeueName</nfx-wmq:backoutRequeueName>
+    <nfx-wmq:backoutThreshold>0</nfx-wmq:backoutThreshold>
+    <nfx-wmq:baseQueueName>nfx-wmq:baseQueueName</nfx-wmq:baseQueueName>
+    <nfx-wmq:clusterName>nfx-wmq:clusterName</nfx-wmq:clusterName>
+    <nfx-wmq:clusterNamelist>nfx-wmq:clusterNamelist</nfx-wmq:clusterNamelist>
+    <nfx-wmq:defBind>nfx-wmq:defBind</nfx-wmq:defBind>
+    <nfx-wmq:defInputOpenOption>0</nfx-wmq:defInputOpenOption>
+    <nfx-wmq:defPersistence>0</nfx-wmq:defPersistence>
+    <nfx-wmq:defPriority>0</nfx-wmq:defPriority>
+    <nfx-wmq:defType>0</nfx-wmq:defType>
+    <nfx-wmq:distLists>0</nfx-wmq:distLists>
+    <nfx-wmq:hardenGetBackout>0</nfx-wmq:hardenGetBackout>
+    <nfx-wmq:inhibitGet>0</nfx-wmq:inhibitGet>
+    <nfx-wmq:inhibitPut>0</nfx-wmq:inhibitPut>
+    <nfx-wmq:initiationQueueName>nfx-wmq:initiationQueueName</nfx-wmq:initiationQueueName>
+    <nfx-wmq:maxMsgLength>0</nfx-wmq:maxMsgLength>
+    <nfx-wmq:maxQueueDepth>0</nfx-wmq:maxQueueDepth>
+    <nfx-wmq:msgDeliverySequence>0</nfx-wmq:msgDeliverySequence>
+    <nfx-wmq:openInputCount>0</nfx-wmq:openInputCount>
+    <nfx-wmq:openOutputCount>0</nfx-wmq:openOutputCount>
+    <nfx-wmq:processName>nfx-wmq:processName</nfx-wmq:processName>
+    <nfx-wmq:queueName>nfx-wmq:queueName</nfx-wmq:queueName>
+    <nfx-wmq:queueType>0</nfx-wmq:queueType>
+    <nfx-wmq:queueDesc>nfx-wmq:queueDesc</nfx-wmq:queueDesc>
+    <nfx-wmq:queueDepthHighEvent>0</nfx-wmq:queueDepthHighEvent>
+    <nfx-wmq:queueDepthHighLimit>0</nfx-wmq:queueDepthHighLimit>
+    <nfx-wmq:queueDepthLowEvent>0</nfx-wmq:queueDepthLowEvent>
+    <nfx-wmq:queueDepthLowLimit>0</nfx-wmq:queueDepthLowLimit>
+    <nfx-wmq:queueDepthMaxEvent>0</nfx-wmq:queueDepthMaxEvent>
+    <nfx-wmq:queueServiceInterval>0</nfx-wmq:queueServiceInterval>
+    <nfx-wmq:queueServiceIntervalEvent>0</nfx-wmq:queueServiceIntervalEvent>
+    <nfx-wmq:retentionInterval>0</nfx-wmq:retentionInterval>
+    <nfx-wmq:scope>0</nfx-wmq:scope>
+    <nfx-wmq:shareability>0</nfx-wmq:shareability>
+    <nfx-wmq:triggerControl>0</nfx-wmq:triggerControl>
+    <nfx-wmq:triggerData>nfx-wmq:triggerData</nfx-wmq:triggerData>
+    <nfx-wmq:triggerDepth>0</nfx-wmq:triggerDepth>
+    <nfx-wmq:triggerMsgPriority>0</nfx-wmq:triggerMsgPriority>
+    <nfx-wmq:triggerType>0</nfx-wmq:triggerType>
+    <nfx-wmq:usage>0</nfx-wmq:usage>
+    <nfx-wmq:currentQueueDepth>0</nfx-wmq:currentQueueDepth>
+  </nfx-wmqmsg:queue>
+</nfx-wmqmsg:GetQueueOut>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2007 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:msg="urn:netflexity:schema:software:qflex:license:messages:1.0"
+                  xmlns:tns="urn:netflexity:ws:software:qflex:license:service:1.0"
+                  targetNamespace="urn:netflexity:ws:software:qflex:license:service:1.0">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:netflexity:schema:software:qflex:license:messages:1.0" schemaLocation="qflex-license-messages-1.0.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    
+    <wsdl:message name="createLeadRequest">
+        <wsdl:part element="msg:CreateLeadRequest" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="createLeadResponse">
+        <wsdl:part element="msg:CreateLeadResponse" name="body"/>
+    </wsdl:message>
+
+    <wsdl:message name="createCustomerRequest">
+        <wsdl:part element="msg:CreateCustomerRequest" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="createCustomerResponse">
+        <wsdl:part element="msg:CreateCustomerResponse" name="body"/>
+    </wsdl:message>
+
+    
+    <wsdl:portType name="QflexLicenseServiceResource">
+        <wsdl:operation name="createLead">
+            <wsdl:input message="tns:createLeadRequest"/>
+            <wsdl:output message="tns:createLeadResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createCustomer">
+            <wsdl:input message="tns:createCustomerRequest"/>
+            <wsdl:output message="tns:createCustomerResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:binding name="QflexLicenseServiceSOAP" type="tns:QflexLicenseServiceResource">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <wsdl:operation name="createLead">
+            <soap:operation soapAction="createLead"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCustomer">
+            <soap:operation soapAction="createCustomer"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+    
+    <wsdl:service name="QflexLicenseService">
+        <wsdl:port binding="tns:QflexLicenseServiceSOAP" name="QflexLicenseServiceSOAP">
+            <soap:address location="http://localhost:8080/qflex-license-generator/services/license"/>
+        </wsdl:port>
+    </wsdl:service>
+    
+</wsdl:definitions>

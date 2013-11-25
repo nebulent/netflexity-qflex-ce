@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    
+    <!-- MessageSource for Service Errors. -->
+    <bean id="serviceErrorsMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="ServiceErrors"/>
+    </bean>
+
+    <!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+        <!--
+                Simple local DataSource that works in any environment.
+                This uses the JDBC DriverManager to obtain connections, and does NOT perform connection
+                pooling. Connection pooling is essential to all real-world applications.
+                This definition is good for getting started, as it introduces no dependencies beyond
+                the JDK, but DriverManagerDataSource is not intended for production usage.
+        -->
+        <!--bean id="qflexDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+                <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/qflex?autoReconnect=true&amp;user=qflex&amp;password=netflexity"/>
+        </bean-->
+
+        <!-- JNDI DataSource for J2EE environments.-->
+    <bean id="qflexDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/QFLEXWS"/>
+    </bean>
+    <!-- ========================= HIBERNATE SESSION FACTORY CONFIGURATION ========================= -->
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="qflexDataSource" />
+        <property name="mappingResources">
+            <list>
+                <value>com/netflexity/qflex/domain/Alert.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/AlertStatusTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/AlertTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Application.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/ApplicationDestination.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Channel.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/CollectionPolicies.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Company.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/CompressionPolicies.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/CriticalityTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/FrequencyTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/IdleReasonTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/IntervalTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MessagePurgerPolicies.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MessageTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Monitor.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MonitorsAlertTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MonitorsPollingPolicies.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MonitorsRecoveryActions.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MonitorTemplates.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/MonitorTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/PollingPolicies.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Principals.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/QflexProperties.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Qmanager.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Queue.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/QueueStat.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/QueueStatsIdleness.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/RecoveryActions.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/RecoveryTypes.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/Reports.hbm.xml</value>
+                <value>com/netflexity/qflex/domain/TrigConditionTypes.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--prop key="hbm2ddl.auto">update</prop-->
+            </props>
+        </property>
+        <!--property name="entityInterceptor">
+                    <bean class="com.netflexity.qflex.business.dao.interceptor.AuditInterceptor"/>
+                </property-->
+    </bean>
+
+    <!-- ========================= TRANSACTION MANAGER ========================= -->
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- ========================= DAOs ========================= -->
+
+    <bean id="alertDao" class="com.netflexity.qflex.business.dao.AlertDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="applicationDao" class="com.netflexity.qflex.business.dao.ApplicationDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="principalDao" class="com.netflexity.qflex.business.dao.PrincipalDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="qmanagerDao" class="com.netflexity.qflex.business.dao.QmanagerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+
+    <!-- ========================= SERVICES ========================= -->
+
+    <bean id="qflexService" class="com.netflexity.qflex.business.service.QflexServiceImpl" lazy-init="true">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="serviceErrorsMessageSource" ref="serviceErrorsMessageSource"/>
+
+        <property name="alertDao" ref="alertDao"/>
+        <property name="applicationDao" ref="applicationDao"/>
+        <property name="principalDao" ref="principalDao"/>
+        <property name="qmanagerDao" ref="qmanagerDao" />
+
+        <property name="mapper">
+            <bean class="org.dozer.DozerBeanMapper" />
+        </property>
+
+    </bean>
+
+
+    <!-- ========================= Blaze DS SERVICES ========================= -->
+    <bean id="blazedsService" class="com.netflexity.ws.qflex.blazeds.BlazeDsQflexServiceImpl">
+        <property name="qflexService" ref="qflexService" />
+    </bean>
+
+</beans>

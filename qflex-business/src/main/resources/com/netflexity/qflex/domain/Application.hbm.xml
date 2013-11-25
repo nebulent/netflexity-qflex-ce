@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Application" table="applications">
+    <id name="applicationId" type="long">
+      <column name="application_id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.netflexity.qflex.domain.Company" fetch="select" name="company">
+      <column name="company_id" not-null="true"/>
+    </many-to-one>
+    <property name="applicationType" type="string">
+      <column length="64" name="application_type" not-null="true"/>
+    </property>
+    <property name="applicationNm" type="string">
+      <column length="64" name="application_nm" not-null="true"/>
+    </property>
+    <property name="description" type="string">
+      <column name="description"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="applicationDestinations" cascade="replicate">
+      <key>
+        <column name="application_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.ApplicationDestination"/>
+    </set>
+  </class>
+  <query name="findApplicationAlerts">
+    	select monitorAlerts
+		from Application app join app.applicationDestinations as appDests join appDests.queue as queues join queues.monitors queueMonitors join queueMonitors.alerts as monitorAlerts
+		where monitorAlerts.alertStatusTypeId = 5 and app.applicationId = :applicationId and monitorAlerts.alert is null
+		order by monitorAlerts.occurrenceStartTm desc
+    </query>
+  <query name="findApplicationAlertSummary">
+    	select new com.netflexity.qflex.business.dao.beans.ApplicationAlertDetails(app.applicationId, app.applicationNm, monitorAlerts.criticalityTypeId, count(monitorAlerts.alertId)) 
+		from Application app join app.applicationDestinations as appDests join appDests.queue as queues join queues.monitors queueMonitors join queueMonitors.alerts as monitorAlerts
+ 		where monitorAlerts.alertStatusTypeId = 5 and monitorAlerts.alert is null
+ 		group by app.applicationId, app.applicationNm, monitorAlerts.criticalityTypeId
+    </query>
+  <query name="findApplicationsStatisticsSummary">
+		select new com.netflexity.qflex.business.dao.beans.ApplicationsStatisticsSummary(app.applicationId, app.applicationNm, appDests.destinationPurposeTypeId, sum(qs.msgOut), sum(qs.msgIn) ) 
+		from Application app join app.applicationDestinations as appDests join appDests.queue as queues join queues.queueStats as qs
+		where app.company.companyId = :companyId
+		and ( (:givenTm BETWEEN qs.fetchStartTm AND qs.fetchEndTm) OR qs.fetchStartTm &gt;= :givenTm)
+		group by app.applicationId, app.applicationNm, appDests.destinationPurposeTypeId
+		order by app.applicationNm, appDests.destinationPurposeTypeId
+    </query>
+</hibernate-mapping>

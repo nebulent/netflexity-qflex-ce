@@ -1,0 +1,1922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="wmq" soapui-version="3.0.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WMQServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://netflexity.com/software/service/wmq/1.0}WMQServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8480/qflex-agent-web/wmq?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8480/qflex-agent-web/wmq?wsdl"><con:part><con:url>http://localhost:8480/qflex-agent-web/wmq?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="WMQServiceImplService" targetNamespace="http://netflexity.com/software/service/wmq/1.0" xmlns:ns1="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://netflexity.com/software/service/wmq/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" version="1.0" xmlns:tns="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="QmanagerType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseQmanagerType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="authorityEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="channelAutoDef" type="xs:int"/>
+              <xs:element minOccurs="0" name="channelAutoDefEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="channelAutoDefExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterWorkloadData" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterWorkloadExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterWorkloadLength" type="xs:int"/>
+              <xs:element minOccurs="0" name="codedCharSetId" type="xs:int"/>
+              <xs:element minOccurs="0" name="commandLevel" type="xs:int"/>
+              <xs:element minOccurs="0" name="distLists" type="xs:int"/>
+              <xs:element minOccurs="0" name="inhibitEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="localEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxHandles" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxMsgLength" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxPriority" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxUncommittedMsgs" type="xs:int"/>
+              <xs:element minOccurs="0" name="performanceEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="remoteEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="repositoryName" type="xs:string"/>
+              <xs:element minOccurs="0" name="repositoryNameList" type="xs:string"/>
+              <xs:element minOccurs="0" name="startStopEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="syncPoint" type="xs:int"/>
+              <xs:element minOccurs="0" name="triggerInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="sslCertificateRepositoryList" type="xs:string"/>
+              <xs:element minOccurs="0" name="sslKeyRepository" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BaseQmanagerType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="identifier" type="xs:string"/>
+          <xs:element minOccurs="0" name="commandInputQName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deadLetterQName" type="xs:string"/>
+          <xs:element minOccurs="0" name="defXmitQName" type="xs:string"/>
+          <xs:element minOccurs="0" name="platform" type="xs:int"/>
+          <xs:element minOccurs="0" name="alterationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConnectionType">
+        <xs:sequence>
+          <xs:element name="host" type="xs:string"/>
+          <xs:element name="port" type="xs:int"/>
+          <xs:element name="qmanagerName" type="xs:string"/>
+          <xs:element name="channelName" type="xs:string"/>
+          <xs:element minOccurs="0" name="commandServerQueueName" type="xs:string"/>
+          <xs:element minOccurs="0" name="commandServerReplyQueueName" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataRootDirectory" type="xs:string"/>
+          <xs:element minOccurs="0" name="wmqVersion" type="xs:string"/>
+          <xs:element minOccurs="0" name="os" type="xs:string"/>
+          <xs:element minOccurs="0" name="ssh" type="tns:SshType"/>
+          <xs:element minOccurs="0" name="ssl" type="tns:SslType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SshType">
+        <xs:sequence>
+          <xs:element default="22" name="port" type="xs:int"/>
+          <xs:element name="username" type="xs:string"/>
+          <xs:element name="password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SslType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="keystore" type="xs:string"/>
+          <xs:element minOccurs="0" name="keystorePassword" type="xs:string"/>
+          <xs:element minOccurs="0" name="truststore" type="xs:string"/>
+          <xs:element minOccurs="0" name="truststorePassword" type="xs:string"/>
+          <xs:element name="cipherSuite" type="xs:string"/>
+          <xs:element minOccurs="0" name="peerName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ChannelType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseChannelType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="batchHeartbeat" type="xs:int"/>
+              <xs:element minOccurs="0" name="batchInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="batchSize" type="xs:int"/>
+              <xs:element minOccurs="0" name="instanceType" type="xs:int"/>
+              <xs:element minOccurs="0" name="startDate" type="xs:date"/>
+              <xs:element minOccurs="0" name="startTime" type="xs:time"/>
+              <xs:element minOccurs="0" name="clusterName" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterNamelist" type="xs:string"/>
+              <xs:element minOccurs="0" name="connectionName" type="xs:string"/>
+              <xs:element minOccurs="0" name="dataConversion" type="xs:int"/>
+              <xs:element minOccurs="0" name="discInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="heartbeatInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="localAddress" type="xs:string"/>
+              <xs:element minOccurs="0" name="longRetryCount" type="xs:int"/>
+              <xs:element minOccurs="0" name="longRetryInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="maxMsgLength" type="xs:int"/>
+              <xs:element minOccurs="0" name="mcaName" type="xs:string"/>
+              <xs:element minOccurs="0" name="mcaType" type="xs:int"/>
+              <xs:element minOccurs="0" name="mcaUserIdentifier" type="xs:string"/>
+              <xs:element minOccurs="0" name="modeName" type="xs:string"/>
+              <xs:element minOccurs="0" name="msgExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="msgRetryCount" type="xs:int"/>
+              <xs:element minOccurs="0" name="msgRetryExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="msgRetryInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="msgRetryUserData" type="xs:string"/>
+              <xs:element minOccurs="0" name="msgUserData" type="xs:string"/>
+              <xs:element minOccurs="0" name="networkPriority" type="xs:int"/>
+              <xs:element minOccurs="0" name="nonPersistentMsgSpeed" type="xs:int"/>
+              <xs:element minOccurs="0" name="userIdentifier" type="xs:string"/>
+              <xs:element minOccurs="0" name="password" type="xs:string"/>
+              <xs:element minOccurs="0" name="tpName" type="xs:string"/>
+              <xs:element minOccurs="0" name="receiveExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="receiveUserData" type="xs:string"/>
+              <xs:element minOccurs="0" name="securityExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="securityUserData" type="xs:string"/>
+              <xs:element minOccurs="0" name="sendExit" type="xs:string"/>
+              <xs:element minOccurs="0" name="sendUserData" type="xs:string"/>
+              <xs:element minOccurs="0" name="seqNumberWrap" type="xs:int"/>
+              <xs:element minOccurs="0" name="shortRetryCount" type="xs:int"/>
+              <xs:element minOccurs="0" name="shortRetryInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="sslCipherSpec" type="xs:string"/>
+              <xs:element minOccurs="0" name="sslClientAuth" type="xs:int"/>
+              <xs:element minOccurs="0" name="sslPeerName" type="xs:string"/>
+              <xs:element minOccurs="0" name="transportType" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BaseChannelType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="type" type="xs:int"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:int"/>
+          <xs:element minOccurs="0" name="connectionCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="qmanagerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="xmitQueueName" type="xs:string"/>
+          <xs:element minOccurs="0" name="alterationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StringArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="value" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueueStatArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="queueStat" nillable="true" type="tns:QueueStatType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueueStatType">
+        <xs:sequence>
+          <xs:element name="highDepth" type="xs:int"/>
+          <xs:element name="msgDeqCount" type="xs:int"/>
+          <xs:element name="msgEnqCount" type="xs:int"/>
+          <xs:element name="queueName" type="xs:string"/>
+          <xs:element name="timeSinceReset" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueueType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseQueueType">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="backoutRequeueName" type="xs:string"/>
+              <xs:element minOccurs="0" name="backoutThreshold" type="xs:int"/>
+              <xs:element minOccurs="0" name="baseQueueName" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterName" type="xs:string"/>
+              <xs:element minOccurs="0" name="clusterNamelist" type="xs:string"/>
+              <xs:element minOccurs="0" name="defBind" type="xs:string"/>
+              <xs:element minOccurs="0" name="defInputOpenOption" type="xs:int"/>
+              <xs:element minOccurs="0" name="defPersistence" type="xs:int"/>
+              <xs:element minOccurs="0" name="defPriority" type="xs:int"/>
+              <xs:element minOccurs="0" name="distLists" type="xs:int"/>
+              <xs:element minOccurs="0" name="hardenGetBackout" type="xs:int"/>
+              <xs:element minOccurs="0" name="initiationQueueName" type="xs:string"/>
+              <xs:element minOccurs="0" name="msgDeliverySequence" type="xs:int"/>
+              <xs:element minOccurs="0" name="processName" type="xs:string"/>
+              <xs:element minOccurs="0" name="depthHighEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="depthHighLimit" type="xs:int"/>
+              <xs:element minOccurs="0" name="depthLowEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="depthLowLimit" type="xs:int"/>
+              <xs:element minOccurs="0" name="depthMaxEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="serviceInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="serviceIntervalEvent" type="xs:int"/>
+              <xs:element minOccurs="0" name="retentionInterval" type="xs:int"/>
+              <xs:element minOccurs="0" name="scope" type="xs:int"/>
+              <xs:element minOccurs="0" name="shareability" type="xs:int"/>
+              <xs:element minOccurs="0" name="triggerControl" type="xs:int"/>
+              <xs:element minOccurs="0" name="triggerData" type="xs:string"/>
+              <xs:element minOccurs="0" name="triggerDepth" type="xs:int"/>
+              <xs:element minOccurs="0" name="triggerMsgPriority" type="xs:int"/>
+              <xs:element minOccurs="0" name="triggerType" type="xs:int"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BaseQueueType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="type" type="xs:int"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="inhibitGet" type="xs:int"/>
+          <xs:element minOccurs="0" name="inhibitPut" type="xs:int"/>
+          <xs:element minOccurs="0" name="openInputCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="openOutputCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="currentDepth" type="xs:int"/>
+          <xs:element minOccurs="0" name="maxDepth" type="xs:int"/>
+          <xs:element minOccurs="0" name="maxMsgLength" type="xs:int"/>
+          <xs:element minOccurs="0" name="defType" type="xs:int"/>
+          <xs:element minOccurs="0" name="usage" type="xs:int"/>
+          <xs:element minOccurs="0" name="alterationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BaseQueueArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="queue" nillable="true" type="tns:BaseQueueType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BaseChannelArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="channel" nillable="true" type="tns:BaseChannelType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MqMessageArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="message" nillable="true" type="tns:MqMessageType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MqMessageType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="data" type="xs:string"/>
+          <xs:element minOccurs="0" name="header" type="tns:MqMessageHeaderType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MqMessageHeaderType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="messageFormat" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:string"/>
+          <xs:element minOccurs="0" name="codePage" type="xs:int"/>
+          <xs:element minOccurs="0" name="putTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="expiry" type="xs:int"/>
+          <xs:element minOccurs="0" name="correlationId" type="xs:string"/>
+          <xs:element minOccurs="0" name="groupId" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicationId" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicationOrigin" type="xs:string"/>
+          <xs:element minOccurs="0" name="putApplicationName" type="xs:string"/>
+          <xs:element minOccurs="0" name="replyToQmanagerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="replyToQueueName" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountingToken" type="xs:string"/>
+          <xs:element minOccurs="0" name="messageFlags" type="xs:int"/>
+          <xs:element minOccurs="0" name="originalLength" type="xs:int"/>
+          <xs:element minOccurs="0" name="backoutCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="offset" type="xs:int"/>
+          <xs:element minOccurs="0" name="priority" type="xs:int"/>
+          <xs:element minOccurs="0" name="messageSequenceNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="feedback" type="xs:int"/>
+          <xs:element minOccurs="0" name="characterSet" type="xs:int"/>
+          <xs:element minOccurs="0" name="encoding" type="xs:int"/>
+          <xs:element minOccurs="0" name="messageType" type="xs:int"/>
+          <xs:element minOccurs="0" name="segment" type="xs:int"/>
+          <xs:element minOccurs="0" name="persistence" type="xs:int"/>
+          <xs:element minOccurs="0" name="exception" type="xs:int"/>
+          <xs:element minOccurs="0" name="expiration" type="xs:int"/>
+          <xs:element minOccurs="0" name="coa" type="xs:int"/>
+          <xs:element minOccurs="0" name="cod" type="xs:int"/>
+          <xs:element minOccurs="0" name="pan" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="nan" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="passCorrelationId" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FdcFileType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accessDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="access" type="xs:string"/>
+          <xs:element minOccurs="0" name="user" type="xs:string"/>
+          <xs:element minOccurs="0" name="group" type="xs:string"/>
+          <xs:element minOccurs="0" name="linksCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="size" type="xs:int"/>
+          <xs:element name="fileName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AmqRecordType">
+        <xs:sequence>
+          <xs:element name="errorCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="firstOccurrence" type="xs:int"/>
+          <xs:element minOccurs="0" name="lastOccurrence" type="xs:int"/>
+          <xs:element name="count" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TopicArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="topic" nillable="true" type="tns:TopicType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TopicType">
+        <xs:complexContent>
+          <xs:extension base="tns:BaseTopicType">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BaseTopicType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="type" type="xs:int"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:int"/>
+          <xs:element minOccurs="0" name="connectionCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="qmanagerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="xmitQueueName" type="xs:string"/>
+          <xs:element minOccurs="0" name="alterationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QueueArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="queue" nillable="true" type="tns:QueueType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ChannelArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="channel" nillable="true" type="tns:ChannelType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FdcFileArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="file" nillable="true" type="tns:FdcFileType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QmanagerArrayType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="qmanager" nillable="true" type="tns:QmanagerType"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" version="1.0" xmlns:ns1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:com:netflexity:schema:software:nfx-wmq:types:1.0"/>
+      <xs:element name="ConsumeMessagesByIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="messageIds" type="ns1:StringArrayType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConsumeMessagesByIdsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="messages" type="ns1:MqMessageArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConsumeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="requestQueueName" type="xs:string"/>
+            <xs:element name="modelQueueName" type="xs:string"/>
+            <xs:element name="waitInterval" type="xs:int"/>
+            <xs:element name="message" type="ns1:MqMessageType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConsumeRequestOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="message" type="ns1:MqMessageType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBaseChannels">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBaseChannelsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="channels" type="ns1:BaseChannelArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBaseQueues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBaseQueuesOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="queues" type="ns1:BaseQueueArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllChannels">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllChannelsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="channels" type="ns1:ChannelArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllMessages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllMessagesOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="messages" type="ns1:MqMessageArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllQueues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllQueuesOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="queues" type="ns1:QueueArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetChannel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="channelName" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetChannelOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="channel" type="ns1:ChannelType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetErrorCodeOnInterval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="errorCode" type="xs:string"/>
+            <xs:element name="startDateTime" type="xs:dateTime"/>
+            <xs:element name="endDateTime" type="xs:dateTime"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetErrorCodeOnIntervalOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="amqRecord" type="ns1:AmqRecordType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessageByHexId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="hexMessageId" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessageByHexIdOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="message" type="ns1:MqMessageType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessageIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="howMany" type="xs:int"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessageIdsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="messageIds" type="ns1:StringArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessagesByIds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="hexMessageIds" type="ns1:StringArrayType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMessagesByIdsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="messages" type="ns1:MqMessageArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNewFdcFilesOnInterval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="errorCode" type="xs:string"/>
+            <xs:element name="startDateTime" type="xs:dateTime"/>
+            <xs:element name="endDateTime" type="xs:dateTime"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetNewFdcFilesOnIntervalOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="files" type="ns1:FdcFileArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQmanager">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQmanagerOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="qmanager" type="ns1:QmanagerType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQueue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQueueOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queue" type="ns1:QueueType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQueueStats">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="excludeQueueNames" type="ns1:StringArrayType"/>
+            <xs:element name="includeQueueNames" type="ns1:StringArrayType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetQueueStatsOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="queueStats" type="ns1:QueueStatArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSelectedMessages">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="start" type="xs:int"/>
+            <xs:element name="end" type="xs:int"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSelectedMessagesOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="messages" type="ns1:MqMessageArrayType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsCommandServerUp">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsCommandServerUpOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsQmanagerUp">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsQmanagerUpOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PutMessage">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="message" type="ns1:MqMessageType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PutMessageOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="message" type="ns1:MqMessageType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveChannel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="channelName" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveChannelOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveQueue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queueName" type="xs:string"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RemoveQueueOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetChannel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="channel" type="ns1:ChannelType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetChannelOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="channel" type="ns1:ChannelType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetQmanager">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="qmanager" type="ns1:QmanagerType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetQmanagerOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="qmanager" type="ns1:QmanagerType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetQueue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queue" type="ns1:QueueType"/>
+            <xs:element name="connection" type="ns1:ConnectionType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetQueueOut">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="queue" type="ns1:QueueType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WMQFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reason" type="xs:string"/>
+            <xs:element minOccurs="0" name="reasonCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getQmanager">
+    <wsdl:part element="ns1:GetQmanager" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setQmanager">
+    <wsdl:part element="ns1:SetQmanager" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeChannelResponse">
+    <wsdl:part element="ns1:RemoveChannelOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setQueue">
+    <wsdl:part element="ns1:SetQueue" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isQmanagerUp">
+    <wsdl:part element="ns1:IsQmanagerUp" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isCommandServerUp">
+    <wsdl:part element="ns1:IsCommandServerUp" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQueue">
+    <wsdl:part element="ns1:GetQueue" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeQueue">
+    <wsdl:part element="ns1:RemoveQueue" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeQueueResponse">
+    <wsdl:part element="ns1:RemoveQueueOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQueueResponse">
+    <wsdl:part element="ns1:GetQueueOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQmanagerResponse">
+    <wsdl:part element="ns1:GetQmanagerOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isQmanagerUpResponse">
+    <wsdl:part element="ns1:IsQmanagerUpOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQueueStatsResponse">
+    <wsdl:part element="ns1:GetQueueStatsOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="WMQFaultMessage">
+    <wsdl:part element="ns1:WMQFault" name="WMQFaultMessage"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllQueuesResponse">
+    <wsdl:part element="ns1:GetAllBaseQueuesOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllChannelsResponse">
+    <wsdl:part element="ns1:GetAllBaseChannelsOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChannel">
+    <wsdl:part element="ns1:GetChannel" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removeChannel">
+    <wsdl:part element="ns1:RemoveChannel" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllMessages">
+    <wsdl:part element="ns1:GetAllMessages" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setQueueResponse">
+    <wsdl:part element="ns1:SetQueueOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setChannel">
+    <wsdl:part element="ns1:SetChannel" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setChannelResponse">
+    <wsdl:part element="ns1:SetChannelOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChannelResponse">
+    <wsdl:part element="ns1:GetChannelOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllChannels">
+    <wsdl:part element="ns1:GetAllBaseChannels" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllQueues">
+    <wsdl:part element="ns1:GetAllBaseQueues" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isCommandServerUpResponse">
+    <wsdl:part element="ns1:IsCommandServerUpOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllMessagesResponse">
+    <wsdl:part element="ns1:GetAllMessagesOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQueueStats">
+    <wsdl:part element="ns1:GetQueueStats" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setQmanagerResponse">
+    <wsdl:part element="ns1:SetQmanagerOut" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WMQ">
+    <wsdl:operation name="setQmanager">
+      <wsdl:input message="tns:setQmanager" name="setQmanager"></wsdl:input>
+      <wsdl:output message="tns:setQmanagerResponse" name="setQmanagerResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setChannel">
+      <wsdl:input message="tns:setChannel" name="setChannel"></wsdl:input>
+      <wsdl:output message="tns:setChannelResponse" name="setChannelResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQueueStats">
+      <wsdl:input message="tns:getQueueStats" name="getQueueStats"></wsdl:input>
+      <wsdl:output message="tns:getQueueStatsResponse" name="getQueueStatsResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setQueue">
+      <wsdl:input message="tns:setQueue" name="setQueue"></wsdl:input>
+      <wsdl:output message="tns:setQueueResponse" name="setQueueResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQmanager">
+      <wsdl:input message="tns:getQmanager" name="getQmanager"></wsdl:input>
+      <wsdl:output message="tns:getQmanagerResponse" name="getQmanagerResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getChannel">
+      <wsdl:input message="tns:getChannel" name="getChannel"></wsdl:input>
+      <wsdl:output message="tns:getChannelResponse" name="getChannelResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isQmanagerUp">
+      <wsdl:input message="tns:isQmanagerUp" name="isQmanagerUp"></wsdl:input>
+      <wsdl:output message="tns:isQmanagerUpResponse" name="isQmanagerUpResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isCommandServerUp">
+      <wsdl:input message="tns:isCommandServerUp" name="isCommandServerUp"></wsdl:input>
+      <wsdl:output message="tns:isCommandServerUpResponse" name="isCommandServerUpResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllQueues">
+      <wsdl:input message="tns:getAllQueues" name="getAllQueues"></wsdl:input>
+      <wsdl:output message="tns:getAllQueuesResponse" name="getAllQueuesResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeChannel">
+      <wsdl:input message="tns:removeChannel" name="removeChannel"></wsdl:input>
+      <wsdl:output message="tns:removeChannelResponse" name="removeChannelResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQueue">
+      <wsdl:input message="tns:getQueue" name="getQueue"></wsdl:input>
+      <wsdl:output message="tns:getQueueResponse" name="getQueueResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeQueue">
+      <wsdl:input message="tns:removeQueue" name="removeQueue"></wsdl:input>
+      <wsdl:output message="tns:removeQueueResponse" name="removeQueueResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllChannels">
+      <wsdl:input message="tns:getAllChannels" name="getAllChannels"></wsdl:input>
+      <wsdl:output message="tns:getAllChannelsResponse" name="getAllChannelsResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMessages">
+      <wsdl:input message="tns:getAllMessages" name="getAllMessages"></wsdl:input>
+      <wsdl:output message="tns:getAllMessagesResponse" name="getAllMessagesResponse"></wsdl:output>
+      <wsdl:fault message="tns:WMQFaultMessage" name="WMQFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WMQServiceImplServiceSoapBinding" type="tns:WMQ">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="setQmanager">
+      <soap:operation soapAction="setQmanager" style="document"/>
+      <wsdl:input name="setQmanager">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setQmanagerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setChannel">
+      <soap:operation soapAction="setChannel" style="document"/>
+      <wsdl:input name="setChannel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setChannelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQueueStats">
+      <soap:operation soapAction="getQueueStats" style="document"/>
+      <wsdl:input name="getQueueStats">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQueueStatsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setQueue">
+      <soap:operation soapAction="setQueue" style="document"/>
+      <wsdl:input name="setQueue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setQueueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getChannel">
+      <soap:operation soapAction="getChannel" style="document"/>
+      <wsdl:input name="getChannel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getChannelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQmanager">
+      <soap:operation soapAction="getQmanager" style="document"/>
+      <wsdl:input name="getQmanager">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQmanagerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isQmanagerUp">
+      <soap:operation soapAction="isQmanagerUp" style="document"/>
+      <wsdl:input name="isQmanagerUp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isQmanagerUpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllQueues">
+      <soap:operation soapAction="getAllQueues" style="document"/>
+      <wsdl:input name="getAllQueues">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllQueuesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isCommandServerUp">
+      <soap:operation soapAction="isCommandServerUp" style="document"/>
+      <wsdl:input name="isCommandServerUp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isCommandServerUpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQueue">
+      <soap:operation soapAction="getQueue" style="document"/>
+      <wsdl:input name="getQueue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQueueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeChannel">
+      <soap:operation soapAction="removeChannel" style="document"/>
+      <wsdl:input name="removeChannel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeChannelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeQueue">
+      <soap:operation soapAction="removeQueue" style="document"/>
+      <wsdl:input name="removeQueue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removeQueueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllChannels">
+      <soap:operation soapAction="getAllChannels" style="document"/>
+      <wsdl:input name="getAllChannels">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllChannelsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMessages">
+      <soap:operation soapAction="getAllMessages" style="document"/>
+      <wsdl:input name="getAllMessages">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllMessagesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WMQFaultMessage">
+        <soap:fault name="WMQFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WMQServiceImplService">
+    <wsdl:port binding="tns:WMQServiceImplServiceSoapBinding" name="WMQPort">
+      <soap:address location="http://localhost:8480/qflex-agent-web/wmq"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint></con:endpoints><con:operation isOneWay="false" action="getAllChannels" name="getAllChannels" bindingOperationName="getAllChannels" type="Request-Response" outputName="getAllChannelsResponse" inputName="getAllChannels" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllBaseChannels>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetAllBaseChannels>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAllChannels"/></con:call></con:operation><con:operation isOneWay="false" action="getAllMessages" name="getAllMessages" bindingOperationName="getAllMessages" type="Request-Response" outputName="getAllMessagesResponse" inputName="getAllMessages" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllMessages>
+         <urn:queueName>?</urn:queueName>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetAllMessages>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAllMessages"/></con:call></con:operation><con:operation isOneWay="false" action="getAllQueues" name="getAllQueues" bindingOperationName="getAllQueues" type="Request-Response" outputName="getAllQueuesResponse" inputName="getAllQueues" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+
+   <soapenv:Header/>
+
+   <soapenv:Body>
+
+      <urn:GetAllBaseQueues>
+
+         <urn:connection>
+
+            <urn1:host>ec2-75-101-183-104.compute-1.amazonaws.com</urn1:host>
+
+            <urn1:port>1414</urn1:port>
+
+            <urn1:qmanagerName>NF01</urn1:qmanagerName>
+
+            <urn1:channelName>QFLEX01.SVRCONN</urn1:channelName>
+
+         </urn:connection>
+
+      </urn:GetAllBaseQueues>
+
+   </soapenv:Body>
+
+</soapenv:Envelope>
+]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAllQueues"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="getChannel" name="getChannel" bindingOperationName="getChannel" type="Request-Response" outputName="getChannelResponse" inputName="getChannel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetChannel>
+         <urn:channelName>?</urn:channelName>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetChannel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getChannel"/></con:call></con:operation><con:operation isOneWay="false" action="getQmanager" name="getQmanager" bindingOperationName="getQmanager" type="Request-Response" outputName="getQmanagerResponse" inputName="getQmanager" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetQmanager>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetQmanager>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getQmanager"/></con:call></con:operation><con:operation isOneWay="false" action="getQueue" name="getQueue" bindingOperationName="getQueue" type="Request-Response" outputName="getQueueResponse" inputName="getQueue" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetQueue>
+         <urn:queueName>?</urn:queueName>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetQueue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getQueue"/></con:call></con:operation><con:operation isOneWay="false" action="getQueueStats" name="getQueueStats" bindingOperationName="getQueueStats" type="Request-Response" outputName="getQueueStatsResponse" inputName="getQueueStats" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetQueueStats>
+         <urn:excludeQueueNames>
+            <!--Zero or more repetitions:-->
+            <urn1:value>?</urn1:value>
+         </urn:excludeQueueNames>
+         <urn:includeQueueNames>
+            <!--Zero or more repetitions:-->
+            <urn1:value>?</urn1:value>
+         </urn:includeQueueNames>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:GetQueueStats>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="getQueueStats"/></con:call></con:operation><con:operation isOneWay="false" action="isCommandServerUp" name="isCommandServerUp" bindingOperationName="isCommandServerUp" type="Request-Response" outputName="isCommandServerUpResponse" inputName="isCommandServerUp" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:IsCommandServerUp>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:IsCommandServerUp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="isCommandServerUp"/></con:call></con:operation><con:operation isOneWay="false" action="isQmanagerUp" name="isQmanagerUp" bindingOperationName="isQmanagerUp" type="Request-Response" outputName="isQmanagerUpResponse" inputName="isQmanagerUp" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:IsQmanagerUp>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:IsQmanagerUp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="isQmanagerUp"/></con:call></con:operation><con:operation isOneWay="false" action="removeChannel" name="removeChannel" bindingOperationName="removeChannel" type="Request-Response" outputName="removeChannelResponse" inputName="removeChannel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RemoveChannel>
+         <urn:channelName>?</urn:channelName>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:RemoveChannel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="removeChannel"/></con:call></con:operation><con:operation isOneWay="false" action="removeQueue" name="removeQueue" bindingOperationName="removeQueue" type="Request-Response" outputName="removeQueueResponse" inputName="removeQueue" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RemoveQueue>
+         <urn:queueName>?</urn:queueName>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:RemoveQueue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="removeQueue"/></con:call></con:operation><con:operation isOneWay="false" action="setChannel" name="setChannel" bindingOperationName="setChannel" type="Request-Response" outputName="setChannelResponse" inputName="setChannel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:SetChannel>
+         <urn:channel>
+            <urn1:name>?</urn1:name>
+            <urn1:type>?</urn1:type>
+            <!--Optional:-->
+            <urn1:description>?</urn1:description>
+            <!--Optional:-->
+            <urn1:status>?</urn1:status>
+            <!--Optional:-->
+            <urn1:connectionCount>?</urn1:connectionCount>
+            <!--Optional:-->
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <!--Optional:-->
+            <urn1:xmitQueueName>?</urn1:xmitQueueName>
+            <!--Optional:-->
+            <urn1:alterationDate>?</urn1:alterationDate>
+            <!--Optional:-->
+            <urn1:creationDate>?</urn1:creationDate>
+            <!--Optional:-->
+            <urn1:batchHeartbeat>?</urn1:batchHeartbeat>
+            <!--Optional:-->
+            <urn1:batchInterval>?</urn1:batchInterval>
+            <!--Optional:-->
+            <urn1:batchSize>?</urn1:batchSize>
+            <!--Optional:-->
+            <urn1:instanceType>?</urn1:instanceType>
+            <!--Optional:-->
+            <urn1:startDate>?</urn1:startDate>
+            <!--Optional:-->
+            <urn1:startTime>?</urn1:startTime>
+            <!--Optional:-->
+            <urn1:clusterName>?</urn1:clusterName>
+            <!--Optional:-->
+            <urn1:clusterNamelist>?</urn1:clusterNamelist>
+            <!--Optional:-->
+            <urn1:connectionName>?</urn1:connectionName>
+            <!--Optional:-->
+            <urn1:dataConversion>?</urn1:dataConversion>
+            <!--Optional:-->
+            <urn1:discInterval>?</urn1:discInterval>
+            <!--Optional:-->
+            <urn1:heartbeatInterval>?</urn1:heartbeatInterval>
+            <!--Optional:-->
+            <urn1:localAddress>?</urn1:localAddress>
+            <!--Optional:-->
+            <urn1:longRetryCount>?</urn1:longRetryCount>
+            <!--Optional:-->
+            <urn1:longRetryInterval>?</urn1:longRetryInterval>
+            <!--Optional:-->
+            <urn1:maxMsgLength>?</urn1:maxMsgLength>
+            <!--Optional:-->
+            <urn1:mcaName>?</urn1:mcaName>
+            <!--Optional:-->
+            <urn1:mcaType>?</urn1:mcaType>
+            <!--Optional:-->
+            <urn1:mcaUserIdentifier>?</urn1:mcaUserIdentifier>
+            <!--Optional:-->
+            <urn1:modeName>?</urn1:modeName>
+            <!--Optional:-->
+            <urn1:msgExit>?</urn1:msgExit>
+            <!--Optional:-->
+            <urn1:msgRetryCount>?</urn1:msgRetryCount>
+            <!--Optional:-->
+            <urn1:msgRetryExit>?</urn1:msgRetryExit>
+            <!--Optional:-->
+            <urn1:msgRetryInterval>?</urn1:msgRetryInterval>
+            <!--Optional:-->
+            <urn1:msgRetryUserData>?</urn1:msgRetryUserData>
+            <!--Optional:-->
+            <urn1:msgUserData>?</urn1:msgUserData>
+            <!--Optional:-->
+            <urn1:networkPriority>?</urn1:networkPriority>
+            <!--Optional:-->
+            <urn1:nonPersistentMsgSpeed>?</urn1:nonPersistentMsgSpeed>
+            <!--Optional:-->
+            <urn1:userIdentifier>?</urn1:userIdentifier>
+            <!--Optional:-->
+            <urn1:password>?</urn1:password>
+            <!--Optional:-->
+            <urn1:tpName>?</urn1:tpName>
+            <!--Optional:-->
+            <urn1:receiveExit>?</urn1:receiveExit>
+            <!--Optional:-->
+            <urn1:receiveUserData>?</urn1:receiveUserData>
+            <!--Optional:-->
+            <urn1:securityExit>?</urn1:securityExit>
+            <!--Optional:-->
+            <urn1:securityUserData>?</urn1:securityUserData>
+            <!--Optional:-->
+            <urn1:sendExit>?</urn1:sendExit>
+            <!--Optional:-->
+            <urn1:sendUserData>?</urn1:sendUserData>
+            <!--Optional:-->
+            <urn1:seqNumberWrap>?</urn1:seqNumberWrap>
+            <!--Optional:-->
+            <urn1:shortRetryCount>?</urn1:shortRetryCount>
+            <!--Optional:-->
+            <urn1:shortRetryInterval>?</urn1:shortRetryInterval>
+            <!--Optional:-->
+            <urn1:sslCipherSpec>?</urn1:sslCipherSpec>
+            <!--Optional:-->
+            <urn1:sslClientAuth>?</urn1:sslClientAuth>
+            <!--Optional:-->
+            <urn1:sslPeerName>?</urn1:sslPeerName>
+            <!--Optional:-->
+            <urn1:transportType>?</urn1:transportType>
+         </urn:channel>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:SetChannel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="setChannel"/></con:call></con:operation><con:operation isOneWay="false" action="setQmanager" name="setQmanager" bindingOperationName="setQmanager" type="Request-Response" outputName="setQmanagerResponse" inputName="setQmanager" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:SetQmanager>
+         <urn:qmanager>
+            <urn1:name>?</urn1:name>
+            <!--Optional:-->
+            <urn1:description>?</urn1:description>
+            <!--Optional:-->
+            <urn1:identifier>?</urn1:identifier>
+            <!--Optional:-->
+            <urn1:commandInputQName>?</urn1:commandInputQName>
+            <!--Optional:-->
+            <urn1:deadLetterQName>?</urn1:deadLetterQName>
+            <!--Optional:-->
+            <urn1:defXmitQName>?</urn1:defXmitQName>
+            <!--Optional:-->
+            <urn1:platform>?</urn1:platform>
+            <!--Optional:-->
+            <urn1:alterationDate>?</urn1:alterationDate>
+            <!--Optional:-->
+            <urn1:creationDate>?</urn1:creationDate>
+            <!--Optional:-->
+            <urn1:authorityEvent>?</urn1:authorityEvent>
+            <!--Optional:-->
+            <urn1:channelAutoDef>?</urn1:channelAutoDef>
+            <!--Optional:-->
+            <urn1:channelAutoDefEvent>?</urn1:channelAutoDefEvent>
+            <!--Optional:-->
+            <urn1:channelAutoDefExit>?</urn1:channelAutoDefExit>
+            <!--Optional:-->
+            <urn1:clusterWorkloadData>?</urn1:clusterWorkloadData>
+            <!--Optional:-->
+            <urn1:clusterWorkloadExit>?</urn1:clusterWorkloadExit>
+            <!--Optional:-->
+            <urn1:clusterWorkloadLength>?</urn1:clusterWorkloadLength>
+            <!--Optional:-->
+            <urn1:codedCharSetId>?</urn1:codedCharSetId>
+            <!--Optional:-->
+            <urn1:commandLevel>?</urn1:commandLevel>
+            <!--Optional:-->
+            <urn1:distLists>?</urn1:distLists>
+            <!--Optional:-->
+            <urn1:inhibitEvent>?</urn1:inhibitEvent>
+            <!--Optional:-->
+            <urn1:localEvent>?</urn1:localEvent>
+            <!--Optional:-->
+            <urn1:maxHandles>?</urn1:maxHandles>
+            <!--Optional:-->
+            <urn1:maxMsgLength>?</urn1:maxMsgLength>
+            <!--Optional:-->
+            <urn1:maxPriority>?</urn1:maxPriority>
+            <!--Optional:-->
+            <urn1:maxUncommittedMsgs>?</urn1:maxUncommittedMsgs>
+            <!--Optional:-->
+            <urn1:performanceEvent>?</urn1:performanceEvent>
+            <!--Optional:-->
+            <urn1:remoteEvent>?</urn1:remoteEvent>
+            <!--Optional:-->
+            <urn1:repositoryName>?</urn1:repositoryName>
+            <!--Optional:-->
+            <urn1:repositoryNameList>?</urn1:repositoryNameList>
+            <!--Optional:-->
+            <urn1:startStopEvent>?</urn1:startStopEvent>
+            <!--Optional:-->
+            <urn1:syncPoint>?</urn1:syncPoint>
+            <!--Optional:-->
+            <urn1:triggerInterval>?</urn1:triggerInterval>
+            <!--Optional:-->
+            <urn1:sslCertificateRepositoryList>?</urn1:sslCertificateRepositoryList>
+            <!--Optional:-->
+            <urn1:sslKeyRepository>?</urn1:sslKeyRepository>
+         </urn:qmanager>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:SetQmanager>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="setQmanager"/></con:call></con:operation><con:operation isOneWay="false" action="setQueue" name="setQueue" bindingOperationName="setQueue" type="Request-Response" outputName="setQueueResponse" inputName="setQueue" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8480/qflex-agent-web/wmq</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:SetQueue>
+         <urn:queue>
+            <urn1:name>?</urn1:name>
+            <urn1:type>?</urn1:type>
+            <!--Optional:-->
+            <urn1:description>?</urn1:description>
+            <!--Optional:-->
+            <urn1:inhibitGet>?</urn1:inhibitGet>
+            <!--Optional:-->
+            <urn1:inhibitPut>?</urn1:inhibitPut>
+            <!--Optional:-->
+            <urn1:openInputCount>?</urn1:openInputCount>
+            <!--Optional:-->
+            <urn1:openOutputCount>?</urn1:openOutputCount>
+            <!--Optional:-->
+            <urn1:currentDepth>?</urn1:currentDepth>
+            <!--Optional:-->
+            <urn1:maxDepth>?</urn1:maxDepth>
+            <!--Optional:-->
+            <urn1:maxMsgLength>?</urn1:maxMsgLength>
+            <!--Optional:-->
+            <urn1:defType>?</urn1:defType>
+            <!--Optional:-->
+            <urn1:usage>?</urn1:usage>
+            <!--Optional:-->
+            <urn1:alterationDate>?</urn1:alterationDate>
+            <!--Optional:-->
+            <urn1:creationDate>?</urn1:creationDate>
+            <!--Optional:-->
+            <urn1:backoutRequeueName>?</urn1:backoutRequeueName>
+            <!--Optional:-->
+            <urn1:backoutThreshold>?</urn1:backoutThreshold>
+            <!--Optional:-->
+            <urn1:baseQueueName>?</urn1:baseQueueName>
+            <!--Optional:-->
+            <urn1:clusterName>?</urn1:clusterName>
+            <!--Optional:-->
+            <urn1:clusterNamelist>?</urn1:clusterNamelist>
+            <!--Optional:-->
+            <urn1:defBind>?</urn1:defBind>
+            <!--Optional:-->
+            <urn1:defInputOpenOption>?</urn1:defInputOpenOption>
+            <!--Optional:-->
+            <urn1:defPersistence>?</urn1:defPersistence>
+            <!--Optional:-->
+            <urn1:defPriority>?</urn1:defPriority>
+            <!--Optional:-->
+            <urn1:distLists>?</urn1:distLists>
+            <!--Optional:-->
+            <urn1:hardenGetBackout>?</urn1:hardenGetBackout>
+            <!--Optional:-->
+            <urn1:initiationQueueName>?</urn1:initiationQueueName>
+            <!--Optional:-->
+            <urn1:msgDeliverySequence>?</urn1:msgDeliverySequence>
+            <!--Optional:-->
+            <urn1:processName>?</urn1:processName>
+            <!--Optional:-->
+            <urn1:depthHighEvent>?</urn1:depthHighEvent>
+            <!--Optional:-->
+            <urn1:depthHighLimit>?</urn1:depthHighLimit>
+            <!--Optional:-->
+            <urn1:depthLowEvent>?</urn1:depthLowEvent>
+            <!--Optional:-->
+            <urn1:depthLowLimit>?</urn1:depthLowLimit>
+            <!--Optional:-->
+            <urn1:depthMaxEvent>?</urn1:depthMaxEvent>
+            <!--Optional:-->
+            <urn1:serviceInterval>?</urn1:serviceInterval>
+            <!--Optional:-->
+            <urn1:serviceIntervalEvent>?</urn1:serviceIntervalEvent>
+            <!--Optional:-->
+            <urn1:retentionInterval>?</urn1:retentionInterval>
+            <!--Optional:-->
+            <urn1:scope>?</urn1:scope>
+            <!--Optional:-->
+            <urn1:shareability>?</urn1:shareability>
+            <!--Optional:-->
+            <urn1:triggerControl>?</urn1:triggerControl>
+            <!--Optional:-->
+            <urn1:triggerData>?</urn1:triggerData>
+            <!--Optional:-->
+            <urn1:triggerDepth>?</urn1:triggerDepth>
+            <!--Optional:-->
+            <urn1:triggerMsgPriority>?</urn1:triggerMsgPriority>
+            <!--Optional:-->
+            <urn1:triggerType>?</urn1:triggerType>
+         </urn:queue>
+         <urn:connection>
+            <urn1:host>?</urn1:host>
+            <urn1:port>?</urn1:port>
+            <urn1:qmanagerName>?</urn1:qmanagerName>
+            <urn1:channelName>?</urn1:channelName>
+            <!--Optional:-->
+            <urn1:commandServerQueueName>?</urn1:commandServerQueueName>
+            <!--Optional:-->
+            <urn1:commandServerReplyQueueName>?</urn1:commandServerReplyQueueName>
+            <!--Optional:-->
+            <urn1:dataRootDirectory>?</urn1:dataRootDirectory>
+            <!--Optional:-->
+            <urn1:wmqVersion>?</urn1:wmqVersion>
+            <!--Optional:-->
+            <urn1:os>?</urn1:os>
+            <!--Optional:-->
+            <urn1:ssh>
+               <urn1:port>22</urn1:port>
+               <urn1:username>?</urn1:username>
+               <urn1:password>?</urn1:password>
+            </urn1:ssh>
+            <!--Optional:-->
+            <urn1:ssl>
+               <!--Optional:-->
+               <urn1:keystore>?</urn1:keystore>
+               <!--Optional:-->
+               <urn1:keystorePassword>?</urn1:keystorePassword>
+               <!--Optional:-->
+               <urn1:truststore>?</urn1:truststore>
+               <!--Optional:-->
+               <urn1:truststorePassword>?</urn1:truststorePassword>
+               <urn1:cipherSuite>?</urn1:cipherSuite>
+               <!--Optional:-->
+               <urn1:peerName>?</urn1:peerName>
+            </urn1:ssl>
+         </urn:connection>
+      </urn:SetQueue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="setQueue"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

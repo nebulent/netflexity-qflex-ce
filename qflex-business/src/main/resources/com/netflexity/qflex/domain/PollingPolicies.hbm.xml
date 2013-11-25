@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.PollingPolicies" table="polling_policies">
+    <id name="pollingPolicyId" type="long">
+      <column name="polling_policy_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="pollingPolicyNm" type="string">
+      <column length="48" name="polling_policy_nm" not-null="true"/>
+    </property>
+    <property name="companyId" type="long">
+      <column name="company_id" not-null="true"/>
+    </property>
+    <property name="minutes" type="string">
+      <column length="196" name="minutes" not-null="true"/>
+    </property>
+    <property name="hours" type="string">
+      <column length="196" name="hours" not-null="true"/>
+    </property>
+    <property name="daysOfWeek" type="string">
+      <column length="16" name="days_of_week" not-null="true"/>
+    </property>
+    <property name="daysOfMonth" type="string">
+      <column length="96" name="days_of_month" not-null="true"/>
+    </property>
+    <property name="months" type="string">
+      <column length="32" name="months" not-null="true"/>
+    </property>
+    <property name="seconds" type="string">
+      <column length="196" name="seconds" not-null="true"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="monitorsPollingPolicieses">
+      <key>
+        <column name="polling_policy_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.MonitorsPollingPolicies"/>
+    </set>
+  </class>
+</hibernate-mapping>

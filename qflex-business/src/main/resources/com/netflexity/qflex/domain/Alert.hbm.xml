@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Alert" table="alerts">
+    <id name="alertId" type="long">
+      <column name="alert_id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.netflexity.qflex.domain.Alert" fetch="select" name="alert">
+      <column name="parent_id"/>
+    </many-to-one>
+    <many-to-one class="com.netflexity.qflex.domain.Monitor" fetch="select" name="monitor">
+      <column name="monitor_id" not-null="true"/>
+    </many-to-one>
+    <property name="alertStatusTypeId" type="long">
+      <column name="alert_status_type_id" not-null="true"/>
+    </property>
+    <property name="criticalityTypeId" type="long">
+      <column name="criticality_type_id" not-null="true"/>
+    </property>
+    <property name="alertNm" type="string">
+      <column name="alert_nm" not-null="true"/>
+    </property>
+    <property name="occurrenceStartTm" type="long">
+      <column name="occurrence_start_tm" not-null="true"/>
+    </property>
+    <property name="occurrenceEndTm" type="java.lang.Long">
+      <column name="occurrence_end_tm"/>
+    </property>
+    <property name="alertText" type="string">
+      <column length="65535" name="alert_text"/>
+    </property>
+    <property name="comments" type="string">
+      <column name="comments"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="alerts">
+      <key>
+        <column name="parent_id"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Alert"/>
+    </set>
+  </class>
+</hibernate-mapping>

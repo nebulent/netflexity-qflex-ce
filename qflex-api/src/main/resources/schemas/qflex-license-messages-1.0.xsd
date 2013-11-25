@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:qflexlcns="urn:netflexity:schema:software:qflex:license:1.0"
+    xmlns:msg="urn:netflexity:schema:software:qflex:license:messages:1.0"
+    targetNamespace="urn:netflexity:schema:software:qflex:license:messages:1.0"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    >
+    <xs:import namespace="urn:netflexity:schema:software:qflex:license:1.0" schemaLocation="qflex-license-1.0.xsd"/>
+
+    <xs:complexType name="CreateBase">
+        <xs:sequence>
+            <xs:element name="lead" type="qflexlcns:License"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="jobTitle" type="xs:string" minOccurs="0" />
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="address1" type="xs:string" minOccurs="0" />
+            <xs:element name="address2" type="xs:string" minOccurs="0" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="state" type="xs:string" minOccurs="0" />
+            <xs:element name="zip" type="xs:string" />
+            <xs:element name="country" type="xs:string" minOccurs="0" />
+            <xs:element name="phone" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="CreateLeadRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="data" type="msg:CreateBase"/>
+                <xs:element name="referral" type="xs:string" minOccurs="0" />
+                <xs:element name="referralOther" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateCustomerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="data" type="msg:CreateBase"/>
+                <xs:element name="expirationYear" type="xs:int" />
+                <xs:element name="expirationMonth" type="xs:int" />
+                <xs:element name="expirationDate" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="CreateLeadResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="license" type="xs:string"/>
+                <xs:element name="error" type="msg:ErrorCodeType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--xs:element name="CreateCustomerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lead" type="qflexlcns:License"/>
+                <xs:element name="email" type="xs:string"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="jobTitle" type="xs:string" minOccurs="0" />
+                <xs:element name="companyName" type="xs:string"/>
+                <xs:element name="address1" type="xs:string" minOccurs="0" />
+                <xs:element name="address2" type="xs:string" minOccurs="0" />
+                <xs:element name="city" type="xs:string" />
+                <xs:element name="state" type="xs:string" minOccurs="0" />
+                <xs:element name="zip" type="xs:string" />
+                <xs:element name="country" type="xs:string" minOccurs="0" />
+                <xs:element name="phone" type="xs:string" />
+                <xs:element name="referral" type="xs:string" minOccurs="0" />
+                <xs:element name="referralOther" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element-->
+
+    <xs:element name="CreateCustomerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="license" type="xs:string"/>
+                <xs:element name="error" type="msg:ErrorCodeType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="ErrorCodeType">
+        <xs:sequence>
+            <xs:element name="errorText" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="fieldName" type="xs:string"/>
+        <xs:attribute name="errorType" use="required" type="msg:ErrorType"/>
+    </xs:complexType>
+
+    <xs:simpleType name="ErrorType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dataAbsent"/>
+            <xs:enumeration value="invalidData"/>
+            <xs:enumeration value="processingError"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

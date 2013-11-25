@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:qflex="urn:netflexity:schema:software:qflex:types:1.0" xmlns:nfx-wmq="urn:netflexity:schema:software:nfx-wmq:types:1.0" targetNamespace="urn:netflexity:schema:software:qflex:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="urn:netflexity:schema:software:nfx-wmq:types:1.0" schemaLocation="nfx-wmq-types-1.0.xsd"/>
+	<xs:element name="Configuration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="creationDate" type="xs:dateTime"/>
+				<xs:element name="company" type="qflex:CompanyType"/>
+				<xs:element name="applications" type="qflex:ApplicationArrayType" minOccurs="0"/>
+				<xs:element name="monitors" type="qflex:MonitorArrayType" minOccurs="0"/>
+				<xs:element name="qmanagers" type="qflex:QmanagerArrayType" minOccurs="0"/>
+				<xs:element name="principals" type="qflex:PrincipalArrayType" minOccurs="0"/>
+				<xs:element name="recoveryActions" type="qflex:RecoveryActionArrayType" minOccurs="0"/>
+				<xs:element name="pollingPolicies" type="qflex:PollingPolicyArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ApplicationType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="applicationName" type="xs:string"/>
+					<xs:element name="applicationType" type="xs:string" minOccurs="0"/>
+					<!-- Destinations -->
+					<xs:element name="destinations" type="qflex:ApplicationDestinationArrayType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ApplicationDestinationType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="destinationName" type="xs:string"/>
+					<xs:element name="applicationId" type="xs:string"/>
+					<xs:element name="destinationId" type="xs:string"/>
+					<xs:element name="destinationType" type="xs:string"/>
+					<xs:element name="destinationPurposeType" type="xs:string"/>
+					<xs:element name="application" type="qflex:ApplicationType" minOccurs="0"/>
+					<xs:element name="destination" type="qflex:QueueType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AlertType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="parentId" type="xs:string" minOccurs="0"/>
+					<xs:element name="monitorId" type="xs:string"/>
+					<xs:element name="alertName" type="xs:string"/>
+					<xs:element name="alertText" type="xs:string" minOccurs="0"/>
+					<xs:element name="criticalityType" type="xs:int"/>
+					<xs:element name="occurrenceStartTime" type="xs:integer"/>
+					<xs:element name="occurrenceEndTime" type="xs:integer" minOccurs="0"/>
+					<xs:element name="monitor" type="qflex:MonitorType" minOccurs="0"/>
+					<xs:element name="parent" type="qflex:AlertType" minOccurs="0"/>
+					<xs:element name="children" type="qflex:AlertArrayType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MonitorType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="monitorObjectId" type="xs:string"/>
+					<xs:element name="monitorName" type="xs:string"/>
+					<xs:element name="messageText" type="xs:string"/>
+					<xs:element name="recoveryText" type="xs:string"/>
+					<xs:element name="occurrenceInterval" type="xs:int"/>
+					<xs:element name="trigConditionParam" type="xs:integer" minOccurs="0"/>
+					<xs:element name="trigConditionType" type="xs:int"/>
+					<xs:element name="pollingInterval" type="xs:integer" minOccurs="0"/>
+					<xs:element name="emails" type="xs:string" minOccurs="0"/>
+					<xs:element name="logFile" type="xs:string" minOccurs="0"/>
+					<xs:element name="criticalityType" type="xs:int"/>
+					<xs:element name="monitorType" type="xs:int"/>
+					<xs:element name="company" type="qflex:CompanyType" minOccurs="0"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" minOccurs="0"/>
+					<xs:element name="monitorObject" type="xs:anyType" minOccurs="0"/>
+					<xs:element name="notifications" type="qflex:NotificationArrayType" minOccurs="0"/>
+					<xs:element name="pollingPolicies" type="qflex:PollingPolicyArrayType" minOccurs="0"/>
+					<xs:element name="recoveryActions" type="qflex:RecoveryActionArrayType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QmanagerType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="alias" type="xs:string" minOccurs="0"/>
+					<xs:element name="details" type="nfx-wmq:QmanagerType" minOccurs="0"/>
+					<xs:element name="connection" type="nfx-wmq:ConnectionType" minOccurs="0"/>
+					<xs:element name="queues" type="qflex:QueueArrayType" minOccurs="0"/>
+					<xs:element name="channels" type="qflex:ChannelArrayType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="details" type="nfx-wmq:QueueType" minOccurs="0"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChannelType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="qmanagerId" type="xs:string"/>
+					<xs:element name="details" type="nfx-wmq:ChannelType" minOccurs="0"/>
+					<xs:element name="qmanager" type="qflex:QmanagerType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompanyType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyName" type="xs:string"/>
+					<!--xs:element name="edition" minOccurs="1" type="qflex:QflexEditionEnum"/>
+					<xs:element name="versionDate" minOccurs="1" type="xs:dateTime"/-->
+					<xs:element name="address" type="xs:string" minOccurs="0"/>
+					<xs:element name="city" type="xs:string" minOccurs="0"/>
+					<xs:element name="state" type="xs:string" minOccurs="0"/>
+					<xs:element name="zip" type="xs:string" minOccurs="0"/>
+					<xs:element name="email" type="xs:string" minOccurs="0"/>
+					<xs:element name="phone" type="xs:string" minOccurs="0"/>
+					<xs:element name="serialNumber" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrincipalType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="role" type="xs:string"/>
+					<xs:element name="email" type="xs:string" minOccurs="0"/>
+					<xs:element name="phone" type="xs:string" minOccurs="0"/>
+					<xs:element name="username" type="xs:string"/>
+					<xs:element name="password" type="xs:string"/>
+					<xs:element name="company" type="qflex:CompanyType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RecoveryActionType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="recoveryActionType" type="xs:int"/>
+					<xs:element name="recoveryActionName" type="xs:string"/>
+					<xs:element name="command" type="xs:string" minOccurs="0"/>
+					<xs:element name="commandArgs" type="xs:string" minOccurs="0"/>
+					<xs:element name="javaClass" type="xs:string" minOccurs="0"/>
+					<xs:element name="company" type="qflex:CompanyType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CronExpressionType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="companyId" type="xs:string"/>
+					<xs:element name="cronExpressionName" type="xs:string"/>
+					<xs:element name="daysOfMonth" type="xs:string" minOccurs="0"/>
+					<xs:element name="daysOfWeek" type="xs:string" minOccurs="0"/>
+					<xs:element name="hours" type="xs:string" minOccurs="0"/>
+					<xs:element name="minutes" type="xs:string" minOccurs="0"/>
+					<xs:element name="months" type="xs:string" minOccurs="0"/>
+					<xs:element name="seconds" type="xs:string" minOccurs="0"/>
+					<xs:element name="company" type="qflex:CompanyType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotType">
+		<xs:complexContent>
+			<xs:extension base="qflex:ModifiableType">
+				<xs:sequence>
+					<xs:element name="ID" type="xs:string"/>
+					<xs:element name="queueId" type="xs:string" minOccurs="0"/>
+					<xs:element name="monitoredSystemId" type="xs:string" minOccurs="0"/>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="startPosition" type="xs:int" minOccurs="0"/>
+					<xs:element name="endPosition" type="xs:int" minOccurs="0"/>
+					<xs:element name="messages" type="xs:int" minOccurs="0"/>
+					<xs:element name="compressed" type="xs:string" minOccurs="0"/>
+					<xs:element name="status" type="xs:int"/>
+					<xs:element name="backupTime" type="xs:integer" minOccurs="0"/>
+					<xs:element name="restoreTime" type="xs:integer" minOccurs="0"/>
+					<xs:element name="activities" type="qflex:QueueSnapshotActivityArrayType" minOccurs="0"/>
+					<xs:element name="jobs" type="qflex:QueueSnapshotsJobPolicyArrayType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotActivityType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="queueSnapshotId" type="xs:string"/>
+			<xs:element name="activityType" type="xs:int"/>
+			<xs:element name="fileMD5" type="xs:string" minOccurs="0"/>
+			<xs:element name="filePath" type="xs:string"/>
+			<xs:element name="fileSize" type="xs:int"/>
+			<xs:element name="totalSize" type="xs:int"/>
+			<xs:element name="averageMessageSize" type="xs:int"/>
+			<xs:element name="messages" type="xs:int"/>
+			<xs:element name="messageStartTime" type="xs:integer"/>
+			<xs:element name="messageEndTime" type="xs:integer"/>
+			<xs:element name="startTime" type="xs:integer"/>
+			<xs:element name="endTime" type="xs:integer"/>
+			<xs:element name="snapshot" type="qflex:QueueSnapshotType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotsJobPolicyType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="queueSnapshotId" type="xs:string"/>
+			<xs:element name="jobPolicyId" type="xs:string"/>
+			<xs:element name="snapshot" type="qflex:QueueSnapshotType" minOccurs="0"/>
+			<xs:element name="jobPolicy" type="qflex:CronExpressionType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ModifiableType">
+		<xs:sequence>
+			<xs:element name="modifiedTime" type="xs:integer" minOccurs="0"/>
+			<xs:element name="modifiedBy" type="xs:string" minOccurs="0"/>
+			<xs:element name="status" type="xs:int" minOccurs="0"/>
+			<xs:element name="comments" type="xs:string" minOccurs="0"/>
+			<xs:element name="version" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationArrayType">
+		<xs:sequence>
+			<xs:element name="application" type="qflex:ApplicationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationDestinationArrayType">
+		<xs:sequence>
+			<xs:element name="applicationDestination" type="qflex:ApplicationDestinationType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MonitorArrayType">
+		<xs:sequence>
+			<xs:element name="monitor" type="qflex:MonitorType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotsJobPolicyArrayType">
+		<xs:sequence>
+			<xs:element name="job" type="qflex:QueueSnapshotsJobPolicyType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueSnapshotActivityArrayType">
+		<xs:sequence>
+			<xs:element name="activity" type="qflex:QueueSnapshotActivityType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecoveryActionArrayType">
+		<xs:sequence>
+			<xs:element name="recoveryAction" type="qflex:RecoveryActionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PollingPolicyArrayType">
+		<xs:sequence>
+			<xs:element name="pollingPolicy" type="qflex:CronExpressionType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PrincipalArrayType">
+		<xs:sequence>
+			<xs:element name="principal" type="qflex:PrincipalType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AlertArrayType">
+		<xs:sequence>
+			<xs:element name="alert" type="qflex:AlertType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotificationArrayType">
+		<xs:sequence>
+			<xs:element name="notification" type="xs:int" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QmanagerArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="qflex:QmanagerType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="qflex:QueueType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChannelArrayType">
+		<xs:sequence>
+			<xs:element name="channel" type="qflex:ChannelType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompanyArrayType">
+		<xs:sequence>
+			<xs:element name="company" type="qflex:CompanyType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

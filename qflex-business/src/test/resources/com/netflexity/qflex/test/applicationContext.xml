@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Main application context definition for QFLEX business layer testing.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<bean id="mqSeriesResourceBundle" class="java.util.ResourceBundle" factory-method="getBundle">
+	  <constructor-arg type="java.lang.String">
+	    <value>MqSeries</value>
+	  </constructor-arg>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="MqSeries"/>
+    </bean>
+            
+</beans>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2007 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<import resource="classpath:qflex-context.xml" />
+	
+	<!-- ===================== ENDPOINTS  ===================================== -->
+	
+    <bean id="marshallingEndpoint" class="com.netflexity.ws.qflex.MarshallingQflexEndpoint">
+        <description>
+            This endpoint handles the Qflex Web Service messages using JAXB2 marshalling.
+        </description>
+        <constructor-arg ref="qflexService"/>
+    </bean>
+
+	<!-- Use sun's SAAJ instead of JBOSS's. This is same as putting saaj.jar into lib/endorsed.-->
+	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+         <property name="messageFactory">
+             <bean class="com.sun.xml.messaging.saaj.soap.ver1_1.SOAPMessageFactory1_1Impl"></bean>
+        </property>
+    </bean>
+    
+	<!-- JAXB2 Marshaller. -->
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <description>
+            The JAXB 2 Marshaller is used by the endpoints.
+        </description>
+        <property name="contextPaths">
+        	<list>
+				<value>netflexity.schema.software.qflex.types._1</value>
+				<value>netflexity.schema.software.qflex.messages._1</value>
+			</list>
+        </property>
+    </bean>
+    
+	<!-- Expose WSDL as http://localhost:8080/ws/qflex.wsdl -->
+    <bean id="qflex" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+	    <constructor-arg value="/WEB-INF/qflex.wsdl"/>
+	</bean>
+	
+	<!-- ===================== ENDPOINT MAPPINGS  ============================== -->
+
+    <!--
+        The endpoint mappings map from a request to an endpoint.
+    -->
+
+    <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+        <description>
+            Detects @PayloadRoot annotations on @Endpoint bean methods. The MarshallingPflexEndpoint
+            has such annotations. It uses two interceptors: one that logs the message payload, and 
+            the other authenticates using WS-Security.
+        </description>
+        <property name="interceptors">
+            <list>
+                <!--ref bean="loggingSoapEnvelopeInterceptor"/-->
+                <!--ref bean="loggingPayloadInterceptor"/-->
+                <!--ref bean="wsSecurityInterceptor"/-->
+            </list>
+        </property>
+        <property name="order" value="1"/>
+    </bean>
+    
+    <!--bean id="loggingPayloadInterceptor"
+    class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor"/-->
+    
+    <!--bean id="loggingSoapEnvelopeInterceptor"
+    class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor"/-->
+    
+    <!-- ===================== ENDPOINT ADAPTERS  ============================== -->
+
+    <!--
+        Endpoint adapters adapt from the incoming message to a specific object or method signature.
+    -->
+
+    <bean class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+        <description>
+            This adapter allows for methods that need and returns marshalled objects. The MarshallingQflexEndpoint
+            uses JAXB 2 objects.
+        </description>
+        <constructor-arg ref="marshaller"/>
+    </bean>
+    
+    <!-- ===================== ENDPOINT EXCEPTION RESOLVER ===================== -->
+
+    <!--
+        Endpoint exception resolvers can handle exceptions as they occur in the Web service. We have two sorts of
+        exceptions we want to handle: the business logic exceptions, which both have a @SoapFault annotation, 
+        and other exceptions, which don't have the annotation. Therefore, we have two exception resolvers here.
+    -->
+
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver">
+        <description>
+            This exception resolver maps exceptions with the @SoapFault annotation to SOAP Faults. The business logic
+            exceptions have these.
+        </description>
+        <property name="order" value="1"/>
+    </bean>
+
+    <bean class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver">
+        <description>
+            This exception resolver maps other exceptions to SOAP Faults. Both UnmarshallingException and
+            ValidationFailureException are mapped to a SOAP Fault with a "Client" fault code.
+            All other exceptions are mapped to a "Server" error code, the default.
+        </description>
+        <property name="defaultFault" value="SERVER"/>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.oxm.UnmarshallingFailureException">CLIENT,Invalid request</prop>
+                <prop key="org.springframework.oxm.ValidationFailureException">CLIENT,Invalid request</prop>
+            </props>
+        </property>
+        <property name="order" value="2"/>
+    </bean>
+    
+    <!-- ===================== WS-SECURITY  ============================== -->
+
+	 
+	<bean id="wsSecurityInterceptor" class="org.springframework.ws.soap.security.wss4j.Wss4jSecurityInterceptor">
+        <description>
+            This interceptor validates incoming messages according to specified validationActions.
+            All incoming requests must have a UsernameToken with a nonce and password digest in it.
+            The actual authentication is performed by the custom Qflex callback handler.
+        </description>
+        <property name="validationActions" value="UsernameToken"/>
+    	<property name="securementActions" value="NoSecurity"/>
+        <property name="validationCallbackHandler">
+           	<bean class="com.netflexity.ws.qflex.QflexDigestPasswordValidationCallbackHandler">
+		    	<constructor-arg ref="qflexService"/>
+			</bean>
+        </property>
+    </bean>
+    
+    <!--bean id="wsSecurityInterceptor" class="org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor">
+        <description>
+            This interceptor validates incoming messages according to the policy defined in 'securityPolicy.xml'.
+            The policy defines that all incoming requests must have a UsernameToken with a nonce and password digest in it.
+            The actual authentication is performed by the custom Qflex callback handler.
+        </description>
+        <property name="secureResponse" value="false"/>
+        <property name="policyConfiguration" value="classpath:qflex-security-policy.xml"/>
+        <property name="callbackHandler">
+           	<bean class="com.netflexity.ws.qflex.QflexDigestPasswordValidationCallbackHandler">
+		    	<constructor-arg ref="qflexService"/>
+			</bean>
+        </property>
+    </bean-->
+</beans>

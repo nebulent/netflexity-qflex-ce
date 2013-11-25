@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for QFLEX CFLEX business layer testing.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- ========================= DATA ACCESS OBJECTs ================================= -->
+	
+	<!-- Data access object: Config Attributes. -->
+	<bean id="configAttributeDao" class="com.netflexity.cflex.business.daos.ConfigAttributeDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<!-- Data access object: Config Collection. -->
+	<bean id="configCollectionDao" class="com.netflexity.cflex.business.daos.ConfigCollectionDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<!-- Data access object: Config Deploy Policy. -->
+	<bean id="configDeployPolicyDao" class="com.netflexity.cflex.business.daos.ConfigDeployPolicyDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	
+	<!-- Data access object: Config Object Change. -->
+	<bean id="configObjectChangeDao" class="com.netflexity.cflex.business.daos.ConfigObjectChangeDAO" lazy-init="true">
+		<property name="dataSource" ref="datasource"/>
+		<property name="datasourceMetadata" ref="datasourceMetadata"/>
+		<property name="typeRecordCache" ref="typeRecordCache"/>
+	</bean>
+	<!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
+	
+	
+</beans>

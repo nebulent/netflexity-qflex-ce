@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Monitor" table="monitors">
+    <id name="monitorId" type="long">
+      <column name="monitor_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="monitoredObjectId" type="long">
+      <column name="monitor_object_id" not-null="true"/>
+    </property>
+    <!--many-to-one class="com.netflexity.qflex.domain.Qmanager" fetch="select" name="qmanagerByMonitorObjectId">
+      <column name="monitor_object_id" not-null="true"/>
+    </many-to-one-->
+    <many-to-one class="com.netflexity.qflex.domain.Channel" fetch="select" insert="false" name="channel" update="false">
+      <column name="monitor_object_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.netflexity.qflex.domain.Qmanager" fetch="select" name="qmanagerByQmanagerId">
+      <column name="qmanager_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.netflexity.qflex.domain.Company" fetch="select" name="company">
+      <column name="company_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.netflexity.qflex.domain.Queue" fetch="select" insert="false" name="queue" update="false">
+      <column name="monitor_object_id" not-null="true"/>
+    </many-to-one>
+    <property name="monitorTypeId" type="long">
+      <column name="monitor_type_id" not-null="true"/>
+    </property>
+    <property name="trigConditionTypeId" type="long">
+      <column name="trig_condition_type_id" not-null="true"/>
+    </property>
+    <property name="trigConditionParam" type="java.lang.Long">
+      <column name="trig_condition_param"/>
+    </property>
+    <property name="criticalityTypeId" type="long">
+      <column name="criticality_type_id" not-null="true"/>
+    </property>
+    <property name="monitorNm" type="string">
+      <column name="monitor_nm" not-null="true"/>
+    </property>
+    <property name="messageText" type="string">
+      <column length="65535" name="message_text" not-null="true"/>
+    </property>
+    <property name="recoveryText" type="string">
+      <column length="65535" name="recovery_text" not-null="true"/>
+    </property>
+    <property name="occurrenceInterval" type="int">
+      <column name="occurrence_interval" not-null="true"/>
+    </property>
+    <property name="pollingInterval" type="long">
+      <column name="polling_interval" not-null="true"/>
+    </property>
+    <property name="logFile" type="string">
+      <column name="log_file"/>
+    </property>
+    <property name="status" type="int">
+      <column name="status" not-null="true"/>
+    </property>
+    <property name="emailList" type="string">
+      <column name="email_list"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="monitorsAlertTypeses">
+      <key>
+        <column name="monitor_id"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.MonitorsAlertTypes"/>
+    </set>
+    <set inverse="true" name="monitorsPollingPolicieses">
+      <key>
+        <column name="monitor_id"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.MonitorsPollingPolicies"/>
+    </set>
+    <set inverse="true" name="monitorsRecoveryActionses">
+      <key>
+        <column name="monitor_id"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.MonitorsRecoveryActions"/>
+    </set>
+    <set inverse="true" name="alerts">
+      <key>
+        <column name="monitor_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Alert"/>
+    </set>
+  </class>
+</hibernate-mapping>

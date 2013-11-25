@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>com.netflexity.software.qflex.cloud</groupId>
+		<artifactId>agent</artifactId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.netflexity.software.qflex.cloud.agent</groupId>
+	<artifactId>qflexce-agent-business</artifactId>
+	<packaging>jar</packaging>
+	<name>Netflexity Solutions :: Qflex Cloud Edition Agent :: Business</name>
+	<version>1.0</version>
+	<dependencies>
+		<dependency>
+			<groupId>com.netflexity.software.qflex.cloud.agent</groupId>
+			<artifactId>qflexce-agent-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.netflexity.software.qflex.cloud.wmq</groupId>
+			<artifactId>wmq-ws-business</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!--Spring-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
+</project>

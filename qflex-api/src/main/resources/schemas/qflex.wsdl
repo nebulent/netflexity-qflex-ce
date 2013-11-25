@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2007 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:qflexmsg="urn:netflexity:schema:software:qflex:messages:1.0"
+                  xmlns:tns="urn:netflexity:ws:software:qflex:definitions:1.0"
+                  targetNamespace="urn:netflexity:ws:software:qflex:definitions:1.0">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="urn:netflexity:schema:software:qflex:messages:1.0" schemaLocation="qflex-messages-1.0.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    
+    <wsdl:message name="getApplicationAlertSummary">
+        <wsdl:part element="qflexmsg:GetApplicationAlertSummary" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showApplicationAlertSummary">
+        <wsdl:part element="qflexmsg:ShowApplicationAlertSummary" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getApplicationAlerts">
+        <wsdl:part element="qflexmsg:GetApplicationAlerts" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showApplicationAlerts">
+        <wsdl:part element="qflexmsg:ShowApplicationAlerts" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processChangeAlertsStatus">
+        <wsdl:part element="qflexmsg:ProcessChangeAlertsStatus" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeChangeAlertsStatus">
+        <wsdl:part element="qflexmsg:AcknowledgeChangeAlertsStatus" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getDailyApplicationsStatisticsSummary">
+        <wsdl:part element="qflexmsg:GetDailyApplicationsStatisticsSummary" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showDailyApplicationsStatisticsSummary">
+        <wsdl:part element="qflexmsg:ShowDailyApplicationsStatisticsSummary" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getUserPermissions">
+        <wsdl:part element="qflexmsg:GetUserPermissions" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showUserPermissions">
+        <wsdl:part element="qflexmsg:ShowUserPermissions" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcesses">
+        <wsdl:part element="qflexmsg:GetProcesses" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcesses">
+        <wsdl:part element="qflexmsg:ShowProcesses" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcessStages">
+        <wsdl:part element="qflexmsg:GetProcessStages" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcessStages">
+        <wsdl:part element="qflexmsg:ShowProcessStages" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcessAttributes">
+        <wsdl:part element="qflexmsg:GetProcessAttributes" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcessAttributes">
+        <wsdl:part element="qflexmsg:ShowProcessAttributes" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcess">
+        <wsdl:part element="qflexmsg:GetProcess" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcess">
+        <wsdl:part element="qflexmsg:ShowProcess" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcessStage">
+        <wsdl:part element="qflexmsg:GetProcessStage" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcessStage">
+        <wsdl:part element="qflexmsg:ShowProcessStage" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="getProcessAttribute">
+        <wsdl:part element="qflexmsg:GetProcessAttribute" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="showProcessAttribute">
+        <wsdl:part element="qflexmsg:ShowProcessAttribute" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="findProcessStages">
+        <wsdl:part element="qflexmsg:FindProcessStages" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="findProcessStagesOut">
+        <wsdl:part element="qflexmsg:ShowFoundProcessStages" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="findProcessAttributes">
+        <wsdl:part element="qflexmsg:FindProcessAttributes" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="findProcessAttributesOut">
+        <wsdl:part element="qflexmsg:ShowFoundProcessAttributes" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processAddProcess">
+        <wsdl:part element="qflexmsg:ProcessAddProcess" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeAddProcess">
+        <wsdl:part element="qflexmsg:AcknowledgeAddProcess" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processAddProcessStage">
+        <wsdl:part element="qflexmsg:ProcessAddProcessStage" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeAddProcessStage">
+        <wsdl:part element="qflexmsg:AcknowledgeAddProcessStage" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processAddProcessAttribute">
+        <wsdl:part element="qflexmsg:ProcessAddProcessAttribute" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeAddProcessAttribute">
+        <wsdl:part element="qflexmsg:AcknowledgeAddProcessAttribute" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processRemoveProcesses">
+        <wsdl:part element="qflexmsg:ProcessRemoveProcesses" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeRemoveProcesses">
+        <wsdl:part element="qflexmsg:AcknowledgeRemoveProcesses" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processRemoveProcessStages">
+        <wsdl:part element="qflexmsg:ProcessRemoveProcessStages" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeRemoveProcessStages">
+        <wsdl:part element="qflexmsg:AcknowledgeRemoveProcessStages" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processRemoveProcessAttributes">
+        <wsdl:part element="qflexmsg:ProcessRemoveProcessAttributes" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeRemoveProcessAttributes">
+        <wsdl:part element="qflexmsg:AcknowledgeRemoveProcessAttributes" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processChangeProcess">
+        <wsdl:part element="qflexmsg:ProcessChangeProcess" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeChangeProcess">
+        <wsdl:part element="qflexmsg:AcknowledgeChangeProcess" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processChangeProcessStage">
+        <wsdl:part element="qflexmsg:ProcessChangeProcessStage" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeChangeProcessStage">
+        <wsdl:part element="qflexmsg:AcknowledgeChangeProcessStage" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processChangeProcessAttribute">
+        <wsdl:part element="qflexmsg:ProcessChangeProcessAttribute" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeChangeProcessAttribute">
+        <wsdl:part element="qflexmsg:AcknowledgeChangeProcessAttribute" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:message name="processTransactionTracking">
+        <wsdl:part element="qflexmsg:ProcessTransactionTracking" name="body"/>
+    </wsdl:message>
+     <wsdl:message name="acknowledgeTransactionTracking">
+        <wsdl:part element="qflexmsg:AcknowledgeTransactionTracking" name="body"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="QflexServiceResource">
+        <wsdl:operation name="getApplicationAlertSummary">
+            <wsdl:input message="tns:getApplicationAlertSummary"/>
+            <wsdl:output message="tns:showApplicationAlertSummary"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getApplicationAlerts">
+            <wsdl:input message="tns:getApplicationAlerts"/>
+            <wsdl:output message="tns:showApplicationAlerts"/>
+        </wsdl:operation>
+        
+         <wsdl:operation name="processChangeAlertsStatus">
+            <wsdl:input message="tns:processChangeAlertsStatus"/>
+            <wsdl:output message="tns:acknowledgeChangeAlertsStatus"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getDailyApplicationsStatisticsSummary">
+            <wsdl:input message="tns:getDailyApplicationsStatisticsSummary"/>
+            <wsdl:output message="tns:showDailyApplicationsStatisticsSummary"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getUserPermissions">
+            <wsdl:input message="tns:getUserPermissions"/>
+            <wsdl:output message="tns:showUserPermissions"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcesses">
+            <wsdl:input message="tns:getProcesses"/>
+            <wsdl:output message="tns:showProcesses"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessStages">
+            <wsdl:input message="tns:getProcessStages"/>
+            <wsdl:output message="tns:showProcessStages"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessAttributes">
+            <wsdl:input message="tns:getProcessAttributes"/>
+            <wsdl:output message="tns:showProcessAttributes"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcess">
+            <wsdl:input message="tns:getProcess"/>
+            <wsdl:output message="tns:showProcess"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessStage">
+            <wsdl:input message="tns:getProcessStage"/>
+            <wsdl:output message="tns:showProcessStage"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessAttribute">
+            <wsdl:input message="tns:getProcessAttribute"/>
+            <wsdl:output message="tns:showProcessAttribute"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="findProcessStages">
+            <wsdl:input message="tns:findProcessStages"/>
+            <wsdl:output message="tns:findProcessStagesOut"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="findProcessAttributes">
+            <wsdl:input message="tns:findProcessAttributes"/>
+            <wsdl:output message="tns:findProcessAttributesOut"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcess">
+            <wsdl:input message="tns:processAddProcess"/>
+            <wsdl:output message="tns:acknowledgeAddProcess"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcessStage">
+            <wsdl:input message="tns:processAddProcessStage"/>
+            <wsdl:output message="tns:acknowledgeAddProcessStage"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcessAttribute">
+            <wsdl:input message="tns:processAddProcessAttribute"/>
+            <wsdl:output message="tns:acknowledgeAddProcessAttribute"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcesses">
+            <wsdl:input message="tns:processRemoveProcesses"/>
+            <wsdl:output message="tns:acknowledgeRemoveProcesses"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcessStages">
+            <wsdl:input message="tns:processRemoveProcessStages"/>
+            <wsdl:output message="tns:acknowledgeRemoveProcessStages"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcessAttributes">
+            <wsdl:input message="tns:processRemoveProcessAttributes"/>
+            <wsdl:output message="tns:acknowledgeRemoveProcessAttributes"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcess">
+            <wsdl:input message="tns:processChangeProcess"/>
+            <wsdl:output message="tns:acknowledgeChangeProcess"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcessStage">
+            <wsdl:input message="tns:processChangeProcessStage"/>
+            <wsdl:output message="tns:acknowledgeChangeProcessStage"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcessAttribute">
+            <wsdl:input message="tns:processChangeProcessAttribute"/>
+            <wsdl:output message="tns:acknowledgeChangeProcessAttribute"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processTransactionTracking">
+            <wsdl:input message="tns:processTransactionTracking"/>
+            <wsdl:output message="tns:acknowledgeTransactionTracking"/>
+        </wsdl:operation>
+        
+    </wsdl:portType>
+    
+    <wsdl:binding name="QflexServiceSOAP" type="tns:QflexServiceResource">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <wsdl:operation name="getApplicationAlertSummary">
+            <soap:operation soapAction="getApplicationAlertSummary"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getApplicationAlerts">
+            <soap:operation soapAction="getApplicationAlerts"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeAlertsStatus">
+            <soap:operation soapAction="processChangeAlertsStatus"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getDailyApplicationsStatisticsSummary">
+            <soap:operation soapAction="getDailyApplicationsStatisticsSummary"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getUserPermissions">
+            <soap:operation soapAction="getUserPermissions"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcesses">
+            <soap:operation soapAction="getProcesses"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessStages">
+            <soap:operation soapAction="getProcessStages"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessAttributes">
+            <soap:operation soapAction="getProcessAttributes"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcess">
+            <soap:operation soapAction="getProcess"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessStage">
+            <soap:operation soapAction="getProcessStage"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="getProcessAttribute">
+            <soap:operation soapAction="getProcessAttribute"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="findProcessStages">
+            <soap:operation soapAction="findProcessStages"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="findProcessAttributes">
+            <soap:operation soapAction="findProcessAttributes"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcess">
+            <soap:operation soapAction="processAddProcess"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcessStage">
+            <soap:operation soapAction="processAddProcessStage"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processAddProcessAttribute">
+            <soap:operation soapAction="processAddProcessAttribute"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcesses">
+            <soap:operation soapAction="processRemoveProcesses"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcessStages">
+            <soap:operation soapAction="processRemoveProcessStages"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processRemoveProcessAttributes">
+            <soap:operation soapAction="processRemoveProcessAttributes"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcess">
+            <soap:operation soapAction="processChangeProcess"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcessStage">
+            <soap:operation soapAction="processChangeProcessStage"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processChangeProcessAttribute">
+            <soap:operation soapAction="processChangeProcessAttribute"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="processTransactionTracking">
+            <soap:operation soapAction="processTransactionTracking"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+    </wsdl:binding>
+    
+    <wsdl:service name="QflexService">
+        <wsdl:port binding="tns:QflexServiceSOAP" name="QflexServiceSOAP">
+            <soap:address location="http://localhost:8080/qflex-ws/services"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.RecoveryActions" table="recovery_actions">
+    <id name="recoveryActionId" type="long">
+      <column name="recovery_action_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="recoveryActionTypeId" type="long">
+      <column name="recovery_action_type_id" not-null="true"/>
+    </property>
+    <property name="companyId" type="long">
+      <column name="company_id" not-null="true"/>
+    </property>
+    <property name="actionNm" type="string">
+      <column length="128" name="action_nm" not-null="true"/>
+    </property>
+    <property name="javaClass" type="string">
+      <column name="java_class"/>
+    </property>
+    <property name="command" type="string">
+      <column name="command"/>
+    </property>
+    <property name="commandArgs" type="string">
+      <column name="command_args"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="monitorsRecoveryActionses">
+      <key>
+        <column name="recovery_action_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.MonitorsRecoveryActions"/>
+    </set>
+  </class>
+</hibernate-mapping>

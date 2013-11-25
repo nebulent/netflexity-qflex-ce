@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="agent" soapui-version="3.0.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="QflexAgentClientImplServiceSoapBinding" type="wsdl" bindingName="{urn:com:netflexity:software:service:qflex:agent:1.0}QflexAgentClientImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8480/qflex-agent-web/agent?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8480/qflex-agent-web/agent?wsdl"><con:part><con:url>http://localhost:8480/qflex-agent-web/agent?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="QflexAgentClientImplService" targetNamespace="urn:com:netflexity:software:service:qflex:agent:1.0" xmlns:ns1="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:com:netflexity:software:service:qflex:agent:1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:com:netflexity:schema:software:qflex:agent:types:1.0" version="1.0" xmlns:tns="urn:com:netflexity:schema:software:qflex:agent:types:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Call" type="tns:CallType"/>
+      <xs:element name="Transaction" type="tns:TransactionType"/>
+      <xs:complexType name="TransactionType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Call" type="tns:CallType"/>
+        </xs:sequence>
+        <xs:attribute name="ip" type="xs:string" use="required"/>
+        <xs:attribute name="started" type="xs:dateTime" use="required"/>
+        <xs:attribute name="ended" type="xs:dateTime"/>
+      </xs:complexType>
+      <xs:complexType name="CallType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Operation" type="tns:OperationType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="OperationType">
+        <xs:sequence>
+          <xs:element name="Request">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any namespace="##other" processContents="skip"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Result">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any namespace="##other" processContents="skip"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Error" type="tns:ErrorType"/>
+        </xs:sequence>
+        <xs:attribute name="sequence" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="ErrorType">
+        <xs:sequence>
+          <xs:element name="Code" type="xs:string"/>
+          <xs:element minOccurs="0" name="Description" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" version="1.0" xmlns:ns1="urn:com:netflexity:schema:software:qflex:agent:types:1.0" xmlns:tns="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:com:netflexity:schema:software:qflex:agent:types:1.0"/>
+      <xs:element name="GetTransaction" type="tns:GetTransactionType"/>
+      <xs:element name="ProcessTransaction" type="tns:ProcessTransactionType"/>
+      <xs:element name="QflexAgentFault">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reason" type="tns:reason"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="mqReasonCodes" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ShowTransaction" type="tns:ShowTransactionType"/>
+      <xs:complexType name="ShowTransactionType">
+        <xs:sequence>
+          <xs:element name="transaction" type="ns1:TransactionType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProcessTransactionType">
+        <xs:sequence>
+          <xs:element name="transaction" type="ns1:TransactionType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTransactionType">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string"/>
+          <xs:element name="password" type="xs:string"/>
+          <xs:element name="serialNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="reason">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="QMANAGER_DOWN"/>
+          <xs:enumeration value="QUEUE_DNE"/>
+          <xs:enumeration value="CHANNEL_DNE"/>
+          <xs:enumeration value="QMANAGER_DNE"/>
+          <xs:enumeration value="WMQ_ERROR"/>
+          <xs:enumeration value="OTHER"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="processTransaction">
+    <wsdl:part element="ns1:ShowTransaction" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AgentFaultMessage">
+    <wsdl:part element="ns1:QflexAgentFault" name="AgentFaultMessage"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processTransactionResponse">
+    <wsdl:part element="ns1:ProcessTransaction" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="QflexAgentClient">
+    <wsdl:operation name="processTransaction">
+      <wsdl:input message="tns:processTransaction" name="processTransaction"></wsdl:input>
+      <wsdl:output message="tns:processTransactionResponse" name="processTransactionResponse"></wsdl:output>
+      <wsdl:fault message="tns:AgentFaultMessage" name="AgentFaultMessage"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QflexAgentClientImplServiceSoapBinding" type="tns:QflexAgentClient">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processTransaction">
+      <soap:operation soapAction="processTransaction" style="document"/>
+      <wsdl:input name="processTransaction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AgentFaultMessage">
+        <soap:fault name="AgentFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QflexAgentClientImplService">
+    <wsdl:port binding="tns:QflexAgentClientImplServiceSoapBinding" name="QflexAgentClientPort">
+      <soap:address location="http://localhost:8480/qflex-agent-web/agent"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8480/qflex-agent-web/agent</con:endpoint><con:endpoint>http://localhost:9000/agent</con:endpoint></con:endpoints><con:operation isOneWay="false" action="processTransaction" name="processTransaction" bindingOperationName="processTransaction" type="Request-Response" outputName="processTransactionResponse" inputName="processTransaction" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9000/agent</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:qflex:agent:types:1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:ShowTransaction>
+         <urn:transaction ip="100">
+            <urn1:Call id="1">
+               <urn1:Operation sequence="1">
+                  <urn1:Request>
+ <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:urn1="urn:com:netflexity:schema:software:nfx-wmq:types:1.0">
+
+   <soapenv:Header/>
+
+   <soapenv:Body>
+
+      <urn:GetAllBaseQueues>
+
+         <urn:connection>
+
+            <urn1:host>ec2-75-101-183-104.compute-1.amazonaws.com</urn1:host>
+
+            <urn1:port>1414</urn1:port>
+
+            <urn1:qmanagerName>NF01</urn1:qmanagerName>
+
+            <urn1:channelName>QFLEX01.SVRCONN</urn1:channelName>
+
+         </urn:connection>
+
+      </urn:GetAllBaseQueues>
+
+   </soapenv:Body>
+
+</soapenv:Envelope>
+                 </urn1:Request>
+                  <urn1:Result>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:Result>
+                  <!--Optional:-->
+                  <urn1:Error>
+                     <urn1:Code>?</urn1:Code>
+                     <!--Optional:-->
+                     <urn1:Description>?</urn1:Description>
+                  </urn1:Error>
+               </urn1:Operation>
+            </urn1:Call>
+         </urn:transaction>
+      </urn:ShowTransaction>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="processTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

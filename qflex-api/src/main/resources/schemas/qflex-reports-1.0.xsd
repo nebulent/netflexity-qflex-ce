@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:reports="urn:netflexity:schema:software:reports:types:1.0"
+    targetNamespace="urn:netflexity:schema:software:reports:types:1.0"
+    attributeFormDefault="unqualified">
+
+    <xs:complexType name="ReportType">
+	<xs:complexContent>
+	    <xs:extension base="reports:ReportElementBaseType">
+		<xs:sequence>
+		    <xs:element name="section" type="reports:SectionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	    </xs:extension>
+	</xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="SectionType">
+	<xs:sequence>
+	    <xs:element name="header" type="xs:string" minOccurs="0" />
+	    <xs:element name="description" type="xs:string" minOccurs="0" />
+	    <xs:element name="tables" type="reports:TableListType" minOccurs="0" />
+	    <xs:element name="images" type="reports:ImageListType" minOccurs="0" />
+	    <!--            <xs:element name="section" type="reports:SectionType" minOccurs="0" maxOccurs="unbounded" />-->
+	</xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="ReportElementBaseType">
+	<xs:sequence>
+	    <xs:element name="header" type="xs:string" minOccurs="0" />
+	    <xs:element name="description" type="xs:string" minOccurs="0" />
+	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ImageListType">
+	<xs:sequence>
+	    <xs:element name="image" type="reports:ImageType" maxOccurs="unbounded"/>
+	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ImageType">
+	<xs:complexContent>
+	    <xs:extension base="reports:ReportElementBaseType">
+		<xs:sequence>
+		    <xs:element name="url" type="xs:string"/>
+		    <xs:element name="width" type="reports:SizeType" />
+		    <xs:element name="height" type="reports:SizeType" />
+		</xs:sequence>
+	    </xs:extension>
+	</xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="SizeType">
+	<xs:restriction base="xs:string">
+	    <xs:pattern value="([0-9])+(%|px|cm)"/>
+	</xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="TableListType">
+	<xs:sequence>
+	    <xs:element name="table" type="reports:TableType" maxOccurs="unbounded"/>
+	</xs:sequence>
+    </xs:complexType>    
+
+    <xs:complexType name="TableType">
+	<xs:complexContent>
+	    <xs:extension base="reports:ReportElementBaseType">
+		<xs:sequence>
+		    <xs:element name="columnHeader" type="reports:ColumnHeaderType"/>
+		    <xs:element name="data" type="reports:RowSetType" minOccurs="0"/>
+		</xs:sequence>
+	    </xs:extension>
+	</xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ColumnHeaderType">
+	<xs:sequence>
+	    <xs:element name="header" type="xs:string" maxOccurs="unbounded" />
+	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RowSetType">
+	<xs:sequence>
+	    <xs:element name="rows" type="reports:RowType" minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RowType">
+	<xs:sequence>
+	    <xs:element name="cells" type="reports:CellType" minOccurs="0" maxOccurs="unbounded" />
+	</xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="CellType">
+	<xs:sequence>
+	    <xs:element name="text" type="xs:string" />
+	</xs:sequence>
+	<xs:attribute name="align" default="left" />
+    </xs:complexType>
+
+
+</xs:schema>

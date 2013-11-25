@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Main application context definition for QFLEX business layer testing.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+	
+	<!-- 
+		Simple local DataSource that works in any environment.
+		This uses the JDBC DriverManager to obtain connections, and does NOT perform connection
+		pooling. Connection pooling is essential to all real-world applications.
+		This definition is good for getting started, as it introduces no dependencies beyond
+		the JDK, but DriverManagerDataSource is not intended for production usage.
+	 -->
+	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost/qflex?autoReconnect=true&amp;user=root&amp;password=root"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root"/>
+	</bean>
+	
+	<!-- 
+		Alternative local DataSource that works in any environment, and offers much better performance.
+		Uses Apache Commons DBCP for connection pooling. See Commons DBCP documentation
+		for the required JAR files. 
+		A standalone connection pool such as Commons DBCP is a good choice for use outside an
+		application server environment, including web applications running in a web container without
+		JTA, or integration testing using the org.springframework.test package.
+	 -->
+	<!--
+	<bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc/QFLEX"/>
+	</bean>
+	-->
+	
+	<!-- JNDI DataSource for J2EE environments -->
+	<!--
+	<bean id="datasource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/QFLEX"/>
+	</bean>
+	-->
+
+	<!-- Transaction manager for a single JDBC DataSource (alternative to JTA) -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"/>
+	</bean>
+	
+	<!-- Netflexity ORM metadata factory. -->
+	<bean id="datasourceMetadataFactory" class="org.netflexity.api.orm.impl.DatasourceMetadataFactoryImpl">
+		<property name="digesterRulesFilePath" value="org/netflexity/api/orm/orm-rules.xml"/>
+		<property name="mappingFilePath" value="qflex-orm.xml"/>
+	</bean>
+	
+	<!-- Spring ORM Metadata factory. -->
+	<bean id="datasourceMetadata" class="org.netflexity.springframework.orm.OrmDatasourceMetadataFactory">
+		<property name="datasourceMetadataFactory" ref="datasourceMetadataFactory"/>
+	</bean>
+</beans>

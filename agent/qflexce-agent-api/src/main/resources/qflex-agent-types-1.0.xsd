@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:com:netflexity:schema:software:qflex:agent:types:1.0" xmlns:nfx-wmq="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:com:netflexity:schema:software:qflex:agent:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<!-- xs:import namespace="urn:netflexity:schema:software:nfx-wmq:messages:1.0" schemaLocation="../../../../../wmq/nfx-wmq-xsd/src/main/resources/schemas/nfx-wmq-messages-1.0.xsd"/-->
+	<xs:element name="Call" type="CallType"/>
+	<xs:element name="Transaction" type="TransactionType"/>
+	<xs:complexType name="TransactionType">
+		<xs:sequence>
+			<xs:element name="Call" type="CallType" maxOccurs="unbounded" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ip" use="required" type="xs:string"/>
+		<xs:attribute name="started" use="required" type="xs:dateTime"/>
+		<xs:attribute name="ended" use="optional" type="xs:dateTime"/>
+	</xs:complexType>
+	<xs:complexType name="OperationType">
+		<xs:sequence>
+			<xs:element name="Request">
+				<xs:complexType>
+					<xs:sequence>
+						<!-- processContents="skip" -->
+						<xs:any minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Result">
+				<xs:complexType>
+					<xs:sequence>
+						<!-- processContents="skip" -->
+						<xs:any minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Error" type="ErrorType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="sequence" type="xs:int" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="ErrorType">
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string"/>
+			<xs:element name="Description" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CallType">
+		<xs:sequence>
+			<xs:element name="Operation" type="OperationType" maxOccurs="unbounded" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="id" use="required" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

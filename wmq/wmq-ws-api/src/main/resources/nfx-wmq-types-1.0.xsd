@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" targetNamespace="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:complexType name="QmanagerType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Queue Manager properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseQmanagerType">
+				<xs:sequence>
+					<xs:element name="authorityEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="channelAutoDef" type="xs:int" minOccurs="0"/>
+					<xs:element name="channelAutoDefEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="channelAutoDefExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterWorkloadData" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterWorkloadExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterWorkloadLength" type="xs:int" minOccurs="0"/>
+					<xs:element name="codedCharSetId" type="xs:int" minOccurs="0"/>
+					<xs:element name="commandLevel" type="xs:int" minOccurs="0"/>
+					<xs:element name="distLists" type="xs:int" minOccurs="0"/>
+					<xs:element name="inhibitEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="localEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="maxHandles" type="xs:int" minOccurs="0"/>
+					<xs:element name="maxMsgLength" type="xs:int" minOccurs="0"/>
+					<xs:element name="maxPriority" type="xs:int" minOccurs="0"/>
+					<xs:element name="maxUncommittedMsgs" type="xs:int" minOccurs="0"/>
+					<xs:element name="performanceEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="remoteEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="repositoryName" type="xs:string" minOccurs="0"/>
+					<xs:element name="repositoryNameList" type="xs:string" minOccurs="0"/>
+					<xs:element name="startStopEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="syncPoint" type="xs:int" minOccurs="0"/>
+					<xs:element name="triggerInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="sslCertificateRepositoryList" type="xs:string" minOccurs="0"/>
+					<xs:element name="sslKeyRepository" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseQmanagerType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Queue Manager properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="identifier" type="xs:string" minOccurs="0"/>
+			<xs:element name="commandInputQName" type="xs:string" minOccurs="0"/>
+			<xs:element name="deadLetterQName" type="xs:string" minOccurs="0"/>
+			<xs:element name="defXmitQName" type="xs:string" minOccurs="0"/>
+			<xs:element name="platform" type="xs:int" minOccurs="0"/>
+			<xs:element name="alterationDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Queue properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseQueueType">
+				<xs:sequence>
+					<xs:element name="backoutRequeueName" type="xs:string" minOccurs="0"/>
+					<xs:element name="backoutThreshold" type="xs:int" minOccurs="0"/>
+					<xs:element name="baseQueueName" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterName" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterNamelist" type="xs:string" minOccurs="0"/>
+					<xs:element name="defBind" type="xs:int" minOccurs="0"/>
+					<xs:element name="defInputOpenOption" type="xs:int" minOccurs="0"/>
+					<xs:element name="defPersistence" type="xs:int" minOccurs="0"/>
+					<xs:element name="defPriority" type="xs:int" minOccurs="0"/>
+					<xs:element name="distLists" type="xs:int" minOccurs="0"/>
+					<xs:element name="hardenGetBackout" type="xs:int" minOccurs="0"/>
+					<xs:element name="initiationQueueName" type="xs:string" minOccurs="0"/>
+					<xs:element name="msgDeliverySequence" type="xs:int" minOccurs="0"/>
+					<xs:element name="processName" type="xs:string" minOccurs="0"/>
+					<xs:element name="depthHighEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="depthHighLimit" type="xs:int" minOccurs="0"/>
+					<xs:element name="depthLowEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="depthLowLimit" type="xs:int" minOccurs="0"/>
+					<xs:element name="depthMaxEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="serviceInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="serviceIntervalEvent" type="xs:int" minOccurs="0"/>
+					<xs:element name="retentionInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="scope" type="xs:int" minOccurs="0"/>
+					<xs:element name="shareability" type="xs:int" minOccurs="0"/>
+					<xs:element name="triggerControl" type="xs:int" minOccurs="0"/>
+					<xs:element name="triggerData" type="xs:string" minOccurs="0"/>
+					<xs:element name="triggerDepth" type="xs:int" minOccurs="0"/>
+					<xs:element name="triggerMsgPriority" type="xs:int" minOccurs="0"/>
+					<xs:element name="triggerType" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseQueueType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Queue properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="type" type="xs:int"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="inhibitGet" type="xs:int" minOccurs="0"/>
+			<xs:element name="inhibitPut" type="xs:int" minOccurs="0"/>
+			<xs:element name="openInputCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="openOutputCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="currentDepth" type="xs:int" minOccurs="0"/>
+			<xs:element name="maxDepth" type="xs:int" minOccurs="0"/>
+			<xs:element name="maxMsgLength" type="xs:int" minOccurs="0"/>
+			<xs:element name="defType" type="xs:int" minOccurs="0"/>
+			<xs:element name="usage" type="xs:int" minOccurs="0"/>
+			<xs:element name="alterationDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChannelType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Channel properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseChannelType">
+				<xs:sequence>
+					<xs:element name="batchHeartbeat" type="xs:int" minOccurs="0"/>
+					<xs:element name="batchInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="batchSize" type="xs:int" minOccurs="0"/>
+					<xs:element name="instanceType" type="xs:int" minOccurs="0"/>
+					<xs:element name="startDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="startTime" type="xs:time" minOccurs="0"/>
+					<xs:element name="clusterName" type="xs:string" minOccurs="0"/>
+					<xs:element name="clusterNamelist" type="xs:string" minOccurs="0"/>
+					<xs:element name="connectionName" type="xs:string" minOccurs="0"/>
+					<xs:element name="dataConversion" type="xs:int" minOccurs="0"/>
+					<xs:element name="discInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="heartbeatInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="localAddress" type="xs:string" minOccurs="0"/>
+					<xs:element name="longRetryCount" type="xs:int" minOccurs="0"/>
+					<xs:element name="longRetryInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="maxMsgLength" type="xs:int" minOccurs="0"/>
+					<xs:element name="mcaName" type="xs:string" minOccurs="0"/>
+					<xs:element name="mcaType" type="xs:int" minOccurs="0"/>
+					<xs:element name="mcaUserIdentifier" type="xs:string" minOccurs="0"/>
+					<xs:element name="modeName" type="xs:string" minOccurs="0"/>
+					<xs:element name="msgExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="msgRetryCount" type="xs:int" minOccurs="0"/>
+					<xs:element name="msgRetryExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="msgRetryInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="msgRetryUserData" type="xs:string" minOccurs="0"/>
+					<xs:element name="msgUserData" type="xs:string" minOccurs="0"/>
+					<xs:element name="networkPriority" type="xs:int" minOccurs="0"/>
+					<xs:element name="nonPersistentMsgSpeed" type="xs:int" minOccurs="0"/>
+					<xs:element name="userIdentifier" type="xs:string" minOccurs="0"/>
+					<xs:element name="password" type="xs:string" minOccurs="0"/>
+					<xs:element name="tpName" type="xs:string" minOccurs="0"/>
+					<xs:element name="receiveExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="receiveUserData" type="xs:string" minOccurs="0"/>
+					<xs:element name="securityExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="securityUserData" type="xs:string" minOccurs="0"/>
+					<xs:element name="sendExit" type="xs:string" minOccurs="0"/>
+					<xs:element name="sendUserData" type="xs:string" minOccurs="0"/>
+					<xs:element name="seqNumberWrap" type="xs:int" minOccurs="0"/>
+					<xs:element name="shortRetryCount" type="xs:int" minOccurs="0"/>
+					<xs:element name="shortRetryInterval" type="xs:int" minOccurs="0"/>
+					<xs:element name="sslCipherSpec" type="xs:string" minOccurs="0"/>
+					<xs:element name="sslClientAuth" type="xs:int" minOccurs="0"/>
+					<xs:element name="sslPeerName" type="xs:string" minOccurs="0"/>
+					<xs:element name="transportType" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseChannelType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Channel properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="type" type="xs:int"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="status" type="xs:int" minOccurs="0"/>
+			<xs:element name="connectionCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="qmanagerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="xmitQueueName" type="xs:string" minOccurs="0"/>
+			<xs:element name="alterationDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TopicType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Topic properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BaseTopicType">
+				<xs:sequence>
+					<xs:element name="clusterName" type="xs:string" minOccurs="0"/>
+					<xs:element name="qmanagerName" type="xs:string" minOccurs="0"/>
+					<xs:element name="durableModelQName" type="xs:string" minOccurs="0"/>
+					<xs:element name="nonDurableModelQName" type="xs:string" minOccurs="0"/>
+					<xs:element name="inhibitPublications" type="xs:int" minOccurs="0"/>
+					<xs:element name="inhibitSubscriptions" type="xs:int" minOccurs="0"/>
+					<xs:element name="proxySubscriptions" type="xs:int" minOccurs="0"/>
+					<xs:element name="publicationScope" type="xs:int" minOccurs="0"/>
+					<xs:element name="subscriptionScope" type="xs:int" minOccurs="0"/>
+					<xs:element name="persistentMsgDelivery" type="xs:int" minOccurs="0"/>
+					<xs:element name="nonPersistentMsgDelivery" type="xs:int" minOccurs="0"/>
+					<xs:element name="durableSubscriptions" type="xs:int" minOccurs="0"/>
+					<xs:element name="defPutResponse" type="xs:int" minOccurs="0"/>
+					<xs:element name="defPriority" type="xs:int" minOccurs="0"/>
+					<xs:element name="defPersistence" type="xs:int" minOccurs="0"/>
+					<xs:element name="wildcardOperation" type="xs:int" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BaseTopicType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Topic properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1"/>
+			<xs:element name="type" type="xs:int"/>
+			<xs:element name="description" type="xs:string" minOccurs="0"/>
+			<xs:element name="topicString" type="xs:string" minOccurs="0"/>
+			<xs:element name="status" type="xs:int" minOccurs="0"/>
+			<xs:element name="alterationDate" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueStatType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ Queue statistics.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="highDepth" type="xs:int"/>
+			<xs:element name="msgDeqCount" type="xs:int"/>
+			<xs:element name="msgEnqCount" type="xs:int"/>
+			<xs:element name="queueName" type="xs:string"/>
+			<xs:element name="timeSinceReset" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MqMessageType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ MQMessage properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="data" type="xs:string" minOccurs="0"/>
+			<xs:element name="header" type="MqMessageHeaderType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MqMessageHeaderType">
+		<xs:annotation>
+			<xs:documentation>
+				IBM Websphere MQ MQMessageHeader properties.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageFormat" type="xs:string" minOccurs="0"/>
+			<xs:element name="userId" type="xs:string" minOccurs="0"/>
+			<xs:element name="codePage" type="xs:int" minOccurs="0"/>
+			<xs:element name="putTime" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="expiry" type="xs:int" minOccurs="0"/>
+			<xs:element name="correlationId" type="xs:string" minOccurs="0"/>
+			<xs:element name="groupId" type="xs:string" minOccurs="0"/>
+			<xs:element name="applicationId" type="xs:string" minOccurs="0"/>
+			<xs:element name="applicationOrigin" type="xs:string" minOccurs="0"/>
+			<xs:element name="putApplicationName" type="xs:string" minOccurs="0"/>
+			<xs:element name="replyToQmanagerName" type="xs:string" minOccurs="0"/>
+			<xs:element name="replyToQueueName" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountingToken" type="xs:string" minOccurs="0"/>
+			<xs:element name="messageFlags" type="xs:int" minOccurs="0"/>
+			<xs:element name="originalLength" type="xs:int" minOccurs="0"/>
+			<xs:element name="backoutCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="offset" type="xs:int" minOccurs="0"/>
+			<xs:element name="priority" type="xs:int" minOccurs="0"/>
+			<xs:element name="messageSequenceNumber" type="xs:int" minOccurs="0"/>
+			<xs:element name="feedback" type="xs:int" minOccurs="0"/>
+			<xs:element name="characterSet" type="xs:int" minOccurs="0"/>
+			<xs:element name="encoding" type="xs:int" minOccurs="0"/>
+			<xs:element name="messageType" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:MQMessageTypeEnum -->
+			<xs:element name="segment" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:SegmentTypeEnum -->
+			<xs:element name="persistence" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:PersistenceTypeEnum -->
+			<xs:element name="exception" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:ExceptionReportTypeEnum -->
+			<xs:element name="expiration" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:ExpirationReportTypeEnum -->
+			<xs:element name="coa" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:CoaReportTypeEnum -->
+			<xs:element name="cod" type="xs:int" minOccurs="0"/>
+			<!-- nfx-wmq:CodReportTypeEnum -->
+			<xs:element name="pan" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="nan" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="passCorrelationId" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AmqRecordType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:element name="firstOccurrence" type="xs:int" minOccurs="0"/>
+			<xs:element name="lastOccurrence" type="xs:int" minOccurs="0"/>
+			<xs:element name="count" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FdcFileType">
+		<xs:sequence>
+			<xs:element name="accessDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="access" type="xs:string" minOccurs="0"/>
+			<xs:element name="user" type="xs:string" minOccurs="0"/>
+			<xs:element name="group" type="xs:string" minOccurs="0"/>
+			<xs:element name="linksCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="size" type="xs:int" minOccurs="0"/>
+			<xs:element name="fileName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConnectionType">
+		<xs:sequence>
+			<xs:element name="host" type="xs:string"/>
+			<xs:element name="port" type="xs:int"/>
+			<xs:element name="qmanagerName" type="xs:string"/>
+			<xs:element name="channelName" type="xs:string"/>
+			<xs:element name="commandServerQueueName" type="xs:string" minOccurs="0"/>
+			<xs:element name="commandServerReplyQueueName" type="xs:string" minOccurs="0"/>
+			<xs:element name="dataRootDirectory" type="xs:string" minOccurs="0"/>
+			<xs:element name="wmqVersion" type="xs:string" minOccurs="0"/>
+			<!-- nfx-wmq:WMQVersionEnum -->
+			<xs:element name="os" type="xs:string" minOccurs="0"/>
+			<!-- nfx-wmq:OSTypeEnum -->
+			<xs:element name="ssh" type="SshType" minOccurs="0"/>
+			<xs:element name="ssl" type="SslType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SshType">
+		<xs:sequence>
+			<xs:element name="port" type="xs:int" default="22"/>
+			<xs:element name="username" type="xs:string"/>
+			<xs:element name="password" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SslType">
+		<xs:sequence>
+			<xs:element name="keystore" type="xs:string" minOccurs="0"/>
+			<xs:element name="keystorePassword" type="xs:string" minOccurs="0"/>
+			<xs:element name="truststore" type="xs:string" minOccurs="0"/>
+			<xs:element name="truststorePassword" type="xs:string" minOccurs="0"/>
+			<xs:element name="cipherSuite" type="xs:string"/>
+			<!-- CipherSuiteEnum -->
+			<xs:element name="peerName" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="OSTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AIX"/>
+			<xs:enumeration value="Compaq OpenVMS"/>
+			<xs:enumeration value="Compaq NSK"/>
+			<xs:enumeration value="HP-UX"/>
+			<xs:enumeration value="Linux for Z/OS"/>
+			<xs:enumeration value="OS/400"/>
+			<xs:enumeration value="OS/2 Warp"/>
+			<xs:enumeration value="Solaris"/>
+			<xs:enumeration value="Windows"/>
+			<xs:enumeration value="Z/OS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WMQVersionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="5.X"/>
+			<xs:enumeration value="6.X"/>
+			<xs:enumeration value="7.X"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CipherSuiteEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SSL_RSA_WITH_NULL_MD5"/>
+			<xs:enumeration value="SSL_RSA_WITH_NULL_SHA"/>
+			<xs:enumeration value="SSL_RSA_EXPORT_WITH_RC4_40_MD5"/>
+			<xs:enumeration value="SSL_RSA_WITH_RC4_128_MD5"/>
+			<xs:enumeration value="SSL_RSA_WITH_RC4_128_SHA"/>
+			<xs:enumeration value="SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5"/>
+			<xs:enumeration value="SSL_RSA_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_EXPORT1024_WITH_RC4_56_SHA"/>
+			<xs:enumeration value="SSL_RSA_EXPORT1024_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_WITH_3DES_EDE_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_WITH_AES_128_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_WITH_AES_256_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_WITH_3DES_EDE_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_FIPS_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="SSL_RSA_FIPS_WITH_3DES_EDE_CBC_SHA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CipherSpecEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NULL_MD5"/>
+			<xs:enumeration value="NULL_SHA"/>
+			<xs:enumeration value="RC4_MD5_EXPORT"/>
+			<xs:enumeration value="RC4_MD5_US"/>
+			<xs:enumeration value="RC4_SHA_US"/>
+			<xs:enumeration value="RC2_MD5_EXPORT"/>
+			<xs:enumeration value="DES_SHA_EXPORT"/>
+			<xs:enumeration value="RC4_56_SHA_EXPORT1024"/>
+			<xs:enumeration value="DES_SHA_EXPORT1024"/>
+			<xs:enumeration value="TRIPLE_DES_SHA_US"/>
+			<xs:enumeration value="TLS_RSA_WITH_AES_128_CBC_SHA"/>
+			<xs:enumeration value="TLS_RSA_WITH_AES_256_CBC_SHA"/>
+			<xs:enumeration value="TLS_RSA_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="TLS_RSA_WITH_3DES_EDE_CBC_SHA"/>
+			<xs:enumeration value="FIPS_WITH_DES_CBC_SHA"/>
+			<xs:enumeration value="FIPS_WITH_3DES_EDE_CBC_SHA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MQMessageTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DATAGRAM"/>
+			<xs:enumeration value="REPLY"/>
+			<xs:enumeration value="REPORT"/>
+			<xs:enumeration value="REQUEST"/>
+			<!-- 8 -->
+			<!-- 2 -->
+			<!-- 4 -->
+			<!-- 1 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SegmentTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="LAST"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersistenceTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PERSISTENT"/>
+			<xs:enumeration value="NOT PERSISTENT"/>
+			<xs:enumeration value="AS QUEUE"/>
+			<!-- 1 -->
+			<!-- 0 -->
+			<!-- 2 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExceptionReportTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="FULL"/>
+			<!-- 16777216 -->
+			<!-- 50331648 -->
+			<!-- 117440512 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExpirationReportTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="FULL"/>
+			<!-- 2097152 -->
+			<!-- 6291456 -->
+			<!-- 14680064 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CoaReportTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="FULL"/>
+			<!-- 256 -->
+			<!-- 768 -->
+			<!-- 1792 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodReportTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="FULL"/>
+			<!-- 2048 -->
+			<!-- 6144 -->
+			<!-- 14336 -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FdcFileArrayType">
+		<xs:sequence>
+			<xs:element name="file" type="FdcFileType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QmanagerArrayType">
+		<xs:sequence>
+			<xs:element name="qmanager" type="QmanagerType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ChannelArrayType">
+		<xs:sequence>
+			<xs:element name="channel" type="ChannelType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseChannelArrayType">
+		<xs:sequence>
+			<xs:element name="channel" type="BaseChannelType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="QueueType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseQueueArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="BaseQueueType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TopicArrayType">
+		<xs:sequence>
+			<xs:element name="topic" type="TopicType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BaseTopicArrayType">
+		<xs:sequence>
+			<xs:element name="topic" type="BaseTopicType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="QueueStatArrayType">
+		<xs:sequence>
+			<xs:element name="queueStat" type="QueueStatType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MqMessageArrayType">
+		<xs:sequence>
+			<xs:element name="message" type="MqMessageType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StringArrayType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

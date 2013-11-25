@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:lic="urn:netflexity:schema:software:qflex:license:1.0"
+    targetNamespace="urn:netflexity:schema:software:qflex:license:1.0">
+
+    <xs:complexType name="License">
+            <xs:sequence>
+                <xs:element name="feature" type="lic:Feature" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="companyName" type="xs:string" />
+            </xs:sequence>
+            <xs:attribute name="operatingSystem" use="required" type="lic:OperatingSystemEnum"/>
+            <xs:attribute name="memory" use="optional" type="xs:string"/>
+            <xs:attribute name="disc" use="optional" type="xs:string"/>
+            <xs:attribute name="databaseType" use="required" type="lic:DatabaseTypeEnum"/>
+            <xs:attribute name="cpu" use="optional" type="xs:string"/>
+            <xs:attribute name="version" use="required" type="xs:string"/>
+            <xs:attribute name="edition" use="required" type="lic:EditionEnum"/>
+            <xs:attribute name="googleAnalyticsKey" use="required" type="xs:string"/>
+            <xs:attribute name="qmanagerCount" use="required" type="xs:integer"/>
+            <xs:attribute name="userCount" use="required" type="xs:integer"/>
+            <xs:attribute name="brokerCount" use="required" type="xs:integer"/>
+            <xs:attribute name="updatedOn" use="required" type="xs:dateTime"/>
+
+            <xs:attribute name="expiresOn" use="required" type="xs:dateTime"/>
+        </xs:complexType>
+
+    <xs:complexType name="Feature">
+            <xs:attribute name="code" use="required" type="lic:FeatureTypeEnum"/>
+        </xs:complexType>
+
+    <xs:simpleType name="EditionEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Enterprise">
+                <xs:annotation>
+                    <xs:documentation>Enterprise</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Express">
+                <xs:annotation>
+                    <xs:documentation>Express</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="FeatureTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CFLEX"/>
+            <xs:enumeration value="QFLEX"/>
+            <xs:enumeration value="WMB"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DatabaseTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MySQL 5.X"/>
+            <xs:enumeration value="Oracle 10G+"/>
+            <xs:enumeration value="SQL Server 2005+"/>
+            <xs:enumeration value="IBM DB2"/>
+            <xs:enumeration value="Embedded"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="OperatingSystemEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Windows 7"/>
+            <xs:enumeration value="Windows Vista"/>
+            <xs:enumeration value="Windows 2008 Server"/>
+            <xs:enumeration value="Windows 2003 Server"/>
+            <xs:enumeration value="Windows 2000"/>
+            <xs:enumeration value="Linux"/>
+            <xs:enumeration value="Unix"/>
+            <xs:enumeration value="AIX"/>
+            <xs:enumeration value="Solaris"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
+

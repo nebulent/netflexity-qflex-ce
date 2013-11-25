@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:qflexcodes="urn:netflexity:schema:software:qflex:codes:1.0" targetNamespace="urn:netflexity:schema:software:qflex:codes:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:simpleType name="StatusTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="0"></xs:enumeration> <!-- STOPPED -->
+			<xs:enumeration value="1"></xs:enumeration> <!-- STARTED -->
+			<xs:enumeration value="5"></xs:enumeration> <!-- NEW ALERT -->
+			<xs:enumeration value="10"></xs:enumeration><!-- ASSIGNED ALERT -->
+			<xs:enumeration value="15"></xs:enumeration><!-- RESOLVED ALERT -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="ApplicationDestinationPurposeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1"></xs:enumeration> <!-- INPUT -->
+			<xs:enumeration value="2"></xs:enumeration> <!-- OUTPUT -->
+			<xs:enumeration value="3"></xs:enumeration><!-- ERROR -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="RecoveryActionTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Ssh</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Java</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Local Script</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CriticalityTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Failure</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Problem</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Warning</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>Info</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AlertTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Log File</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>SMTP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>SNMP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MonitorTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>Queue</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="2">
+				<xs:annotation>
+					<xs:documentation>Queue Manager</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="3">
+				<xs:annotation>
+					<xs:documentation>Channel</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="4">
+				<xs:annotation>
+					<xs:documentation>QoS</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="5">
+				<xs:annotation>
+					<xs:documentation>Broker</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="6">
+				<xs:annotation>
+					<xs:documentation>Flow</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="QflexEditionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="S">
+				<xs:annotation>
+					<xs:documentation>Enterprise</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E">
+				<xs:annotation>
+					<xs:documentation>Express</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

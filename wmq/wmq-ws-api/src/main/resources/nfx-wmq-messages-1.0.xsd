@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nfx-wmq="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" xmlns="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" targetNamespace="urn:com:netflexity:schema:software:nfx-wmq:messages:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="urn:com:netflexity:schema:software:nfx-wmq:types:1.0" schemaLocation="nfx-wmq-types-1.0.xsd"/>
+	<!--Get Qmanager details by name.-->
+	<xs:element name="GetQmanager">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetQmanagerOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="qmanager" type="nfx-wmq:QmanagerType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Set Qmanager details.-->
+	<xs:element name="SetQmanager">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="qmanager" type="nfx-wmq:QmanagerType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SetQmanagerOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="qmanager" type="nfx-wmq:QmanagerType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Queue details by name.-->
+	<xs:element name="GetQueue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetQueueOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queue" type="nfx-wmq:QueueType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Remove Queue.-->
+	<xs:element name="RemoveQueue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RemoveQueueOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Set Queue details.-->
+	<xs:element name="SetQueue">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queue" type="nfx-wmq:QueueType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SetQueueOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queue" type="nfx-wmq:QueueType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Channel details by name.-->
+	<xs:element name="GetChannel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channelName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetChannelOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channel" type="nfx-wmq:ChannelType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Remove Topic.-->
+	<xs:element name="RemoveTopic">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="topicName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RemoveTopicOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Topic details by name.-->
+	<xs:element name="GetTopic">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="topicName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetTopicOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="topic" type="nfx-wmq:TopicType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Remove Channel details by name.-->
+	<xs:element name="RemoveChannel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channelName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RemoveChannelOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Set Channel details.-->
+	<xs:element name="SetChannel">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channel" type="nfx-wmq:ChannelType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SetChannelOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channel" type="nfx-wmq:ChannelType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Channels.-->
+	<xs:element name="GetAllChannels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllChannelsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channels" type="nfx-wmq:ChannelArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Channels short list of attributes.-->
+	<xs:element name="GetAllBaseChannels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllBaseChannelsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="channels" type="nfx-wmq:BaseChannelArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Queues.-->
+	<xs:element name="GetAllQueues">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllQueuesOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queues" type="nfx-wmq:QueueArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Queues short list of attributes.-->
+	<xs:element name="GetAllBaseQueues">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllBaseQueuesOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queues" type="nfx-wmq:BaseQueueArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Topics.-->
+	<xs:element name="GetAllTopics">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllTopicsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="topics" type="nfx-wmq:TopicArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get all Qmanager Queues short list of attributes.-->
+	<xs:element name="GetAllBaseTopics">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllBaseTopicsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queues" type="nfx-wmq:BaseTopicArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get Queue Statistics.-->
+	<xs:element name="GetQueueStats">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="excludeQueueNames" type="nfx-wmq:StringArrayType"/>
+				<xs:element name="includeQueueNames" type="nfx-wmq:StringArrayType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetQueueStatsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueStats" type="nfx-wmq:QueueStatArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Is Command Server Running.-->
+	<xs:element name="IsCommandServerUp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IsCommandServerUpOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Is Qmanager Running.-->
+	<xs:element name="IsQmanagerUp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IsQmanagerUpOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get FDC files on interval.-->
+	<xs:element name="GetNewFdcFilesOnInterval">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errorCode" type="xs:string"/>
+				<xs:element name="startDateTime" type="xs:dateTime"/>
+				<xs:element name="endDateTime" type="xs:dateTime"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetNewFdcFilesOnIntervalOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="files" type="nfx-wmq:FdcFileArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--Get error code on interval.-->
+	<xs:element name="GetErrorCodeOnInterval">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errorCode" type="xs:string"/>
+				<xs:element name="startDateTime" type="xs:dateTime"/>
+				<xs:element name="endDateTime" type="xs:dateTime"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetErrorCodeOnIntervalOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="amqRecord" type="nfx-wmq:AmqRecordType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * Retrieves all queue messages.
+     * @param queueName
+     * @return
+     */
+    public List<MqMessage> getAllMessages(String queueName) throws MqException;
+-->
+	<xs:element name="GetAllMessages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetAllMessagesOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messages" type="nfx-wmq:MqMessageArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * Retrieves messages that fit the range.
+     * @param queueName
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<MqMessage> getSelectedMessages(String queueName, int start, int end) throws MqException;
+-->
+	<xs:element name="GetSelectedMessages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="start" type="xs:int"/>
+				<xs:element name="end" type="xs:int"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetSelectedMessagesOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messages" type="nfx-wmq:MqMessageArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * Retrieves full contents of the queue message.
+     * 
+     * @param queueName
+     * @param messageId
+     * @return
+     */
+    public MqMessage getMessageById(String queueName, byte[] messageId) throws MqException;
+    
+    /**
+     * Retrieves full contents of the queue message. Also converts hex string to bytes.
+     * 
+     * @param queueName
+     * @param messageId
+     * @return
+     */
+    public MqMessage getMessageById(String queueName, String hexMessageId) throws MqException;
+-->
+	<xs:element name="GetMessageByHexId">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="hexMessageId" type="xs:string"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetMessageByHexIdOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="nfx-wmq:MqMessageType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * Retrieves all messages that are available and stores them polymorphically through
+     * strategy instance.
+     * 
+     * @param queueName
+     * @param hexMessageIds
+     * @param strategy
+     * @return
+     */
+    public MqMessagePreserver getMessagesByIds(String queueName, String hexMessageIds[], MqMessagePreserver strategy) throws MqException;
+-->
+	<xs:element name="GetMessagesByIds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="hexMessageIds" type="nfx-wmq:StringArrayType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetMessagesByIdsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messages" type="nfx-wmq:MqMessageArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--
+    /**
+     * Peek at a certain number of messages of the top of the queue.
+     * 
+     * @param queueName
+     * @param howMany
+     * @return
+     */
+    public List<String> getMessageIds(String queueName, int howMany) throws MqException;
+-->
+	<xs:element name="GetMessageIds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="howMany" type="xs:int"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetMessageIdsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageIds" type="nfx-wmq:StringArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * @param queueName
+     * @param messageIds
+     * @return
+     */
+    public List<MqMessage> consumeMessagesByIds(String queueName, List messageIds) throws MqException;
+-->
+	<xs:element name="ConsumeMessagesByIds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="messageIds" type="nfx-wmq:StringArrayType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConsumeMessagesByIdsOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messages" type="nfx-wmq:MqMessageArrayType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * Consume a reply message from a dynamic queue.
+     * 
+     * @param requestQueueName
+     * @param modelQueueName, for example, "SYSTEM.BROKER.MODEL.QUEUE"
+     * @param waitInterval
+     * @param message
+     * @return
+     * @throws MqException
+     */
+    public MqMessage consumeRequest(String requestQueueName, String modelQueueName, int waitInterval, MqMessage message) throws MqException;
+-->
+	<xs:element name="ConsumeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="requestQueueName" type="xs:string"/>
+				<xs:element name="modelQueueName" type="xs:string"/>
+				<xs:element name="waitInterval" type="xs:int"/>
+				<xs:element name="message" type="nfx-wmq:MqMessageType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ConsumeRequestOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="nfx-wmq:MqMessageType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- 
+    /**
+     * @param queueName
+     * @param message
+     * @throws MqException
+     */
+    public void putMessage(String queueName, MqMessage message) throws MqException;
+-->
+	<xs:element name="PutMessage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queueName" type="xs:string"/>
+				<xs:element name="message" type="nfx-wmq:MqMessageType"/>
+				<xs:element name="connection" type="nfx-wmq:ConnectionType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PutMessageOut">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="message" type="nfx-wmq:MqMessageType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Fault message. -->
+	<xs:element name="WMQFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="reason" type="xs:string"/>
+				<xs:element name="reasonCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="description" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

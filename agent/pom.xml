@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+		<groupId>com.netflexity.software.qflex</groupId>
+		<artifactId>cloud</artifactId>
+        <version>1.0</version>
+    </parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.netflexity.software.qflex.cloud</groupId>
+	<artifactId>agent</artifactId>
+	<packaging>pom</packaging>
+	<name>Netflexity Solutions :: Qflex Cloud Edition :: Agent</name>
+	<url>http://www.netflexity.com</url>
+	<version>1.0</version>
+	<modules>
+		<module>qflexce-agent-api</module>
+		<module>qflexce-agent-web</module>
+		<module>qflexce-agent-business</module>
+	</modules>
+  	<properties>
+  		<camel.version>2.12.1</camel.version>
+	</properties>
+</project>

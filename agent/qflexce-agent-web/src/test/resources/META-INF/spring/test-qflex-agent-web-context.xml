@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:jaxws="http://cxf.apache.org/jaxws"
+	   xmlns:cxf="http://activemq.apache.org/camel/schema/cxfEndpoint"
+	   xmlns:p="http://www.springframework.org/schema/p" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:jee="http://www.springframework.org/schema/jee"
+	   xmlns:oxm="http://www.springframework.org/schema/oxm"
+	   xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	       	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	       	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+	       	http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.1.xsd
+	       	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+            http://activemq.apache.org/camel/schema/cxfEndpoint http://activemq.apache.org/camel/schema/cxf/cxfEndpoint.xsd
+       		http://activemq.apache.org/camel/schema/spring http://activemq.apache.org/camel/schema/spring/camel-spring.xsd">
+
+
+	<!--jaxws:client id="qflexAgentServiceClient" 
+				  serviceClass="com.netflexity.software.qflex.agent.services._1.QflexAgentClient" 
+				  address="http://localhost:8080/qflex-web/QflexAgentService" /-->
+				  
+	
+	<!-- JAXB marshaller. -->
+	<oxm:jaxb2-marshaller id="marshaller" contextPath="com.netflexity.schema.software.nfx_wmq.messages._1:com.netflexity.schema.software.nfx_wmq.types._1:com.netflexity.schema.software.qflex.agent.types._1:com.netflexity.schema.software.qflex.agent.messages._1" />
+	
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

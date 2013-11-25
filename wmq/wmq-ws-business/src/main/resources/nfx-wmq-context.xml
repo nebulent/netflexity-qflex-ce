@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://activemq.apache.org/camel/schema/cxfEndpoint"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+            http://activemq.apache.org/camel/schema/cxfEndpoint http://activemq.apache.org/camel/schema/cxf/cxfEndpoint.xsd
+       		http://activemq.apache.org/camel/schema/spring http://activemq.apache.org/camel/schema/spring/camel-spring.xsd">
+
+
+	<bean id="wmqServiceBean" class="com.netflexity.ws.wmq.WMQServiceImpl">
+		<property name="pool" ref="mqConnectionPool"/>
+		<property name="serviceErrorsMessageSource" ref="serviceErrorsMessageSource"/>
+	</bean>
+	
+	<bean id="serviceErrorsMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="ServiceErrors"/>
+    </bean>
+    
+	<bean id="mqConnectionFactory" class="org.netflexity.ibm.websphere.mq.pool.IBMMqConnectionFactoryImpl">
+		<property name="maxLifeExpectancyMillis" value="3600000"/>
+	</bean>
+	
+	<bean id="mqConnectionPool" class="org.netflexity.springframework.commons.pool.KeyedObjectPoolFactoryBean">
+		<property name="objectFactory" ref="mqConnectionFactory"/>
+		<property name="maxActive" value="20"/>
+		<property name="maxIdle" value="10"/>
+		<property name="maxWait" value="120000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="60000"/>
+		<property name="numTestsPerEvictionRun" value="1"/>
+		<property name="testOnBorrow" value="true"/>
+		<property name="testOnReturn" value="true"/>
+		<property name="testWhileIdle" value="true"/>
+	</bean>
+    
+</beans>

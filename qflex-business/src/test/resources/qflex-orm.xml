@@ -1,0 +1,1004 @@
+<?xml version="1.0"?>
+<DATASOURCE NAME="qflex">
+	<RECORD NAME="alerts" CLASS="com.netflexity.qflex.data.Alert" VALIDATING="N">
+		<FIELD NAME="alert_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="parent_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="alert_status_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="criticality_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="alert_nm"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="occurrence_start_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="occurrence_end_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="alert_text"   REQUIRED="N" LENGTH="65535" JDBC_TYPE="-1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="comments"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="channels" CLASS="com.netflexity.qflex.data.Channel" VALIDATING="N">
+		<FIELD NAME="channel_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="channel_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="channel_tp"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="collection_policies" CLASS="com.netflexity.qflex.data.CollectionPolicy" VALIDATING="N">
+		<FIELD NAME="collection_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="filter"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="companies" CLASS="com.netflexity.qflex.data.Company" VALIDATING="N">
+		<FIELD NAME="company_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="serial_no"   REQUIRED="Y" LENGTH="96" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="addr"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="city"   REQUIRED="N" LENGTH="64" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="state"   REQUIRED="N" LENGTH="2" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="zip"   REQUIRED="N" LENGTH="11" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="email"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="phone"   REQUIRED="N" LENGTH="15" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="compression_policies" CLASS="com.netflexity.qflex.data.CompressionPolicy" VALIDATING="N">
+		<FIELD NAME="compression_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="frequency_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="time_of_compression"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="config_attributes" CLASS="com.netflexity.qflex.data.ConfigAttribute" VALIDATING="N">
+		<FIELD NAME="config_attribute_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="config_object_change_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="config_attribute_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="attribute_val"   REQUIRED="N" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="config_collection_policies" CLASS="com.netflexity.qflex.data.ConfigCollectionPolicy" VALIDATING="N">
+		<FIELD NAME="config_collection_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="queue_filter"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="channel_filter"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="config_deploy_policies" CLASS="com.netflexity.qflex.data.ConfigDeployPolicy" VALIDATING="N">
+		<FIELD NAME="config_deploy_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="config_object_change_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="target_qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="deploy_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="config_object_changes" CLASS="com.netflexity.qflex.data.ConfigObjectChange" VALIDATING="N">
+		<FIELD NAME="config_object_change_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="config_object_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="config_object_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="release_num"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="revision_num"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="changed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="change_nm"   REQUIRED="Y" LENGTH="64" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="sub_revision_num"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="message_purger_policies" CLASS="com.netflexity.qflex.data.MessagePurgerPolicy" VALIDATING="N">
+		<FIELD NAME="message_purger_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="queue_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="purger_interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="purger_interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+	</RECORD>
+	<RECORD NAME="monitor_templates" CLASS="com.netflexity.qflex.data.MonitorTemplate" VALIDATING="N">
+		<FIELD NAME="monitor_template_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="trig_condition_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="criticality_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="template_nm"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="occurrence_interval"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="polling_interval"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="monitors" CLASS="com.netflexity.qflex.data.Monitor" VALIDATING="N">
+		<FIELD NAME="monitor_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_object_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="trig_condition_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="trig_condition_param"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="criticality_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_nm"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="message_text"   REQUIRED="Y" LENGTH="65535" JDBC_TYPE="-1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="recovery_text"   REQUIRED="Y" LENGTH="65535" JDBC_TYPE="-1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="occurrence_interval"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="polling_interval"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="log_file"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="email_list"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="monitors_alert_types" CLASS="com.netflexity.qflex.data.MonitorsAlertType" VALIDATING="N">
+		<FIELD NAME="monitors_alert_types_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_template_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="alert_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="monitors_polling_policies" CLASS="com.netflexity.qflex.data.MonitorsPollingPolicy" VALIDATING="N">
+		<FIELD NAME="monitors_polling_policies_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="polling_policy_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_template_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="monitors_recovery_actions" CLASS="com.netflexity.qflex.data.MonitorsRecoveryAction">
+		<FIELD NAME="monitors_recovery_action_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="recovery_action_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="monitor_template_id"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="polling_policies" CLASS="com.netflexity.qflex.data.PollingPolicy" VALIDATING="N">
+		<FIELD NAME="polling_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="polling_policy_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="minutes"   REQUIRED="Y" LENGTH="196" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="hours"   REQUIRED="Y" LENGTH="196" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="days_of_week"   REQUIRED="Y" LENGTH="16" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="days_of_month"   REQUIRED="Y" LENGTH="96" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="months"   REQUIRED="Y" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="seconds"   REQUIRED="Y" LENGTH="196" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="principals" CLASS="com.netflexity.qflex.data.Principal" VALIDATING="N">
+		<FIELD NAME="principal_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="principal_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="username"   REQUIRED="Y" LENGTH="16" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="password"   REQUIRED="Y" LENGTH="96" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="role"   REQUIRED="Y" LENGTH="10" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="email"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="phone"   REQUIRED="N" LENGTH="15" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="qflex_properties" CLASS="com.netflexity.qflex.data.QflexProperty" VALIDATING="N">
+		<FIELD NAME="qflex_property_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="property_type"   REQUIRED="Y" JDBC_TYPE="-6" />
+		<FIELD NAME="property_nm"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="property_val"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="qmanagers" CLASS="com.netflexity.qflex.data.Qmanager" VALIDATING="N">
+		<FIELD NAME="qmanager_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="qmanager_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="qmanager_alias"   REQUIRED="N" LENGTH="96" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="host_nm"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="host_data_root"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="host_user"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="host_pwd"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="channel_nm"   REQUIRED="Y" LENGTH="20" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="port"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="command_server_qname"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="command_server_reply_queue"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="os"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="os_version"   REQUIRED="N" LENGTH="64" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="mq_version"   REQUIRED="N" LENGTH="64" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="queue_stats" CLASS="com.netflexity.qflex.data.QueueStat" VALIDATING="N">
+		<FIELD NAME="queue_stat_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="queue_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="msg_in"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="msg_out"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="high_depth"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="fetch_start_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="fetch_end_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="time_since_reset"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="queue_stats_idleness" CLASS="com.netflexity.qflex.data.QueueStatsIdleness" VALIDATING="N">
+		<FIELD NAME="queue_stats_idleness_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="idle_start_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="idle_end_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="idle_reason_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="queues" CLASS="com.netflexity.qflex.data.Queue" VALIDATING="N">
+		<FIELD NAME="queue_id" PRIMARY_KEY="Y" AUTO_INCREMENT="Y" REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="qmanager_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="queue_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="queue_tp"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="recovery_actions" CLASS="com.netflexity.qflex.data.RecoveryAction">
+		<FIELD NAME="recovery_action_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="company_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="recovery_action_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="action_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="command"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="command_args"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="java_class"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="reports" CLASS="com.netflexity.qflex.data.Report" VALIDATING="N">
+		<FIELD NAME="report_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="report_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="name"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="action"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="query_string"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="comments"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_acls" CLASS="com.netflexity.qflex.data.WmbiAcl" VALIDATING="N">
+		<FIELD NAME="wmbi_acl_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_topic_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_user_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="publish_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="subscribe_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="persistent_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_brokers" CLASS="com.netflexity.qflex.data.WmbiBroker" VALIDATING="N">
+		<FIELD NAME="wmbi_broker_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="queue_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="uuid"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="broker_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="broker_alias"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="broker_version"   REQUIRED="N" LENGTH="8" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_compression_policies" CLASS="com.netflexity.qflex.data.WmbiCompressionPolicy" VALIDATING="N">
+		<FIELD NAME="wmbi_compression_policy_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="frequency_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="interval_val"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="time_of_compression"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_exec_groups" CLASS="com.netflexity.qflex.data.WmbiExecGroup" VALIDATING="N">
+		<FIELD NAME="wmbi_exec_group_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="uuid"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="exec_group_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_flow_stats" CLASS="com.netflexity.qflex.data.WmbiFlowStat" VALIDATING="N">
+		<FIELD NAME="wmbi_flow_stat_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_flow_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_snapshot_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="min_elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="min_cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="pool_threads"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_threads"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="mq_errs"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="msgs_w_errs"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="errs_process_msgs"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="aggreg_msg_timeouts"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="commits"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="backouts"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="account_origin"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_flows" CLASS="com.netflexity.qflex.data.WmbiFlow" VALIDATING="N">
+		<FIELD NAME="wmbi_flow_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_exec_group_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="flow_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="uuid"   REQUIRED="N" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="additional_instances"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="commit_count"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="commit_interval"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="coord_transaction_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_neighbors" CLASS="com.netflexity.qflex.data.WmbiNeighbor" VALIDATING="N">
+		<FIELD NAME="wmbi_neighbor_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="uuid"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="neighbor_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_node_stats" CLASS="com.netflexity.qflex.data.WmbiNodeStat" VALIDATING="N">
+		<FIELD NAME="wmbi_node_stat_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_node_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="min_elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="min_cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="invocations"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="in_terminals"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="out_terminals"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="wmbi_snapshot_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="wmbi_nodes" CLASS="com.netflexity.qflex.data.WmbiNode" VALIDATING="N">
+		<FIELD NAME="wmbi_node_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_flow_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="uuid"   REQUIRED="N" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="node_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="node_tp"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_snapshots" CLASS="com.netflexity.qflex.data.WmbiSnapshot" VALIDATING="N">
+		<FIELD NAME="wmbi_snapshot_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="start_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="end_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="wmbi_stats_subscriptions" CLASS="com.netflexity.qflex.data.WmbiStatsSubscription" VALIDATING="N">
+		<FIELD NAME="wmbi_stats_subscription_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="subscription_object_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="subscription_object_tp"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="status"   REQUIRED="Y" JDBC_TYPE="4" />
+		<FIELD NAME="node_level"   REQUIRED="Y" LENGTH="1" JDBC_TYPE="1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="thread_level"   REQUIRED="Y" LENGTH="1" JDBC_TYPE="1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_subscriptions" CLASS="com.netflexity.qflex.data.WmbiSubscription" VALIDATING="N">
+		<FIELD NAME="wmbi_subscription_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_broker_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_user_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_topic_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="client_id"   REQUIRED="Y" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="subscription_point"   REQUIRED="N" LENGTH="255" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="filter"   REQUIRED="N" LENGTH="65535" JDBC_TYPE="-1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="persistent_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="local_only_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="pub_on_req_only_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="inform_id_ret_ind"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="expiry_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="create_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="temp_dyno_queue"   REQUIRED="N" JDBC_TYPE="4" />
+		<FIELD NAME="client_context"   REQUIRED="N" LENGTH="65535" JDBC_TYPE="-1">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_terminal_stats" CLASS="com.netflexity.qflex.data.WmbiTerminalStat" VALIDATING="N">
+		<FIELD NAME="wmbi_terminal_stat_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_terminal_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="invocations"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="wmbi_snapshot_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="wmbi_terminals" CLASS="com.netflexity.qflex.data.WmbiTerminal" VALIDATING="N">
+		<FIELD NAME="wmbi_terminal_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_node_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="terminal_nm"   REQUIRED="Y" LENGTH="128" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="terminal_tp"   REQUIRED="Y" LENGTH="8" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_thread_stats" CLASS="com.netflexity.qflex.data.WmbiThreadStat" VALIDATING="N">
+		<FIELD NAME="wmbi_thread_stat_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_flow_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="seq_no"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="in_msgs"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="elapsed_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="cpu_tm"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="cpu_tm_wait_in_msg"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="elapsed_tm_wait_in_msg"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="in_msgs_size"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="max_in_msgs_size"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="min_in_msgs_size"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="wmbi_snapshot_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+	</RECORD>
+	<RECORD NAME="wmbi_user_types" CLASS="com.netflexity.qflex.data.WmbiUserType" VALIDATING="N">
+		<FIELD NAME="wmbi_user_type_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="user_type_nm"   REQUIRED="Y" LENGTH="48" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	<RECORD NAME="wmbi_users" CLASS="com.netflexity.qflex.data.WmbiUser" VALIDATING="N">
+		<FIELD NAME="wmbi_user_id" PRIMARY_KEY="Y"  REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="wmbi_user_type_id"   REQUIRED="Y" JDBC_TYPE="-5" />
+		<FIELD NAME="username"   REQUIRED="Y" LENGTH="64" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+		<FIELD NAME="modified_tm"   REQUIRED="N" JDBC_TYPE="-5" />
+		<FIELD NAME="modified_by"   REQUIRED="N" LENGTH="32" JDBC_TYPE="12">
+			<NORMALIZE TYPE="TRIM" />
+			<NORMALIZE TYPE="TRUNCATE_SILENTLY" />
+		</FIELD>
+	</RECORD>
+	
+	<!--QUERY DECLARATIONS FOR CURRENT DATASOURCE-->
+	<QUERY NAME="qmanagerStatsByDatetime">
+		<![CDATA[ 
+		SELECT q.queue_id, q.queue_nm, qs.fetch_start_tm, qs.fetch_end_tm,  qs.msg_in, qs.msg_out, (qs.msg_in + qs.msg_out) throughput 
+		FROM queue_stats qs, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = ?
+		AND (qs.fetch_start_tm >= ? AND qs.fetch_end_tm <= ?)
+		order by q.queue_id,q.queue_nm, qs.fetch_start_tm, qs.fetch_end_tm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagerStatsByInterval">
+		<![CDATA[ 
+		SELECT q.queue_id, q.queue_nm, qs.fetch_start_tm, qs.fetch_end_tm, qs.msg_in, qs.msg_out, (qs.msg_in + qs.msg_out) throughput 
+		FROM queue_stats qs, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = ?
+		AND ( (? BETWEEN qs.fetch_start_tm AND qs.fetch_end_tm) OR qs.fetch_start_tm >= ?)
+		order by q.queue_id,q.queue_nm, qs.fetch_start_tm, qs.fetch_end_tm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagerStatsSummaryByDatetime">
+		<![CDATA[ 
+		SELECT q.queue_id, q.queue_nm, sum(qs.msg_out) msg_out, sum(qs.msg_in) msg_in, max(qs.high_depth) high_depth
+		FROM queue_stats qs, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = ?
+		AND (qs.fetch_start_tm >= ? AND qs.fetch_end_tm <= ?) {0}
+		group by q.queue_id, q.queue_nm
+		order by q.queue_nm, q.queue_id
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagerStatsSummaryByInterval">
+		<![CDATA[ 
+		SELECT q.queue_id, q.queue_nm, sum(qs.msg_out) msg_out, sum(qs.msg_in) msg_in, max(qs.high_depth) high_depth
+		FROM queue_stats qs, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = ?
+		AND ( (? BETWEEN qs.fetch_start_tm AND qs.fetch_end_tm) OR qs.fetch_start_tm >= ?) {0}
+		group by q.queue_id, q.queue_nm
+		order by q.queue_nm, q.queue_id
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagersStatsSummaryByDatetime">
+		<![CDATA[ 
+		SELECT qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias, sum(qs.msg_out) msg_out, sum(qs.msg_in) msg_in, max(qs.high_depth) high_depth
+		FROM queue_stats qs, qmanagers qm, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = qm.qmanager_id
+		AND qm.company_id = ?
+		AND (qs.fetch_start_tm >= ? AND qs.fetch_end_tm <= ?) {0}
+		group by qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		order by qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagersStatsSummaryByInterval">
+		<![CDATA[ 
+		SELECT qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias, sum(qs.msg_out) msg_out, sum(qs.msg_in) msg_in, max(qs.high_depth) high_depth
+		FROM queue_stats qs, qmanagers qm, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = qm.qmanager_id
+		AND qm.company_id = ?
+		AND ( (? BETWEEN qs.fetch_start_tm AND qs.fetch_end_tm) OR qs.fetch_start_tm >= ?) {0}
+		group by qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		order by qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qstatsToBeCompresed">
+		<![CDATA[ 
+		SELECT qs.* FROM queue_stats qs, queues q  
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = ?
+		AND ( (qs.fetch_start_tm >= ?) AND ((? - qs.fetch_start_tm) > ?))
+		order by q.qmanager_id, q.queue_id, qs.fetch_start_tm, qs.fetch_end_tm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagersThroughputSummary">
+		<![CDATA[ 
+		SELECT qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias, (sum(qs.msg_in) + sum(qs.msg_out)) throughput 
+		FROM queue_stats qs, queues q, qmanagers qm
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = qm.qmanager_id
+		AND qm.company_id = ?
+		AND ( (? BETWEEN qs.fetch_start_tm AND qs.fetch_end_tm) OR qs.fetch_start_tm >= ?)
+		GROUP BY qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		ORDER BY throughput desc
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="qmanagerThroughputSummary">
+		<![CDATA[ 
+		SELECT qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias, (sum(qs.msg_in) + sum(qs.msg_out)) throughput 
+		FROM queue_stats qs, queues q, qmanagers qm
+		WHERE qs.queue_id = q.queue_id
+		AND q.qmanager_id = qm.qmanager_id
+		AND qm.qmanager_id = ?
+		AND ( (? BETWEEN qs.fetch_start_tm AND qs.fetch_end_tm) OR qs.fetch_start_tm >= ?)
+		GROUP BY qm.qmanager_id, qm.qmanager_nm, qm.qmanager_alias
+		ORDER BY throughput desc
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="deleteAllZeroQueueStats">
+		<![CDATA[ 
+		DELETE FROM queue_stats
+		WHERE (msg_in = 0 AND msg_out = 0 AND high_depth = 0)
+		AND ((? - fetch_start_tm) > ?)
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="nodeStatsSummaryForFlowOnPeriod">
+		<![CDATA[ 
+		SELECT ns.wmbi_node_id, n.node_nm, sum(ns.cpu_tm) total_cpu_time, sum(ns.elapsed_tm) total_elapsed_time, sum(ns.invocations) total_invocations
+		FROM wmbi_node_stats ns, wmbi_nodes n, wmbi_snapshots ss
+		WHERE ss.wmbi_snapshot_id = ns.wmbi_snapshot_id
+		AND n.wmbi_node_id = ns.wmbi_node_id
+		AND n.wmbi_flow_id = ?
+		AND (ss.start_tm >= ? AND ss.end_tm <= ?)
+		GROUP BY n.wmbi_node_id, n.node_nm
+		ORDER BY n.wmbi_node_id, n.node_nm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="nodeStatsOnPeriod">
+		<![CDATA[ 
+		SELECT ns.wmbi_node_id, n.node_nm, ns.cpu_tm, ns.min_cpu_tm, ns.max_cpu_tm
+		, ns.elapsed_tm, ns.min_elapsed_tm, ns.max_elapsed_tm, ss.start_tm, ss.end_tm
+		FROM wmbi_node_stats ns, wmbi_nodes n, wmbi_snapshots ss
+		WHERE ss.wmbi_snapshot_id = ns.wmbi_snapshot_id
+		AND n.wmbi_node_id = ?
+		AND (ss.start_tm >= ? AND ss.end_tm <= ?)
+		ORDER BY n.wmbi_node_id, n.node_nm, ss.start_tm, ss.end_tm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="flowStatsSummaryForBrokerOnPeriod">
+		<![CDATA[
+		SELECT f.wmbi_flow_id, eg.exec_group_nm, f.flow_nm, sum(ts.cpu_tm) total_cpu_time, sum(ts.in_msgs) total_input_messages, sum(ts.in_msgs_size) total_size_of_input_messages
+		FROM wmbi_thread_stats ts, wmbi_flows f, wmbi_exec_groups eg, wmbi_snapshots ss
+		WHERE ss.wmbi_snapshot_id = ts.wmbi_snapshot_id
+		AND f.wmbi_exec_group_id = eg.wmbi_exec_group_id
+		AND f.wmbi_flow_id = ts.wmbi_flow_id
+		AND ss.wmbi_broker_id = ?
+		AND (ss.start_tm >= ? AND ss.end_tm <= ?)
+		GROUP BY eg.exec_group_nm, f.wmbi_flow_id, f.flow_nm
+		ORDER BY eg.exec_group_nm, f.wmbi_flow_id, f.flow_nm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="flowStatsOnPeriod">
+		<![CDATA[
+		SELECT f.wmbi_flow_id, f.flow_nm, ts.cpu_tm, ts.in_msgs, ts.in_msgs_size, ts.elapsed_tm, ss.start_tm, ss.end_tm
+		FROM wmbi_thread_stats ts, wmbi_flows f, wmbi_snapshots ss
+		WHERE ss.wmbi_snapshot_id = ts.wmbi_snapshot_id
+		AND f.wmbi_flow_id = ts.wmbi_flow_id
+		AND ts.wmbi_flow_id = ?
+		AND (ss.start_tm >= ? AND ss.end_tm <= ?)
+		ORDER BY f.wmbi_flow_id, f.flow_nm, ss.start_tm, ss.end_tm
+		]]>
+	</QUERY>
+	
+	<QUERY NAME="snapshotsToBeCompressed">
+		<![CDATA[
+		SELECT ss.* FROM wmbi_snapshots ss
+		WHERE ss.wmbi_broker_id = ? AND (ss.start_tm >= ? AND ss.end_tm < ?)
+		ORDER BY ss.wmbi_broker_id, ss.start_tm, ss.end_tm
+		]]>
+	</QUERY>
+</DATASOURCE>

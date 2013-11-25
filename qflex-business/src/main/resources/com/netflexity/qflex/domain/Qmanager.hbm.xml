@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Qmanager" table="qmanagers">
+    <id name="qmanagerId" type="long">
+      <column name="qmanager_id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.netflexity.qflex.domain.Company" fetch="select" name="company">
+      <column name="company_id" not-null="true"/>
+    </many-to-one>
+    <property name="status" type="int">
+      <column name="status" not-null="true"/>
+    </property>
+    <property name="qmanagerNm" type="string">
+      <column length="48" name="qmanager_nm" not-null="true"/>
+    </property>
+    <property name="qmanagerAlias" type="string">
+      <column length="96" name="qmanager_alias"/>
+    </property>
+    <property name="hostNm" type="string">
+      <column name="host_nm" not-null="true"/>
+    </property>
+    <property name="hostDataRoot" type="string">
+      <column name="host_data_root"/>
+    </property>
+    <property name="hostUser" type="string">
+      <column length="32" name="host_user"/>
+    </property>
+    <property name="hostPwd" type="string">
+      <column length="32" name="host_pwd"/>
+    </property>
+    <property name="channelNm" type="string">
+      <column length="20" name="channel_nm" not-null="true"/>
+    </property>
+    <property name="port" type="int">
+      <column name="port" not-null="true"/>
+    </property>
+    <property name="commandServerQname" type="string">
+      <column name="command_server_qname"/>
+    </property>
+    <property name="commandServerReplyQueue" type="string">
+      <column name="command_server_reply_queue"/>
+    </property>
+    <property name="os" type="string">
+      <column name="os"/>
+    </property>
+    <property name="osVersion" type="string">
+      <column length="64" name="os_version"/>
+    </property>
+    <property name="mqVersion" type="string">
+      <column length="64" name="mq_version"/>
+    </property>
+    <property name="sslKeystore" type="string">
+      <column name="ssl_keystore"/>
+    </property>
+    <property name="sslKeystorePwd" type="string">
+      <column length="32" name="ssl_keystore_pwd"/>
+    </property>
+    <property name="sslTruststore" type="string">
+      <column name="ssl_truststore"/>
+    </property>
+    <property name="sslTruststorePwd" type="string">
+      <column length="32" name="ssl_truststore_pwd"/>
+    </property>
+    <property name="sslCipherSpec" type="string">
+      <column length="48" name="ssl_cipher_spec"/>
+    </property>
+    <property name="sslPeerNm" type="string">
+      <column length="64" name="ssl_peer_nm"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+    <set inverse="true" name="monitorsForMonitorObjectId">
+      <key>
+        <column name="monitor_object_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Monitor"/>
+    </set>
+    <set inverse="true" name="monitorsForQmanagerId">
+      <key>
+        <column name="qmanager_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Monitor"/>
+    </set>
+    <set inverse="true" name="queues" cascade="replicate">
+      <key>
+        <column name="qmanager_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Queue"/>
+    </set>
+    <set inverse="true" name="channels" cascade="replicate">
+      <key>
+        <column name="qmanager_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.netflexity.qflex.domain.Channel"/>
+    </set>
+  </class>
+</hibernate-mapping>

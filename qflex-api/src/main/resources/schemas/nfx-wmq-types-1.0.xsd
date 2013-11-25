@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nfx-wmq="urn:netflexity:schema:software:nfx-wmq:types:1.0" targetNamespace="urn:netflexity:schema:software:nfx-wmq:types:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:complexType name="QmanagerType">
+		<xs:sequence>
+			<xs:element name="alterationDate" type="xs:string"/>
+			<xs:element name="alterationTime" type="xs:string"/>
+			<xs:element name="creationDate" type="xs:string"/>
+			<xs:element name="creationTime" type="xs:string"/>
+			<xs:element name="authorityEvent" type="xs:integer"/>
+			<xs:element name="channelAutoDef" type="xs:integer"/>
+			<xs:element name="channelAutoDefEvent" type="xs:integer"/>
+			<xs:element name="channelAutoDefExit" type="xs:string"/>
+			<xs:element name="clusterWorkloadData" type="xs:string"/>
+			<xs:element name="clusterWorkloadExit" type="xs:string"/>
+			<xs:element name="clusterWorkloadLength" type="xs:integer"/>
+			<xs:element name="codedCharSetId" type="xs:integer"/>
+			<xs:element name="commandInputQName" type="xs:string"/>
+	   		<xs:element name="commandLevel" type="xs:integer"/>
+		    <xs:element name="deadLetterQName" type="xs:string"/>
+		    <xs:element name="defXmitQName" type="xs:string"/>
+		    <xs:element name="distLists" type="xs:integer"/>
+		    <xs:element name="inhibitEvent" type="xs:integer"/>
+		    <xs:element name="localEvent" type="xs:integer"/>
+		    <xs:element name="maxHandles" type="xs:integer"/>
+		    <xs:element name="maxMsgLength" type="xs:integer"/>
+		    <xs:element name="maxPriority" type="xs:integer"/>
+		    <xs:element name="maxUncommittedMsgs" type="xs:integer"/>
+		    <xs:element name="performanceEvent" type="xs:integer"/>
+		    <xs:element name="platform" type="xs:integer"/>
+		    <xs:element name="qmanagerName" type="xs:string"/>
+		    <xs:element name="qmanagerDesc" type="xs:string"/>
+		    <xs:element name="qmanagerIdentifier" type="xs:string"/>
+		    <xs:element name="remoteEvent" type="xs:integer"/>
+		    <xs:element name="repositoryName" type="xs:string"/>
+		    <xs:element name="repositoryNameList" type="xs:string"/>
+		    <xs:element name="startStopEvent" type="xs:integer"/>
+		    <xs:element name="syncPoint" type="xs:integer"/>
+		    <xs:element name="triggerInterval" type="xs:integer"/>
+		    <xs:element name="sslCertificateRepositoryList" type="xs:string"/>
+		    <xs:element name="sslKeyRepository" type="xs:string"/>
+	    </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueueType">
+		<xs:sequence>
+		    <xs:element name="backoutRequeueName" type="xs:string"/>
+		    <xs:element name="backoutThreshold" type="xs:integer"/>
+		    <xs:element name="baseQueueName" type="xs:string"/>
+		    <xs:element name="clusterName" type="xs:string"/>
+		    <xs:element name="clusterNamelist" type="xs:string"/>
+		    <xs:element name="defBind" type="xs:string"/>
+		    <xs:element name="defInputOpenOption" type="xs:integer"/>
+		    <xs:element name="defPersistence" type="xs:integer"/>
+		    <xs:element name="defPriority" type="xs:integer"/>
+		    <xs:element name="defType" type="xs:integer"/>
+		    <xs:element name="distLists" type="xs:integer"/>
+		    <xs:element name="hardenGetBackout" type="xs:integer"/>
+		    <xs:element name="inhibitGet" type="xs:integer"/>
+		    <xs:element name="inhibitPut" type="xs:integer"/>
+		    <xs:element name="initiationQueueName" type="xs:string"/>
+		    <xs:element name="maxMsgLength" type="xs:integer"/>
+		    <xs:element name="maxQueueDepth" type="xs:integer"/>
+		    <xs:element name="msgDeliverySequence" type="xs:integer"/>
+		    <xs:element name="openInputCount" type="xs:integer"/>
+		    <xs:element name="openOutputCount" type="xs:integer"/>
+		    <xs:element name="processName" type="xs:string"/>
+		    <xs:element name="queueName" type="xs:string"/>
+			<xs:element name="queueType" type="xs:integer"/>
+			<xs:element name="queueDesc" type="xs:string"/>
+			<xs:element name="queueDepthHighEvent" type="xs:integer"/>
+			<xs:element name="queueDepthHighLimit" type="xs:integer"/>
+			<xs:element name="queueDepthLowEvent" type="xs:integer"/>
+			<xs:element name="queueDepthLowLimit" type="xs:integer"/>
+			<xs:element name="queueDepthMaxEvent" type="xs:integer"/>
+			<xs:element name="queueServiceInterval" type="xs:integer"/>
+			<xs:element name="queueServiceIntervalEvent" type="xs:integer"/>
+		    <xs:element name="retentionInterval" type="xs:integer"/>
+		    <xs:element name="scope" type="xs:integer"/>
+		    <xs:element name="shareability" type="xs:integer"/>
+		    <xs:element name="triggerControl" type="xs:integer"/>
+		    <xs:element name="triggerData" type="xs:string"/>
+		    <xs:element name="triggerDepth" type="xs:integer"/>
+		    <xs:element name="triggerMsgPriority" type="xs:integer"/>
+		    <xs:element name="triggerType" type="xs:integer"/>
+		    <xs:element name="usage" type="xs:integer"/>
+		    <xs:element name="currentQueueDepth" type="xs:integer"/>
+	    </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ChannelType">
+		<xs:sequence>
+			<xs:element name="alterationDate" type="xs:string"/>
+			<xs:element name="alterationTime" type="xs:string"/>
+			<xs:element name="batchHeartbeat" type="xs:integer"/>
+			<xs:element name="batchInterval" type="xs:integer"/>
+			<xs:element name="batchSize" type="xs:integer"/>
+			<xs:element name="channelDesc" type="xs:string"/>
+			<xs:element name="channelName" type="xs:string"/>
+			<xs:element name="channelType" type="xs:integer"/>
+			<xs:element name="channelInstanceType" type="xs:integer"/>
+			<xs:element name="channelStartDate" type="xs:string"/>
+			<xs:element name="channelStartTime" type="xs:string"/> 
+			<xs:element name="channelStatus" type="xs:integer"/>
+			<xs:element name="connectionCount" type="xs:integer"/>
+			<xs:element name="clusterName" type="xs:string"/>
+			<xs:element name="clusterNamelist" type="xs:string"/>
+			<xs:element name="connectionName" type="xs:string"/>
+			<xs:element name="dataConversion" type="xs:integer"/>
+			<xs:element name="discInterval" type="xs:integer"/>
+			<xs:element name="heartbeatInterval" type="xs:integer"/>
+			<xs:element name="localAddress" type="xs:string"/>
+			<xs:element name="longRetryCount" type="xs:integer"/>
+			<xs:element name="longRetryInterval" type="xs:integer"/>
+			<xs:element name="maxMsgLength" type="xs:integer"/>
+			<xs:element name="mcaName" type="xs:string"/>
+			<xs:element name="mcaType" type="xs:integer"/>
+			<xs:element name="mcaUserIdentifier" type="xs:string"/>
+			<xs:element name="modeName" type="xs:string"/>
+			<xs:element name="msgExit" type="xs:string"/>
+			<xs:element name="msgRetryCount" type="xs:integer"/>
+			<xs:element name="msgRetryExit" type="xs:string"/>
+			<xs:element name="msgRetryInterval" type="xs:integer"/>
+			<xs:element name="msgRetryUserData" type="xs:string"/>
+			<xs:element name="msgUserData" type="xs:string"/>
+			<xs:element name="networkPriority" type="xs:integer"/>
+			<xs:element name="nonPersistentMsgSpeed" type="xs:integer"/>
+			<xs:element name="password" type="xs:string"/>
+			<xs:element name="tpName" type="xs:string"/>
+			<xs:element name="qmanagerName" type="xs:string"/>
+			<xs:element name="receiveExit" type="xs:string"/>
+			<xs:element name="receiveUserData" type="xs:string"/>
+			<xs:element name="securityExit" type="xs:string"/>
+			<xs:element name="securityUserData" type="xs:string"/>
+			<xs:element name="sendExit" type="xs:string"/>
+			<xs:element name="sendUserData" type="xs:string"/>
+			<xs:element name="seqNumberWrap" type="xs:integer"/>
+			<xs:element name="shortRetryCount" type="xs:integer"/>
+			<xs:element name="shortRetryInterval" type="xs:integer"/>
+			<xs:element name="sslCipherSpec" type="xs:string"/>
+			<xs:element name="sslClientAuth" type="xs:integer"/>
+			<xs:element name="sslPeerName" type="xs:string"/>
+			<xs:element name="transportType" type="xs:integer"/>
+			<xs:element name="userIdentifier" type="xs:string"/>
+			<xs:element name="xmitQueueName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueueStatType">
+		<xs:sequence>
+			<xs:element name="highDepth" type="xs:integer"/>
+			<xs:element name="msgDeqCount" type="xs:integer"/>
+			<xs:element name="msgEnqCount" type="xs:integer"/>
+			<xs:element name="queueName" type="xs:string"/>
+			<xs:element name="timeSinceReset" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MqMessageType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="data" type="xs:string"/>
+			<xs:element name="header" type="nfx-wmq:MqMessageHeaderType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MqMessageHeaderType">
+		<xs:sequence>
+			<xs:element name="messageFormat" type="xs:string"/>
+			<xs:element name="userId" type="xs:string"/>
+			<xs:element name="codePage" type="xs:int"/>
+    		<xs:element name="putTime" type="xs:integer"/>
+    		<xs:element name="expiry" type="xs:int"/>
+		    <xs:element name="correlationId" type="xs:string"/>
+		    <xs:element name="groupId" type="xs:string"/>
+		    <xs:element name="applicationId" type="xs:string"/>
+		    <xs:element name="applicationOrigin" type="xs:string"/>
+		    <xs:element name="putApplicationName" type="xs:string"/>
+		    <xs:element name="replyToQmanagerName" type="xs:string"/>
+		    <xs:element name="replyToQueueName" type="xs:string"/>
+		    <xs:element name="accountingToken" type="xs:string"/>
+		    <xs:element name="messageFlags" type="xs:int"/>
+		    <xs:element name="originalLength" type="xs:int"/>
+		    <xs:element name="backoutCount" type="xs:int"/>
+		    <xs:element name="offset" type="xs:int"/>
+		    <xs:element name="priority" type="xs:int"/>
+		    <xs:element name="messageSequenceNumber" type="xs:int"/>
+		    <xs:element name="feedback" type="xs:int"/>
+		    <xs:element name="characterSet" type="xs:int"/>
+		    <xs:element name="encoding" type="xs:int"/>
+			<xs:element name="messageType" type="nfx-wmq:MQMessageTypeEnum"/>
+			<xs:element name="segment" type="nfx-wmq:SegmentTypeEnum"/>
+			<xs:element name="persistence" type="nfx-wmq:PersistenceTypeEnum"/>
+			<xs:element name="exception" type="nfx-wmq:ExceptionReportTypeEnum"/>
+			<xs:element name="expiration" type="nfx-wmq:ExpirationReportTypeEnum"/>
+			<xs:element name="coa" type="nfx-wmq:CoaReportTypeEnum"/>
+			<xs:element name="cod" type="nfx-wmq:CodReportTypeEnum"/>
+		    <xs:element name="pan" type="xs:boolean"/>
+		    <xs:element name="nan" type="xs:boolean"/>
+		    <xs:element name="passCorrelationId" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AmqRecordType">
+		<xs:sequence>
+			<xs:element name="errorCode" type="xs:string"/>
+			<xs:element name="firstOccurrence" type="xs:integer"/>
+			<xs:element name="lastOccurrence" type="xs:integer"/>
+			<xs:element name="count" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FdcFileType">
+		<xs:sequence>
+			<xs:element name="accessDateTime" type="xs:integer"/>
+			<xs:element name="creationDateTime" type="xs:integer"/>
+			<xs:element name="access" type="xs:string"/>
+			<xs:element name="user" type="xs:string"/>
+			<xs:element name="group" type="xs:string"/>
+			<xs:element name="linksCount" type="xs:int"/>
+			<xs:element name="size" type="xs:integer"/>
+			<xs:element name="fileName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ConnectionType">
+		<xs:sequence>
+			<xs:element name="port" type="xs:int"/>
+			<xs:element name="qmanagerName" type="xs:string"/>
+			<xs:element name="channelName" type="xs:string" minOccurs="1"/>
+			<xs:element name="commandServerQueueName" type="xs:string" minOccurs="0" />
+			<xs:element name="commandServerReplyQueueName" type="xs:string" minOccurs="0" />
+			<xs:element name="dataRootDirectory" type="xs:string" minOccurs="0" />
+			<xs:element name="wmqVersion" type="nfx-wmq:WMQVersionEnum"/>
+			<xs:element name="server" type="nfx-wmq:ServerType" minOccurs="1"/>
+			<xs:element name="security" type="nfx-wmq:SecurityType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ServerType">
+		<xs:sequence>
+			<xs:element name="host" type="xs:string" minOccurs="0" />
+			<xs:element name="os" type="nfx-wmq:OSTypeEnum"/>
+			<xs:element name="ssh" type="nfx-wmq:SshType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SshType">
+		<xs:sequence>
+			<xs:element name="port" type="xs:int" default="22"/>
+			<xs:element name="username" type="xs:string" minOccurs="1" />
+			<xs:element name="password" type="xs:string" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SecurityType">
+		<xs:sequence>
+			<xs:element name="ssl" type="nfx-wmq:SslType" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="SslType">
+		<xs:sequence>
+			<xs:element name="keystore" type="xs:string" minOccurs="0" />
+			<xs:element name="keystorePassword" type="xs:string" minOccurs="0" />
+			<xs:element name="truststore" type="xs:string" minOccurs="0" />
+			<xs:element name="truststorePassword" type="xs:string" minOccurs="0" />
+			<xs:element name="cipherSuite" type="nfx-wmq:CipherSuiteEnum" minOccurs="1" />
+			<xs:element name="peerName" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="OSTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AIX"></xs:enumeration>
+			<xs:enumeration value="Compaq OpenVMS"></xs:enumeration>
+			<xs:enumeration value="Compaq NSK"></xs:enumeration>
+			<xs:enumeration value="HP-UX"></xs:enumeration>
+			<xs:enumeration value="Linux for Z/OS"></xs:enumeration>
+			<xs:enumeration value="OS/400"></xs:enumeration>
+			<xs:enumeration value="OS/2 Warp"></xs:enumeration>
+			<xs:enumeration value="Solaris"></xs:enumeration>
+			<xs:enumeration value="Windows"></xs:enumeration>
+			<xs:enumeration value="Z/OS"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="WMQVersionEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="5.X"></xs:enumeration>
+			<xs:enumeration value="6.X"></xs:enumeration>
+			<xs:enumeration value="7.X"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CipherSuiteEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SSL_RSA_WITH_NULL_MD5"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_NULL_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_EXPORT_WITH_RC4_40_MD5"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_RC4_128_MD5"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_RC4_128_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_EXPORT1024_WITH_RC4_56_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_EXPORT1024_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_3DES_EDE_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_AES_128_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_AES_256_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_WITH_3DES_EDE_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_FIPS_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="SSL_RSA_FIPS_WITH_3DES_EDE_CBC_SHA"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CipherSpecEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NULL_MD5"></xs:enumeration>
+			<xs:enumeration value="NULL_SHA"></xs:enumeration>
+			<xs:enumeration value="RC4_MD5_EXPORT"></xs:enumeration>
+			<xs:enumeration value="RC4_MD5_US"></xs:enumeration>
+			<xs:enumeration value="RC4_SHA_US"></xs:enumeration>
+			<xs:enumeration value="RC2_MD5_EXPORT"></xs:enumeration>
+			<xs:enumeration value="DES_SHA_EXPORT"></xs:enumeration>
+			<xs:enumeration value="RC4_56_SHA_EXPORT1024"></xs:enumeration>
+			<xs:enumeration value="DES_SHA_EXPORT1024"></xs:enumeration>
+			<xs:enumeration value="TRIPLE_DES_SHA_US"></xs:enumeration>
+			<xs:enumeration value="TLS_RSA_WITH_AES_128_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="TLS_RSA_WITH_AES_256_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="TLS_RSA_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="TLS_RSA_WITH_3DES_EDE_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="FIPS_WITH_DES_CBC_SHA"></xs:enumeration>
+			<xs:enumeration value="FIPS_WITH_3DES_EDE_CBC_SHA"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MQMessageTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="8"></xs:enumeration><!-- DATAGRAM -->
+			<xs:enumeration value="2"></xs:enumeration><!-- REPLY -->
+			<xs:enumeration value="4"></xs:enumeration><!-- REPORT -->
+			<xs:enumeration value="1"></xs:enumeration><!-- REQUEST -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="SegmentTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YES"></xs:enumeration>
+			<xs:enumeration value="LAST"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PersistenceTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1"></xs:enumeration><!-- PERSISTENT -->
+			<xs:enumeration value="0"></xs:enumeration><!-- NOT PERSISTENT -->
+			<xs:enumeration value="2"></xs:enumeration><!-- AS_QUEUE -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="ExceptionReportTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="16777216"></xs:enumeration><!-- YES -->
+			<xs:enumeration value="50331648"></xs:enumeration><!-- DATA -->
+			<xs:enumeration value="117440512"></xs:enumeration><!-- FULL -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="ExpirationReportTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="2097152"></xs:enumeration><!-- YES -->
+			<xs:enumeration value="6291456"></xs:enumeration><!-- DATA -->
+			<xs:enumeration value="14680064"></xs:enumeration><!-- FULL -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="CoaReportTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="256"></xs:enumeration><!-- YES -->
+			<xs:enumeration value="768"></xs:enumeration><!-- DATA -->
+			<xs:enumeration value="1792"></xs:enumeration><!-- FULL -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:simpleType name="CodReportTypeEnum">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="2048"></xs:enumeration><!-- YES -->
+			<xs:enumeration value="6144"></xs:enumeration><!-- DATA -->
+			<xs:enumeration value="14336"></xs:enumeration><!-- FULL -->
+		</xs:restriction>
+	</xs:simpleType> 
+	
+	<xs:complexType name="FdcFileArrayType">
+		<xs:sequence>
+			<xs:element name="file" type="nfx-wmq:FdcFileType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+    <xs:complexType name="ChannelArrayType">
+		<xs:sequence>
+			<xs:element name="channel" type="nfx-wmq:ChannelType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueueArrayType">
+		<xs:sequence>
+			<xs:element name="queue" type="nfx-wmq:QueueType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueueStatArrayType">
+		<xs:sequence>
+			<xs:element name="queueStat" type="nfx-wmq:QueueStatType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="MqMessageArrayType">
+		<xs:sequence>
+			<xs:element name="message" type="nfx-wmq:MqMessageType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StringArrayType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.Reports" table="reports">
+    <id name="reportId" type="long">
+      <column name="report_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="reportTypeId" type="long">
+      <column name="report_type_id" not-null="true"/>
+    </property>
+    <property name="name" type="string">
+      <column name="name" not-null="true"/>
+    </property>
+    <property name="action" type="string">
+      <column length="128" name="action" not-null="true"/>
+    </property>
+    <property name="queryString" type="string">
+      <column name="query_string" not-null="true"/>
+    </property>
+    <property name="comments" type="string">
+      <column name="comments"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+  </class>
+</hibernate-mapping>

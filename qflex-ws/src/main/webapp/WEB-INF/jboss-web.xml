@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+	<resource-ref>
+		<description>QFLEX DB Connection</description>
+		<res-ref-name>QFLEX</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<jndi-name>java:/QFLEX</jndi-name>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</jboss-web>

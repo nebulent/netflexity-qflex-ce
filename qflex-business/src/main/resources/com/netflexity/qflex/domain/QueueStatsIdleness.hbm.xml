@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2008 1:43:53 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class name="com.netflexity.qflex.domain.QueueStatsIdleness" table="queue_stats_idleness">
+    <id name="queueStatsIdlenessId" type="long">
+      <column name="queue_stats_idleness_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="qmanagerId" type="long">
+      <column name="qmanager_id" not-null="true"/>
+    </property>
+    <property name="idleStartTm" type="long">
+      <column name="idle_start_tm" not-null="true"/>
+    </property>
+    <property name="idleEndTm" type="long">
+      <column name="idle_end_tm" not-null="true"/>
+    </property>
+    <property name="idleReasonTypeId" type="long">
+      <column name="idle_reason_type_id" not-null="true"/>
+    </property>
+    <property name="status" type="int">
+      <column name="status" not-null="true"/>
+    </property>
+    <property name="modifiedTm" type="java.lang.Long">
+      <column name="modified_tm"/>
+    </property>
+    <property name="modifiedBy" type="string">
+      <column length="32" name="modified_by"/>
+    </property>
+  </class>
+</hibernate-mapping>

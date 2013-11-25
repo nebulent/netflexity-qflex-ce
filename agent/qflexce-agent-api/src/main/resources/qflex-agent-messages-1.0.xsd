@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" xmlns:agent="urn:com:netflexity:schema:software:qflex:agent:types:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:com:netflexity:schema:software:qflex:agent:messages:1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="urn:com:netflexity:schema:software:qflex:agent:types:1.0" schemaLocation="qflex-agent-types-1.0.xsd"/>
+	<xs:element name="ShowTransaction">
+		<xs:annotation>
+			<xs:documentation>Obtain transaction with a list of calls.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="agent:TransactionType" />
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProcessTransaction">
+		<xs:annotation>
+			<xs:documentation>Post transaction with a list of calls, including results or faults.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="agent:TransactionType" />
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetTransaction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="username" type="xs:string"/>
+				<xs:element name="password" type="xs:string"/>
+				<xs:element name="serialNumber" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="QflexAgentFault">
+		<xs:annotation>
+			<xs:documentation>Agent Exception to be propagated to the client</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="reason" type="reason"/>
+				<xs:element name="description" type="xs:string" minOccurs="0"/>
+				<xs:element name="mqReasonCodes" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="reason">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="QMANAGER_DOWN"/>
+			<xs:enumeration value="QUEUE_DNE"/>
+			<xs:enumeration value="CHANNEL_DNE"/>
+			<xs:enumeration value="QMANAGER_DNE"/>
+			<xs:enumeration value="WMQ_ERROR"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
